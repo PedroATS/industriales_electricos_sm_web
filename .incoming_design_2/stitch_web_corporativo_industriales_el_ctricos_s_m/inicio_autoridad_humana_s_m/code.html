@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Industriales Eléctricos S&amp;M | Soluciones de Precisión</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdf9e",
+                    "surface-container-low": "#1a1c1f",
+                    "tertiary": "#cdced7",
+                    "surface-container-lowest": "#0c0e11",
+                    "on-secondary": "#3f2e00",
+                    "on-secondary-container": "#6a4e00",
+                    "surface-variant": "#333538",
+                    "on-surface-variant": "#d0c5af",
+                    "on-error": "#690005",
+                    "surface-container": "#1e2023",
+                    "outline-variant": "#4d4635",
+                    "secondary-fixed-dim": "#fabd00",
+                    "surface": "#111317",
+                    "on-tertiary-container": "#42454c",
+                    "inverse-surface": "#e2e2e6",
+                    "surface-tint": "#e9c349",
+                    "tertiary-container": "#b1b3bb",
+                    "secondary": "#ffdf9e",
+                    "tertiary-fixed-dim": "#c4c6ce",
+                    "on-secondary-fixed-variant": "#5b4300",
+                    "inverse-primary": "#735c00",
+                    "surface-container-high": "#282a2d",
+                    "on-tertiary": "#2d3037",
+                    "on-surface": "#e2e2e6",
+                    "secondary-container": "#fabd00",
+                    "inverse-on-surface": "#2f3034",
+                    "on-tertiary-fixed": "#191c22",
+                    "primary": "#f2ca50",
+                    "tertiary-fixed": "#e1e2ea",
+                    "on-secondary-fixed": "#261a00",
+                    "outline": "#99907c",
+                    "on-background": "#e2e2e6",
+                    "on-primary-container": "#554300",
+                    "on-primary": "#3c2f00",
+                    "background": "#111317",
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#333538",
+                    "surface-dim": "#111317",
+                    "primary-fixed": "#ffe088",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-error-container": "#ffdad6",
+                    "primary-container": "#d4af37",
+                    "surface-bright": "#37393d",
+                    "primary-fixed-dim": "#e9c349",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed": "#241a00",
+                    "on-tertiary-fixed-variant": "#44474d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "container-max": "1440px",
+                    "section-gap": "160px",
+                    "gutter": "32px",
+                    "margin-tablet": "40px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Manrope"],
+                    "label-caps": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .glass-nav {
+            background: rgba(17, 19, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .ease-out-expo {
+            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .industrial-card {
+            background: #1A1D23;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease-out-expo;
+        }
+
+        .industrial-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-4px);
+        }
+
+        #scroll-progress {
+            transform-origin: 0% 50%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Scroll Progress -->
+<div class="fixed top-0 left-0 w-full h-[2px] bg-primary z-[60] scale-x-0" id="scroll-progress"></div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-nav border-b border-outline-variant/10 h-20 transition-all duration-500" id="top-nav">
+<div class="max-w-container-max mx-auto h-full flex justify-between items-center px-margin-desktop">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">
+                    S<span class="text-primary">&amp;</span>M
+                </span>
+<div class="h-6 w-[1px] bg-outline-variant/30 hidden md:block"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant hidden md:block">INDUSTRIALES ELÉCTRICOS</span>
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#soluciones">SOLUCIONES</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#servicios">SERVICIOS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#nosotros">EMPRESA</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#proyectos">PROYECTOS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contacto">CONTACTO</a>
+</div>
+<button class="bg-primary hover:bg-secondary-container text-on-primary px-6 py-3 font-label-caps text-label-caps font-bold transition-all duration-300 scale-95 active:scale-90 glow-hover">
+                SOLICITAR COTIZACIÓN
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-quality wide shot of a professional female electrical engineer and a male technician collaborating over an open industrial control panel in a modern, clean manufacturing facility. The scene is illuminated by dramatic yet professional lighting that highlights the intricate wiring and gold-toned electrical components. The overall aesthetic is dark and sophisticated, featuring deep midnight blues and charcoal greys with sharp golden-amber accents reflecting from the machinery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY6qwsRWc5GxEfTDqIrON-p14UUwggxuq_Kf3iEYuQDnUJFO9apy36oLCKYufobn7F_CmMH_jm14XXxuI9xgLsOtmi197TNqjTKirHA_LxApgKmPzsVBTrcACwwvkWvq-1JQpNwKsxpiSkskjB4lYECHGPYV5KSn5IBnzB0rjbitmozSuohF2fGRcXkw1zX5FRjx0aSjet0APn9xo3TtJUaMRfLJXsYtwNhIloIAT8JBjvB3zdo8mYEUh1RwXQUJ0uqoFYkS6CJhui"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="max-w-3xl scroll-reveal active">
+<span class="inline-block py-1 px-3 bg-primary/10 border border-primary/20 text-primary font-label-caps text-label-caps mb-6">
+                    EXCELENCIA EN INGENIERÍA ELÉCTRICA
+                </span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-none">
+                    Soluciones <span class="text-primary italic">eléctricas</span> industriales a medida.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                    Especialistas en automatización, fabricación de tableros eléctricos y sistemas de potencia. Elevamos la eficiencia de su industria con tecnología de vanguardia y precisión humana.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary hover:bg-secondary-container text-on-primary px-8 py-4 font-label-caps text-label-caps font-bold transition-all duration-300 glow-hover flex items-center justify-center gap-2 group">
+                        EXPLORAR SOLUCIONES
+                        <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border border-outline hover:bg-surface-bright/20 text-on-surface px-8 py-4 font-label-caps text-label-caps font-bold transition-all duration-300 flex items-center justify-center">
+                        NUESTROS PROYECTOS
+                    </button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-on-surface-variant opacity-50">
+<span class="font-label-caps text-[10px]">SCROLL</span>
+<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+</div>
+</section>
+<!-- Why Choose Us / Trust Section -->
+<section class="py-section-gap bg-surface relative overflow-hidden" id="nosotros">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid lg:grid-cols-2 gap-gutter items-center">
+<div class="scroll-reveal">
+<h2 class="font-headline-md text-headline-md mb-8">
+                        Ingeniería con <span class="text-primary">visión humana</span> y rigor industrial.
+                    </h2>
+<p class="text-on-surface-variant mb-12">
+                        En Industriales Eléctricos S&amp;M, no solo instalamos cables; diseñamos el sistema circulatorio de su producción. Con más de una década en el mercado peruano, hemos perfeccionado el equilibrio entre la robustez técnica y la atención personalizada.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<div class="text-primary font-display-lg text-4xl mb-2">12+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">AÑOS DE EXPERIENCIA</div>
+</div>
+<div>
+<div class="text-primary font-display-lg text-4xl mb-2">500+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">PROYECTOS EJECUTADOS</div>
+</div>
+<div>
+<div class="text-primary font-display-lg text-4xl mb-2">100%</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">CUMPLIMIENTO NORMATIVO</div>
+</div>
+<div>
+<div class="text-primary font-display-lg text-4xl mb-2">24/7</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">SOPORTE TÉCNICO</div>
+</div>
+</div>
+</div>
+<div class="relative scroll-reveal">
+<div class="aspect-square relative rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up, high-detail photograph of a skilled electrical worker wearing a clean branded uniform, precisely adjusting components inside a complex industrial breaker panel. The image has a shallow depth of field, focusing on the worker's hands and the vibrant amber and yellow wiring labels. The background shows a soft-focus industrial setting with warm, golden accent lighting and cool charcoal shadows, emphasizing a premium and safe working environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAMhm4GUvbL_Z3thkDq4Z2FDW8uon0hO7MKQxrydBUnJ7Hl9FDAT2NKSJKzBWCtsgGgLiZAkniWKLEpgKXwesKR-WxPKRic2-_wgf42bGx0TBPl-JRUyWYaMlykG9iR4qsFXB7ZeiUaa50ZwTUAV_hLt73vdkhWvwsvCf5uki_wev12Udq_AF9pvj6pSVTlezlSSNiEbpm5br2r7xcXOYvC-_2M978b-gtrwb6CpJS-TMio-aIIOEFEeMXqL3BYRkRqQD72fUQs1xJ"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 blur-3xl rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Bento Grid -->
+<section class="py-section-gap bg-surface-container-lowest" id="servicios">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center max-w-2xl mx-auto mb-20 scroll-reveal">
+<span class="font-label-caps text-label-caps text-primary mb-4 block">PORTAFOLIO TÉCNICO</span>
+<h2 class="font-headline-md text-headline-md mb-6">Servicios Especializados de Alto Impacto</h2>
+<p class="text-on-surface-variant">Soluciones integrales diseñadas para maximizar la continuidad operativa y la seguridad de su infraestructura eléctrica.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="industrial-card p-10 flex flex-col scroll-reveal">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">settings_input_component</span>
+<h3 class="font-headline-md text-2xl mb-4">Fabricación de Tableros</h3>
+<p class="text-on-surface-variant mb-8 flex-grow text-sm leading-relaxed">
+                        Diseño y ensamblaje de tableros eléctricos a medida: distribución, transferencia automática, y centros de control de motores (CCM) bajo normas IEC/NEMA.
+                    </p>
+<a class="text-primary font-label-caps text-label-caps flex items-center gap-2 group" href="#">
+                        DETALLES TÉCNICOS 
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="industrial-card p-10 flex flex-col scroll-reveal" style="transition-delay: 100ms;">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">bolt</span>
+<h3 class="font-headline-md text-2xl mb-4">Sistemas de Potencia</h3>
+<p class="text-on-surface-variant mb-8 flex-grow text-sm leading-relaxed">
+                        Instalación y mantenimiento de subestaciones, transformadores y bancos de condensadores para optimización del factor de potencia.
+                    </p>
+<a class="text-primary font-label-caps text-label-caps flex items-center gap-2 group" href="#">
+                        DETALLES TÉCNICOS 
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="industrial-card p-10 flex flex-col scroll-reveal" style="transition-delay: 200ms;">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">precision_manufacturing</span>
+<h3 class="font-headline-md text-2xl mb-4">Automatización</h3>
+<p class="text-on-surface-variant mb-8 flex-grow text-sm leading-relaxed">
+                        Integración de PLC, HMI y variadores de frecuencia para procesos industriales inteligentes y monitoreo en tiempo real.
+                    </p>
+<a class="text-primary font-label-caps text-label-caps flex items-center gap-2 group" href="#">
+                        DETALLES TÉCNICOS 
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Card 4 - Larger -->
+<div class="industrial-card md:col-span-2 p-10 flex flex-col md:flex-row gap-8 scroll-reveal">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">construction</span>
+<h3 class="font-headline-md text-2xl mb-4">Mantenimiento Predictivo</h3>
+<p class="text-on-surface-variant mb-8 text-sm leading-relaxed">
+                            Análisis termográfico, medición de pozos a tierra y pruebas de aislamiento para prevenir paradas no programadas en su planta.
+                        </p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 text-xs font-label-caps"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> TERMOGRAFÍA INFRARROJA</li>
+<li class="flex items-center gap-2 text-xs font-label-caps"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> ANÁLISIS DE REDES</li>
+</ul>
+</div>
+<div class="flex-1 rounded-xl overflow-hidden min-h-[200px]">
+<img class="w-full h-full object-cover" data-alt="A professional technician using a high-end thermal imaging camera to inspect a large industrial electrical panel. The screen of the camera displays vibrant heat signatures of wires and breakers in shades of purple and orange. The surrounding factory environment is dimly lit with cool blue and charcoal tones, emphasizing the precision and high-tech nature of the maintenance work. The style is premium industrial B2B, clean and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvPCxRZctCqxynx8kPC9gyMgH2aLD1HI37RG9a8xpgHpwiQv3vk1XXjxDMxqRjzn9zadJG4f-wDkO4TdUzbJnbYvmnndigzNaDxTXWw_qWVeEj2IS6I1JWIddPBZjB-wv_DfH9sW3la0c3Oq7YcbvaDD5F-bBmw9CLYDz1Dc7OegNWgN21ngNJWqg_1xA0Y1P5Qz06N-yMP28LhgB9KzHwTEHSX2HlVfPF1uGGBP7vx61ty7JZIldVf7fghLeYYbok0g7m6lXvub9O"/>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="industrial-card p-10 flex flex-col scroll-reveal">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">support_agent</span>
+<h3 class="font-headline-md text-2xl mb-4">Asesoría Técnica</h3>
+<p class="text-on-surface-variant mb-8 flex-grow text-sm leading-relaxed">
+                        Consultoría para proyectos de eficiencia energética y cumplimiento de normativas de seguridad eléctrica nacional e internacional.
+                    </p>
+<a class="text-primary font-label-caps text-label-caps flex items-center gap-2 group" href="#">
+                        INICIAR CONSULTA
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Highlight -->
+<section class="py-section-gap bg-surface overflow-hidden" id="proyectos">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 scroll-reveal">
+<div class="max-w-xl">
+<span class="font-label-caps text-label-caps text-primary mb-4 block">CASOS DE ÉXITO</span>
+<h2 class="font-headline-md text-headline-md">Soluciones reales para industrias líderes.</h2>
+</div>
+<button class="border-b border-primary text-primary font-label-caps text-label-caps pb-1 hover:text-on-surface hover:border-on-surface transition-all">VER TODOS LOS PROYECTOS</button>
+</div>
+<div class="relative scroll-reveal">
+<div class="flex gap-gutter overflow-x-auto pb-10 snap-x no-scrollbar">
+<div class="min-w-[320px] md:min-w-[600px] snap-start group cursor-pointer">
+<div class="aspect-[16/9] overflow-hidden rounded-xl mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide, sweeping shot of a large-scale industrial facility interior at night, showing a complex network of overhead electrical conduits and brilliantly lit workstations. The lighting is crisp and modern, featuring a mix of cool white LEDs and warm amber glow from the machinery. The atmosphere is professional, orderly, and high-tech, showcasing the scale of an electrical installation project in a premier B2B industrial context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSCiebhtixDzZxZFrdxi_2sSJ1Np6F7cZrlwLSOpx65vvdPkQmAKtlAgyWVzyw8RLjVbi8-KFLzpgt3qoEwwFQjNjgfu4dkp4mnlSyjJGRhZEg_j8k34WeUnme8k5MYNqpOGhTrSJ8li4XUj6QM2ofmzjp5zLDBrrJV97o-qnsEIvvXTd1-CgthNH_U-t1EhFICIvfXaH27mCIiakm6BijNZY1yparIWuH8_v6ApPs6tl3Rm3DqAouU8UqoG_l--lNEDhjUkMa7v0X"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-xl mb-2 group-hover:text-primary transition-colors">Sistema de Distribución MT/BT</h4>
+<p class="text-on-surface-variant text-sm font-label-caps">PLANTA METALÚRGICA - LIMA</p>
+</div>
+<span class="font-label-caps text-xs px-2 py-1 border border-outline-variant/30 text-on-surface-variant">2023</span>
+</div>
+</div>
+<div class="min-w-[320px] md:min-w-[600px] snap-start group cursor-pointer">
+<div class="aspect-[16/9] overflow-hidden rounded-xl mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A detailed, high-contrast photograph of a row of perfectly aligned, high-tech electrical control cabinets in a modern data center or industrial facility. The cabinets feature glowing LED indicators in primary amber and blue. The reflection on the polished dark floor creates a sense of infinite depth and extreme cleanliness. The photography style is minimalist, premium, and emphasizes architectural precision and technological authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDufbl5ZvXMOwcmkobUNasmibIUctuzOJznCNZMW_70yY4SwqJ09pENyN8y9F0po3E0Shq0H1WIDejT4RKY5-vlhniIbOy4r6Hx5WDDqeQZVzUrL4f47wMy-YKxXyJjZzPRZm8j7PHdlsJl8grCYcZouR7YlvSlqV2kTIuoJtGrAN_QOy20N0OnCgCLbOU0g_LPX6_XMsHxvvLOEPhbn6AL32F18iaFZ3INFxCgODwjUlpbLaJ01bdhE7AaSxWAXErjRzW2_LXxYH5B"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-xl mb-2 group-hover:text-primary transition-colors">Automatización de Línea de Empaque</h4>
+<p class="text-on-surface-variant text-sm font-label-caps">INDUSTRIA ALIMENTARIA - CALLAO</p>
+</div>
+<span class="font-label-caps text-xs px-2 py-1 border border-outline-variant/30 text-on-surface-variant">2023</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap bg-primary-container text-on-primary-container relative overflow-hidden" id="contacto">
+<div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 100 L100 0 L100 100 Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+<div class="grid lg:grid-cols-2 gap-section-gap items-center">
+<div class="scroll-reveal">
+<h2 class="font-display-lg text-display-lg-mobile md:text-5xl mb-8 leading-tight">¿Listo para potenciar su infraestructura?</h2>
+<p class="font-body-lg mb-12 text-on-primary-container/80">
+                        Nuestros ingenieros están listos para asesorarlo en su próximo desafío técnico. Obtenga un diagnóstico preliminar sin compromiso.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-on-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label-caps text-xs opacity-70">TELÉFONO DIRECTO</p>
+<p class="font-headline-md text-xl">+51 987 654 321</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-on-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-caps text-xs opacity-70">EMAIL CORPORATIVO</p>
+<p class="font-headline-md text-xl">proyectos@industriales-sm.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="scroll-reveal">
+<form class="bg-surface p-10 rounded-2xl shadow-2xl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="space-y-2">
+<label class="font-label-caps text-[10px] text-on-surface-variant">NOMBRE</label>
+<input class="w-full bg-surface-container-high border-outline-variant/30 text-on-surface focus:ring-primary focus:border-primary px-4 py-3" placeholder="Ej. Juan Pérez" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-[10px] text-on-surface-variant">EMPRESA</label>
+<input class="w-full bg-surface-container-high border-outline-variant/30 text-on-surface focus:ring-primary focus:border-primary px-4 py-3" placeholder="Razón Social" type="text"/>
+</div>
+</div>
+<div class="space-y-2 mb-6">
+<label class="font-label-caps text-[10px] text-on-surface-variant">EMAIL</label>
+<input class="w-full bg-surface-container-high border-outline-variant/30 text-on-surface focus:ring-primary focus:border-primary px-4 py-3" placeholder="correo@empresa.com" type="email"/>
+</div>
+<div class="space-y-2 mb-8">
+<label class="font-label-caps text-[10px] text-on-surface-variant">MENSAJE</label>
+<textarea class="w-full bg-surface-container-high border-outline-variant/30 text-on-surface focus:ring-primary focus:border-primary px-4 py-3" placeholder="Describa su requerimiento..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary hover:bg-secondary-container text-on-primary font-label-caps text-label-caps font-bold py-4 transition-all glow-hover">
+                            ENVIAR REQUERIMIENTO
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 pt-20 pb-10">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary block mb-6">S&amp;M</span>
+<p class="text-on-surface-variant text-sm mb-8">
+                        Líderes en ingeniería eléctrica industrial, comprometidos con la innovación y la seguridad en cada conexión.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+</div>
+</div>
+<div class="col-span-1">
+<h5 class="font-label-caps text-label-caps text-on-surface mb-8">NAVEGACIÓN</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="#">Soluciones</a></li>
+<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="#">Servicios Técnicos</a></li>
+<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="#">Casos de Estudio</a></li>
+<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="#">Bolsa de Trabajo</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="font-label-caps text-label-caps text-on-surface mb-8">LEGAL</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="#">Política de Privacidad</a></li>
+<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="#">Términos de Servicio</a></li>
+<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="#">Ética &amp; Cumplimiento</a></li>
+<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="#">Libro de Reclamaciones</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="font-label-caps text-label-caps text-on-surface mb-8">OFICINA CENTRAL</h5>
+<p class="text-on-surface-variant text-sm mb-4">
+                        Av. Industrial 1234, Cercado de Lima<br/>
+                        Lima, Perú
+                    </p>
+<p class="text-on-surface-variant text-sm">
+                        Lunes - Viernes: 8:00 AM - 6:00 PM<br/>
+                        Sábado: 9:00 AM - 1:00 PM
+                    </p>
+</div>
+</div>
+<div class="pt-10 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-on-surface-variant text-xs">© 2024 Industriales Eléctricos S&amp;M Engineering. Todos los derechos reservados.</p>
+<div class="flex items-center gap-6">
+<span class="text-on-surface-variant text-xs flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        Estado del Sistema: Óptimo
+                    </span>
+<button class="text-on-surface-variant hover:text-primary text-xs transition-colors flex items-center gap-1">
+                        ESPAÑOL (PERÚ) <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height);
+            document.getElementById('scroll-progress').style.transform = `scaleX(${scrolled})`;
+            
+            // Header shrink
+            const nav = document.getElementById('top-nav');
+            if (winScroll > 50) {
+                nav.classList.add('h-16');
+                nav.classList.remove('h-20');
+            } else {
+                nav.classList.add('h-20');
+                nav.classList.remove('h-16');
+            }
+        });
+
+        // Scroll Reveal implementation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>

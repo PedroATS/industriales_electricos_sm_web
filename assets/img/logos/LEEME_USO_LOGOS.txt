@@ -1,0 +1,16 @@
+PACK DE LOGOS PARA WEB - INDUSTRIALES ELÉCTRICOS S&M
+
+Contenido:
+- 9 logos en PNG con fondo transparente.
+- 9 logos en SVG editable/vectorial.
+
+Marcas incluidas:
+Schneider Electric, ABB, Siemens, General Electric, Square D, Rittal, Lovato Electric, Steck y CHINT.
+
+Uso recomendado:
+- Utilizar en la sección “Marcas con las que trabajamos” o “Trabajamos con marcas reconocidas”.
+- Mantener proporciones originales, no deformar, no aplicar sombras fuertes ni efectos excesivos.
+- Para web: usar SVG si tu página lo permite; si no, usar PNG transparente.
+
+Nota legal:
+Estas marcas y logotipos son propiedad de sus respectivos titulares. Usarlos únicamente para indicar compatibilidad, comercialización, instalación o experiencia con sus productos, sin sugerir representación oficial o alianza exclusiva si no corresponde.

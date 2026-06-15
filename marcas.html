@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marcas | Industriales El&eacute;ctricos S&M</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Manrope:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#37393d",
+                    "on-tertiary": "#2d3037",
+                    "on-secondary-fixed-variant": "#5b4300",
+                    "on-primary": "#3c2f00",
+                    "inverse-primary": "#735c00",
+                    "surface-dim": "#111317",
+                    "primary-fixed": "#ffe088",
+                    "surface-variant": "#333538",
+                    "on-secondary-fixed": "#261a00",
+                    "tertiary-container": "#b1b3bb",
+                    "on-secondary-container": "#6a4e00",
+                    "tertiary-fixed-dim": "#c4c6ce",
+                    "on-primary-container": "#554300",
+                    "surface-container-low": "#1a1c1f",
+                    "on-tertiary-fixed": "#191c22",
+                    "secondary-fixed": "#ffdf9e",
+                    "secondary-fixed-dim": "#fabd00",
+                    "on-secondary": "#3f2e00",
+                    "inverse-on-surface": "#2f3034",
+                    "outline": "#99907c",
+                    "primary-fixed-dim": "#e9c349",
+                    "outline-variant": "#4d4635",
+                    "surface": "#111317",
+                    "surface-container-highest": "#333538",
+                    "tertiary": "#cdced7",
+                    "surface-container-high": "#282a2d",
+                    "on-surface": "#e2e2e6",
+                    "background": "#111317",
+                    "secondary-container": "#fabd00",
+                    "surface-container-lowest": "#0c0e11",
+                    "surface-container": "#1e2023",
+                    "primary-container": "#d4af37",
+                    "on-primary-fixed": "#241a00",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#44474d",
+                    "error-container": "#93000a",
+                    "on-tertiary-container": "#42454c",
+                    "primary": "#f2ca50",
+                    "on-surface-variant": "#d0c5af",
+                    "tertiary-fixed": "#e1e2ea",
+                    "secondary": "#ffdf9e",
+                    "on-error": "#690005",
+                    "on-background": "#e2e2e6",
+                    "surface-tint": "#e9c349",
+                    "on-primary-fixed-variant": "#574500",
+                    "inverse-surface": "#e2e2e6",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-tablet": "40px",
+                    "margin-desktop": "80px",
+                    "section-gap": "160px",
+                    "margin-mobile": "20px",
+                    "gutter": "32px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-caps": ["JetBrains Mono"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "display-lg-mobile": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+
+<style>
+        .ease-out-expo { transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); }
+        .glass-card {
+            background: rgba(26, 29, 35, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .brand-logo-hover:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: #D4AF37;
+            width: 0%;
+            z-index: 100;
+        }
+    </style>
+<style id="sm-import-fixes">
+  .sm-nav-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+  .sm-nav-scroll::-webkit-scrollbar { display: none; }
+  @media (max-width: 767px) { header[id] .font-label-caps { font-size: 11px; } }
+</style>
+<link href="assets/css/premium-polish.css" rel="stylesheet"/>
+</head>
+<body data-page="marcas" class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<div class="scroll-progress" id="scroll-indicator"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/85 dark:bg-surface/85 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm transition-all duration-300 h-20" id="sm-main-header">
+  <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center gap-5">
+    <a class="flex items-center gap-3 shrink-0 group" href="index.html" aria-label="Industriales El&eacute;ctricos S&M">
+      <span class="sm-brand-mark" aria-hidden="true"><img src="assets/img/sm-brand-logo.png" alt=""/></span>
+      <span class="sm-brand-copy hidden sm:flex">
+        <strong class="block font-headline-md text-lg text-on-surface">Industriales El&eacute;ctricos S&amp;M</strong>
+      </span>
+    </a>
+    <nav class="sm-nav-scroll flex-1 flex items-center justify-start lg:justify-end gap-5 overflow-x-auto whitespace-nowrap" aria-label="Men&uacute; principal">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="index.html">Inicio</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="nosotros.html">Nosotros</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="por-que-elegirnos.html">Por qu&eacute; elegirnos</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="servicios.html">Servicios y soluciones</a>
+<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1 shrink-0" href="marcas.html">Marcas</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="preguntas.html">Preguntas frecuentes</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A macro cinematic shot of a high-tech industrial manufacturing facility with precise robotic arms and golden sparks. The atmosphere is professional and moody, with deep charcoal shadows and brilliant gold light highlights reflecting off polished metallic surfaces. The depth of field is shallow, emphasizing technical excellence and premium industrial engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYr_RkP5LA7WHv8R-9I2L6h2zDBoj-wHixEdv_WKPKz6H-KNONZKFbnOBXupfMkoDN_SkZ9tNbsXl9k5rvd5me34BwcXub0IdXDSVzfXQVn9AWcIUW0nywPrphrprICiOo_96EwR9Q0S3aO6mEJc6a7zxQpRzvQMsBkBHhb5Th8OcsM4idcnZtzFTYJQAq4aD_oHV_wLCHLikDYagD3-nxTyIVAMcq_yf9RRzaj1Uwk-fXqW6kM2H3JYbvDlpunNAFz5jb_ac16-Uc"/>
+</div>
+<div class="relative z-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="max-w-2xl space-y-6">
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-3 py-1 inline-block">Alianzas estrat&eacute;gicas</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight">
+                        Red de marcas <br/><span class="text-primary">l&iacute;deres</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-xl">
+                        En Industriales El&eacute;ctricos S&M, la calidad no se negocia. Trabajamos con marcas reconocidas para entregar soluciones robustas, confiables y listas para entornos industriales exigentes.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Brands Content Section -->
+<section class="py-section-gap relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start mb-24">
+<div class="md:col-span-5">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">Excelencia t&eacute;cnica mediante integraci&oacute;n</h2>
+<div class="h-1 w-20 bg-primary mb-8"></div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                            Integramos tecnolog&iacute;as de fabricantes reconocidos para que cada soluci&oacute;n mantenga continuidad operativa, seguridad y eficiencia en campo.
+                        </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Desde componentes Schneider Electric hasta automatizaci&oacute;n Siemens y soluciones ABB, priorizamos marcas con respaldo t&eacute;cnico y presencia industrial comprobada.
+                        </p>
+</div>
+<div class="md:col-span-7 grid grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Brand Grid (Bento Style) -->
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">SCHNEIDER ELECTRIC</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 text-3xl font-bold">ABB</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">SIEMENS</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">GENERAL ELECTRIC</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">SQUARE D</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">RITTAL</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">LOVATO</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">STECK</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
+<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">CHINT</span>
+<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+</div>
+</div>
+<!-- Call to Action Card -->
+<div class="relative w-full rounded-2xl overflow-hidden glass-card p-12 md:p-20 text-center border-primary/20">
+
+<div class="relative z-10 max-w-3xl mx-auto space-y-8">
+<h3 class="font-display-lg-mobile md:font-headline-md text-on-surface">&iquest;Listo para iniciar tu pr&oacute;ximo proyecto con tecnolog&iacute;a de marcas l&iacute;deres?</h3>
+<p class="font-body-lg text-on-surface-variant">Nuestro equipo te ayuda a elegir los componentes adecuados seg&uacute;n carga, tensi&oacute;n, aplicaci&oacute;n y disponibilidad.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center pt-4">
+<a href="contacto.html" class="bg-primary text-surface font-label-caps text-label-caps py-4 px-10 font-bold hover:bg-secondary-fixed transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 inline-flex items-center justify-center">
+                                HABLAR CON UN EXPERTO
+                            </a>
+<a href="assets/docs/Brochure_SM_Premium_FINAL.pdf" target="_blank" rel="noopener" class="border border-primary text-primary font-label-caps text-label-caps py-4 px-10 font-bold hover:bg-primary/5 transition-all duration-300 inline-flex items-center justify-center"> DESCARGAR BROCHURE </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs / Value Prop Section -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl">verified</span>
+<h4 class="font-headline-md text-on-surface text-2xl">Certified Quality</h4>
+<p class="font-body-md text-on-surface-variant">Seleccionamos componentes compatibles con tableros de fuerza, control, bombeo y automatizaci&oacute;n, cuidando normas de seguridad.</p>
+</div>
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl">precision_manufacturing</span>
+<h4 class="font-headline-md text-on-surface text-2xl">Precision Engineering</h4>
+<p class="font-body-md text-on-surface-variant">Trabajamos con l&iacute;neas actuales y equivalencias confiables para facilitar mantenimiento, reposici&oacute;n y ampliaciones.</p>
+</div>
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl">language</span>
+<h4 class="font-headline-md text-on-surface text-2xl">Global Availability</h4>
+<p class="font-body-md text-on-surface-variant">Cotizamos marcas solicitadas y alternativas t&eacute;cnicas seg&uacute;n stock, plazo y requerimiento del proyecto.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section-gap pb-10 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="font-headline-md text-headline-md font-bold text-primary">Industriales El&eacute;ctricos S&M</div>
+<p class="font-body-md text-on-surface-variant max-w-xs">Pioneering the intersection of mechanical excellence and human-centered design for a smarter industrial future.</p>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface font-bold mb-6">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-on-surface-variant hover:text-on-surface transition-transform duration-300 inline-block hover:translate-x-1" href="servicios.html">Soluciones</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-on-surface transition-transform duration-300 inline-block hover:translate-x-1" href="servicios.html">Servicios</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-on-surface transition-transform duration-300 inline-block hover:translate-x-1" href="index.html#proyectos">Proyectos</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface font-bold mb-6">Legal</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-on-surface-variant hover:text-on-surface transition-transform duration-300 inline-block hover:translate-x-1" href="preguntas.html">Pol&iacute;tica de privacidad</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-on-surface transition-transform duration-300 inline-block hover:translate-x-1" href="servicios.html">T&eacute;rminos de servicio</a></li>
+<li><a class="font-body-md text-on-surface-variant hover:text-on-surface transition-transform duration-300 inline-block hover:translate-x-1" href="por-que-elegirnos.html">Cumplimiento</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface font-bold mb-6">Connect</h5>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">location_on</span>
+<span class="font-body-md text-on-surface-variant">Av. Oscar R. Benavides 282, Cercado de Lima</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">mail</span>
+<span class="font-body-md text-on-surface-variant">contact@industrial-precision.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-20 pt-8 border-t border-outline-variant/10 text-center md:text-left">
+<p class="font-label-caps text-label-caps text-on-surface-variant">© 2026 Industriales El&eacute;ctricos S&M. Todos los derechos reservados.</p>
+</div>
+</footer>
+<script>
+        // Scroll progress indicator
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-indicator").style.width = scrolled + "%";
+
+            // Navbar shrink effect
+            const header = document.querySelector('header');
+            if (winScroll > 50) {
+                header.classList.add('h-16');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.add('h-20');
+                header.classList.remove('h-16');
+            }
+        };
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700', 'ease-out-expo');
+            observer.observe(card);
+        });
+    </script>
+<script src="assets/js/premium-polish.js"></script>
+</body></html>

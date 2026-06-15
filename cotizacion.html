@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cotizaci&oacute;n | Industriales El&eacute;ctricos S&amp;M</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=14">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="assets/js/main.js?v=14" defer></script>
+</head>
+<body data-page="cotizacion">
+  <div id="site-header-slot"></div>
+
+  <main class="page-main inner-page quote-page">
+    <section class="quote-screen">
+      <div class="site-shell quote-layout">
+        <div class="quote-copy reveal">
+          <span class="eyebrow">Cotizaci&oacute;n r&aacute;pida</span>
+          <h1>Env&iacute;anos los datos y te ayudamos a convertirlos en una propuesta clara</h1>
+          <p>Si no tienes toda la informaci&oacute;n, igual puedes escribirnos. Con una foto del componente, tablero o placa del motor podemos orientarte.</p>
+          <div class="action-row page-action-row quote-action-row">
+            <a class="btn btn-primary" href="https://wa.me/51998265837?text=Hola%20Industriales%20Electricos%20S%26M%2C%20quiero%20cotizar%20un%20requerimiento%20industrial." target="_blank" rel="noopener">
+              <i data-lucide="message-circle"></i>
+              WhatsApp directo
+            </a>
+            <a class="btn btn-light page-link" href="productos.html">
+              <i data-lucide="boxes"></i>
+              Revisar productos
+            </a>
+          </div>
+          <div class="quote-photo-card">
+            <img src="assets/img/brochure/workshop-panel.jpg" alt="Tablero electrico en local S&M">
+            <div>
+              <strong>Qu&eacute; puedes enviar</strong>
+              <span>Fotos, lista de materiales, plano, tensi&oacute;n, potencia, cantidad de motores o marca requerida.</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="quote-form reveal" id="quote-form">
+          <label>
+            <span>Tipo de requerimiento</span>
+            <select name="Tipo de tablero" required>
+              <option value="">Seleccionar</option>
+              <option>Compra de componente</option>
+              <option>Arranque de motor</option>
+              <option>Bombas alternadas</option>
+              <option>Presi&oacute;n constante</option>
+              <option>Bombas contra incendio</option>
+              <option>Distribuci&oacute;n</option>
+              <option>Automatizaci&oacute;n</option>
+              <option>Transferencia autom&aacute;tica</option>
+              <option>Estrella-tri&aacute;ngulo / doble estrella</option>
+              <option>Otro requerimiento</option>
+            </select>
+          </label>
+          <label>
+            <span>Tensi&oacute;n</span>
+            <input name="Tension" type="text" placeholder="220 V / 380 V / 440 V" required>
+          </label>
+          <label>
+            <span>Carga HP/kW</span>
+            <input name="Carga HP/kW" type="text" placeholder="Ej. 15 HP o 11 kW">
+          </label>
+          <label>
+            <span>Cantidad de motores</span>
+            <input name="Cantidad de motores" type="number" min="0" placeholder="Ej. 2">
+          </label>
+          <label>
+            <span>Tipo de control</span>
+            <select name="Tipo de control">
+              <option value="">Seleccionar</option>
+              <option>Manual</option>
+              <option>Autom&aacute;tico</option>
+              <option>PLC</option>
+              <option>Variador</option>
+              <option>Presostato / sensores</option>
+              <option>No estoy seguro</option>
+            </select>
+          </label>
+          <label class="file-field">
+            <span>Adjuntar fotos o planos</span>
+            <input name="Fotos o planos" type="file" multiple accept=".jpg,.jpeg,.png,.pdf,.dwg,.dxf">
+            <em id="file-label">Sin archivos seleccionados</em>
+          </label>
+          <label>
+            <span>Nombre</span>
+            <input name="Nombre" type="text" placeholder="Nombre y apellido" required>
+          </label>
+          <label>
+            <span>Empresa</span>
+            <input name="Empresa" type="text" placeholder="Raz&oacute;n social">
+          </label>
+          <label>
+            <span>Tel&eacute;fono</span>
+            <input name="Telefono" type="tel" placeholder="Celular de contacto" required>
+          </label>
+          <label>
+            <span>Correo</span>
+            <input name="Correo" type="email" placeholder="correo@empresa.com">
+          </label>
+          <button class="btn btn-primary form-submit" type="submit">
+            <i data-lucide="clipboard-check"></i>
+            Enviar solicitud por WhatsApp
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer-slot"></div>
+</body>
+</html>

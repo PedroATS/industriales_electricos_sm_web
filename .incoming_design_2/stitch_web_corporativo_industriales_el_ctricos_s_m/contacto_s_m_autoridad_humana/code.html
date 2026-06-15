@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contacto | Industrial Precision Engineering</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#37393d",
+                    "on-tertiary": "#2d3037",
+                    "on-secondary-fixed-variant": "#5b4300",
+                    "on-primary": "#3c2f00",
+                    "inverse-primary": "#735c00",
+                    "surface-dim": "#111317",
+                    "primary-fixed": "#ffe088",
+                    "surface-variant": "#333538",
+                    "on-secondary-fixed": "#261a00",
+                    "tertiary-container": "#b1b3bb",
+                    "on-secondary-container": "#6a4e00",
+                    "tertiary-fixed-dim": "#c4c6ce",
+                    "on-primary-container": "#554300",
+                    "surface-container-low": "#1a1c1f",
+                    "on-tertiary-fixed": "#191c22",
+                    "secondary-fixed": "#ffdf9e",
+                    "secondary-fixed-dim": "#fabd00",
+                    "on-secondary": "#3f2e00",
+                    "inverse-on-surface": "#2f3034",
+                    "outline": "#99907c",
+                    "primary-fixed-dim": "#e9c349",
+                    "outline-variant": "#4d4635",
+                    "surface": "#111317",
+                    "surface-container-highest": "#333538",
+                    "tertiary": "#cdced7",
+                    "surface-container-high": "#282a2d",
+                    "on-surface": "#e2e2e6",
+                    "background": "#111317",
+                    "secondary-container": "#fabd00",
+                    "surface-container-lowest": "#0c0e11",
+                    "surface-container": "#1e2023",
+                    "primary-container": "#d4af37",
+                    "on-primary-fixed": "#241a00",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#44474d",
+                    "error-container": "#93000a",
+                    "on-tertiary-container": "#42454c",
+                    "primary": "#f2ca50",
+                    "on-surface-variant": "#d0c5af",
+                    "tertiary-fixed": "#e1e2ea",
+                    "secondary": "#ffdf9e",
+                    "on-error": "#690005",
+                    "on-background": "#e2e2e6",
+                    "surface-tint": "#e9c349",
+                    "on-primary-fixed-variant": "#574500",
+                    "inverse-surface": "#e2e2e6",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-tablet": "40px",
+                    "margin-desktop": "80px",
+                    "section-gap": "160px",
+                    "margin-mobile": "20px",
+                    "gutter": "32px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-caps": ["JetBrains Mono"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "display-lg-mobile": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .ease-out-expo { transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); }
+        .glass-panel {
+            background: rgba(26, 29, 35, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #scroll-indicator {
+            transform-origin: left;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container font-body-md overflow-x-hidden">
+<!-- Scroll Progress -->
+<div class="fixed top-0 left-0 h-[2px] bg-primary z-[100] w-full scale-x-0" id="scroll-indicator"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 shadow-sm transition-all duration-300" id="main-nav">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-on-surface flex items-center gap-2">
+<span class="text-primary material-symbols-outlined text-4xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span>Industrial Precision</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Solutions</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Services</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Projects</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Company</a>
+<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#">Insights</a>
+</div>
+<button class="bg-primary-container text-on-primary-fixed px-6 py-3 font-label-caps text-label-caps rounded-sm hover:bg-primary transition-all duration-300 ease-out-expo scale-95 active:scale-90">
+                Request Quote
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic, wide shot of a professional female engineer in a modern industrial setting, holding a tablet and smiling warmly at the camera. The background is a clean, technologically advanced warehouse with soft golden accent lighting reflecting off metallic surfaces. The overall mood is human-centric, professional, and sophisticated, utilizing a palette of deep blacks and warm gold highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYDCjRhNxMmTgWICpjjx8T9UN3rnFkGQRWkYSGem5oTC1EGbz18rgK2AMuKdGdQmu6hU90i6Aoo6m0XJSyIwntAngKUEBp1BpvnJvBEWjgNN_yBw4gLH9Gzz1ZAh8qh2PA7a-cRO5IHrOPZA7IpDkUBlT7JLf2e3dIUxVeT4sdFdI4tl8L69ugo3WVtLPalMxZHLZIK0efHR6VT5884PECCG1l2pE_EcCslwi1R9ZBRkWe9UwM3VtKd3aBOiPXHexSJst1bhaYxK7e"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-2xl scroll-reveal">
+<span class="font-label-caps text-label-caps text-primary mb-4 block">CONTACTO GLOBAL</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6">Conectando la <span class="text-primary italic">precisión</span> con su visión</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Estamos listos para transformar sus desafíos de ingeniería en realidades operativas de alto desempeño.</p>
+</div>
+</div>
+</section>
+<!-- Main Content Area -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact Details Sidebar -->
+<div class="lg:col-span-4 space-y-12">
+<div class="scroll-reveal">
+<h2 class="font-headline-md text-headline-md mb-8 text-on-surface">Canales de Atención</h2>
+<div class="space-y-8">
+<div class="flex gap-6 group">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-lg flex items-center justify-center text-primary border border-outline-variant/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-1">UBICACIÓN PRINCIPAL</p>
+<p class="font-body-md text-on-surface">Av. Oscar R. Benavides 282,<br/>Cercado de Lima, Perú</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-lg flex items-center justify-center text-primary border border-outline-variant/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined">phone_iphone</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-1">WHATSAPP DIRECTO</p>
+<p class="font-body-md text-on-surface">+51 987 654 321</p>
+<p class="font-body-md text-on-surface">+51 912 345 678</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-lg flex items-center justify-center text-primary border border-outline-variant/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-1">CORREO CORPORATIVO</p>
+<p class="font-body-md text-on-surface">contacto@industrialprecision.pe</p>
+<p class="font-body-md text-on-surface">ventas@industrialprecision.pe</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-lg flex items-center justify-center text-primary border border-outline-variant/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-1">HORARIO DE OFICINA</p>
+<p class="font-body-md text-on-surface">Lun - Vie: 8:00 AM - 6:00 PM</p>
+<p class="font-body-md text-on-surface">Sáb: 9:00 AM - 1:00 PM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Office Humanism Image -->
+<div class="scroll-reveal delay-200">
+<div class="relative group overflow-hidden rounded-xl">
+<img class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-quality, close-up photograph of two engineers leaning over a large physical architectural blueprint on a drafting table. The lighting is focused and warm, highlighting the intricate lines of the plan and the professional determination in their expressions. The environment is a blurred, modern office space with dark wood and gold accents, consistent with the industrial humanism aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpg223WFjWZzHftzmZdyZV1rHjQIZ5STfIQ9sIGhJgiIpPQspnYYFAs0YIduYBBA3D95swQicQ6TF-5Zz5AJqx__dpyQ-kmBZsQ1zMCUklkYd56t68Io1mP9UQsPQRZjs9uslkq5YsQ3jf2B1n3wHvWKUjSY9HhGslJt96zLCX40QbK9LC9JWj8czKj7jYLDoDJxWx6ZNEi-MVC5HYwaPsnnhq1crqEJxDjYynilARTLgroGGK6Hnmp03wmbTNM6CdBxCQ1DxcyCv4"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+</div>
+</div>
+<!-- Contact Form Container -->
+<div class="lg:col-span-8">
+<div class="glass-panel p-8 md:p-12 rounded-xl glow-hover scroll-reveal transition-all">
+<h3 class="font-headline-md text-headline-md mb-8 text-on-surface">Solicitud de Cotización</h3>
+<form class="space-y-6" id="quote-form">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">NOMBRE COMPLETO</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Ej. Juan Pérez" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">EMPRESA</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Nombre de su organización" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">CORREO ELECTRÓNICO</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="juan@empresa.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">NÚMERO TELEFÓNICO</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="+51 ..." type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">SERVICIO DE INTERÉS</label>
+<select class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none">
+<option>Ingeniería de Procesos</option>
+<option>Fabricación Metalmecánica</option>
+<option>Automatización Industrial</option>
+<option>Mantenimiento Predictivo</option>
+<option>Otros Servicios</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">DETALLES DEL PROYECTO</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Describa brevemente los requerimientos técnicos de su solicitud..." rows="5"></textarea>
+</div>
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 rounded border-outline-variant/30 bg-surface-container-low text-primary focus:ring-primary" id="privacy" type="checkbox"/>
+<label class="font-body-md text-on-surface-variant text-sm" for="privacy">He leído y acepto la política de privacidad de datos.</label>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary font-label-caps text-label-caps py-4 px-12 rounded-sm hover:bg-secondary-fixed transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 shadow-lg shadow-primary/10" type="submit">
+                            ENVIAR SOLICITUD DE COTIZACIÓN
+                        </button>
+</form>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="w-full h-[500px] relative scroll-reveal">
+<div class="absolute inset-0 bg-surface-container-low grayscale opacity-40 hover:opacity-100 transition-opacity duration-1000" id="map-container">
+<!-- Location placeholder for interactive map logic -->
+<div class="w-full h-full bg-surface-dim flex items-center justify-center border-y border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity" data-alt="A stylized aerial map view of an industrial district in Lima, processed with a dark professional aesthetic and gold markers for location points. The image uses high contrast and deep blacks, consistent with a high-end engineering brand's visual identity." data-location="Cercado de Lima" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsDer841vxRR3sSm-tNzKTyIEV2o8yoKx_0YgLAP7P-TCPlP52DxDk_iIrfK1mYF099iCDtpRyQOxJ4i35orwDU9_Sie3PZfgjvB6iVQm3GZU6Es79Qx1Nfzm5ixjoaOcyQJ6BkLXxcwRFxX7vYEl5ZaCIIG1Kq9W3-MbhJS3f7LsWA5lrqB4DHfyVmI_dsyA7wwUtU3m00BJqvVb4eKIN9CdvVM_Hvc7zTX3NlQGSMJ7MthMGJWRvRVFi6Bqo7HilWBSqLmMMx5vb"/>
+<div class="absolute z-10 flex flex-col items-center">
+<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center animate-bounce shadow-2xl shadow-primary/50">
+<span class="material-symbols-outlined text-on-primary text-3xl">location_on</span>
+</div>
+<div class="mt-4 glass-panel px-6 py-3 rounded-lg border border-primary/20">
+<p class="font-label-caps text-label-caps text-on-surface text-center">NUESTRA SEDE CENTRAL</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section-gap pb-10 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="space-y-6">
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span>Industrial Precision</span>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-xs">
+                    Líderes en ingeniería de precisión y soluciones industriales avanzadas para el mercado global.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-outline-variant/30 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 border border-outline-variant/30 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+</div>
+</div>
+<!-- Links 1 -->
+<div class="space-y-4">
+<p class="font-label-caps text-label-caps text-primary">SERVICIOS</p>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Consultoría Técnica</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Diseño 3D &amp; Simulación</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Instalación en Sitio</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Auditoría de Sistemas</a>
+</nav>
+</div>
+<!-- Links 2 -->
+<div class="space-y-4">
+<p class="font-label-caps text-label-caps text-primary">COMPAÑÍA</p>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Trayectoria</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Nuestros Proyectos</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Certificaciones ISO</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Carreras</a>
+</nav>
+</div>
+<!-- Support Links -->
+<div class="space-y-4">
+<p class="font-label-caps text-label-caps text-primary">LEGAL</p>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Terms of Service</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Compliance</a>
+<a class="font-body-md text-on-surface-variant hover:text-on-surface hover:translate-x-1 transition-all duration-300" href="#">Global Locations</a>
+</nav>
+</div>
+</div>
+<div class="mt-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-outline-variant/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60">© 2024 Industrial Precision Engineering. All rights reserved.</p>
+<div class="flex gap-8">
+<span class="material-symbols-outlined text-primary/40">verified</span>
+<span class="material-symbols-outlined text-primary/40">settings_input_component</span>
+<span class="material-symbols-outlined text-primary/40">corporate_fare</span>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll Progress & Nav Animation
+        window.addEventListener('scroll', () => {
+            const indicator = document.getElementById('scroll-indicator');
+            const nav = document.getElementById('main-nav');
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height);
+            
+            indicator.style.transform = `scaleX(${scrolled})`;
+
+            if (winScroll > 50) {
+                nav.classList.add('h-16');
+                nav.classList.remove('h-20');
+                nav.classList.add('bg-surface/95');
+            } else {
+                nav.classList.add('h-20');
+                nav.classList.remove('h-16');
+                nav.classList.remove('bg-surface/95');
+            }
+        });
+
+        // Scroll Reveal Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Micro-interactions for form
+        const formInputs = document.querySelectorAll('input, select, textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+
+        // Prevent default submit for demo
+        document.getElementById('quote-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Gracias por su solicitud. Un asesor técnico se pondrá en contacto en las próximas 24 horas.');
+        });
+    </script>
+</body></html>
