@@ -117,7 +117,7 @@
             opacity: 0;
         }
         .accordion-item.active .accordion-content {
-            max-height: 500px;
+            max-height: 1200px;
             opacity: 1;
         }
         .accordion-item.active .icon-rotate {
@@ -129,13 +129,466 @@
         .scale-up:hover img {
             transform: scale(1.05);
         }
+        .faq-page-main {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 15% 8%, rgba(242, 202, 80, 0.08), transparent 24%),
+                radial-gradient(circle at 88% 22%, rgba(255, 255, 255, 0.04), transparent 28%),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(180deg, #0c0e11 0%, #111317 48%, #0c0e11 100%);
+            background-size: auto, auto, 72px 72px, 72px 72px, auto;
+        }
+        .faq-shell {
+            width: min(1180px, calc(100% - 104px));
+            margin: 0 auto;
+        }
+        .faq-hero {
+            height: auto !important;
+            min-height: 0 !important;
+            padding: 48px 0 18px;
+            text-align: left;
+        }
+        .faq-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #f2ca50;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .faq-eyebrow::before {
+            content: "";
+            width: 42px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f2ca50;
+        }
+        .faq-hero h1 {
+            max-width: 780px;
+            margin: 16px 0 0;
+            font-family: "Hanken Grotesk", sans-serif;
+            font-size: clamp(34px, 4vw, 56px);
+            line-height: 1.02;
+            font-weight: 800;
+        }
+        .faq-hero p {
+            max-width: 660px;
+            margin: 18px 0 0;
+            color: #d8cfbc;
+            font-size: clamp(15px, 1.1vw, 17px);
+            line-height: 1.65;
+        }
+        .faq-list {
+            padding: 18px 0 88px;
+        }
+        .faq-interactive {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(330px, 430px) minmax(0, 1fr);
+            gap: clamp(34px, 5vw, 74px);
+            align-items: start;
+        }
+        .faq-question-column {
+            position: relative;
+            display: grid;
+            gap: 12px;
+        }
+        .faq-question-column::before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            right: -34px;
+            bottom: 18px;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(242, 202, 80, 0.36), transparent);
+        }
+        .faq-question {
+            position: relative;
+            min-height: 56px;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 11px 16px;
+            border: 1px solid rgba(242, 202, 80, 0.16);
+            border-radius: 10px;
+            background: linear-gradient(145deg, rgba(25, 28, 32, 0.88), rgba(14, 16, 19, 0.82));
+            color: #dfd7c7;
+            text-align: left;
+            font-family: "Hanken Grotesk", sans-serif;
+            font-size: clamp(13px, 1vw, 15px);
+            font-weight: 800;
+            line-height: 1.2;
+            cursor: pointer;
+            transition:
+                border-color 0.42s var(--ease-out-expo),
+                background 0.42s var(--ease-out-expo),
+                box-shadow 0.42s var(--ease-out-expo),
+                color 0.42s ease,
+                transform 0.42s var(--ease-out-expo);
+        }
+        .faq-question::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -34px;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #f2ca50, rgba(242, 202, 80, 0));
+            opacity: 0;
+            transform: translateY(-50%);
+            transition: width 0.48s var(--ease-out-expo), opacity 0.35s ease;
+        }
+        .faq-question:hover {
+            color: #ffffff;
+            border-color: rgba(242, 202, 80, 0.34);
+            transform: translateX(4px);
+        }
+        .faq-question.is-active {
+            color: #ffffff;
+            border-color: rgba(242, 202, 80, 0.78);
+            background:
+                linear-gradient(145deg, rgba(49, 47, 39, 0.95), rgba(22, 24, 27, 0.9));
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+                0 18px 44px rgba(0, 0, 0, 0.28),
+                0 0 28px rgba(242, 202, 80, 0.12);
+            transform: translateX(6px);
+        }
+        .faq-question.is-active::after {
+            width: 34px;
+            opacity: 1;
+        }
+        .faq-number {
+            color: #f2ca50;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            font-weight: 900;
+        }
+        .faq-question .material-symbols-outlined {
+            font-size: 20px;
+            color: #f2ca50;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity 0.35s ease, transform 0.42s var(--ease-out-expo);
+        }
+        .faq-question.is-active .material-symbols-outlined {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .faq-answer-stage {
+            position: sticky;
+            top: 102px;
+            display: grid;
+            min-height: 500px;
+            overflow: hidden;
+            border: 1px solid rgba(242, 202, 80, 0.18);
+            border-radius: 16px;
+            background:
+                linear-gradient(145deg, rgba(25, 28, 32, 0.9), rgba(10, 12, 15, 0.94));
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+        }
+        .faq-answer-stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(242, 202, 80, 0.12), transparent 34%),
+                linear-gradient(90deg, rgba(242, 202, 80, 0.13), transparent 1px);
+            opacity: 0.72;
+        }
+        .faq-panel {
+            grid-area: 1 / 1;
+            position: relative;
+            z-index: 1;
+            padding: clamp(28px, 3vw, 44px);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(18px) scale(0.985);
+            filter: blur(4px);
+            pointer-events: none;
+            transition:
+                opacity 0.42s ease,
+                transform 0.58s var(--ease-out-expo),
+                filter 0.48s ease,
+                visibility 0s linear 0.42s;
+        }
+        .faq-panel.is-active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0) scale(1);
+            filter: blur(0);
+            pointer-events: auto;
+            transition-delay: 0s;
+        }
+        .faq-panel-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #f2ca50;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .faq-panel-kicker::before {
+            content: "";
+            width: 34px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f2ca50;
+        }
+        .faq-panel h2 {
+            max-width: 780px;
+            margin: 16px 0 0;
+            color: #ffffff;
+            font-family: "Hanken Grotesk", sans-serif;
+            font-size: clamp(23px, 2.2vw, 34px);
+            line-height: 1.08;
+            font-weight: 850;
+        }
+        .faq-panel p {
+            margin: 18px 0 0;
+            color: #e5ddcf;
+            font-size: clamp(15px, 1.02vw, 17px);
+            line-height: 1.76;
+            text-align: justify;
+        }
+        .faq-panel strong {
+            color: #ffffff;
+        }
+        .faq-answer table {
+            width: 100%;
+            margin-top: 18px;
+            overflow: hidden;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid rgba(242, 202, 80, 0.18);
+            border-radius: 12px;
+            font-size: clamp(12px, 0.88vw, 14px);
+        }
+        .faq-answer th,
+        .faq-answer td {
+            padding: 11px 13px;
+            border-bottom: 1px solid rgba(242, 202, 80, 0.13);
+            text-align: left;
+            vertical-align: top;
+        }
+        .faq-answer tr:last-child td {
+            border-bottom: 0;
+        }
+        .faq-answer th {
+            color: #f2ca50;
+            background: rgba(242, 202, 80, 0.08);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .faq-panel-foot {
+            margin-top: 24px;
+            padding: 16px 18px;
+            border: 1px solid rgba(242, 202, 80, 0.16);
+            border-radius: 12px;
+            background: rgba(242, 202, 80, 0.06);
+            color: #f0e6cf;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+        @media (max-width: 1024px) {
+            .faq-shell {
+                width: min(100% - 40px, 880px);
+            }
+            .faq-interactive {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .faq-question-column::before,
+            .faq-question::after {
+                display: none;
+            }
+            .faq-question:hover,
+            .faq-question.is-active {
+                transform: none;
+            }
+            .faq-answer-stage {
+                position: relative;
+                top: auto;
+                min-height: 420px;
+            }
+        }
+        @media (max-width: 767px) {
+            .faq-shell {
+                width: min(100% - 28px, 880px);
+            }
+            .faq-hero {
+                padding: 36px 0 14px;
+            }
+            .faq-hero h1 {
+                font-size: 34px;
+            }
+            .faq-question {
+                min-height: 52px;
+                padding: 10px 13px;
+                font-size: 13px;
+            }
+            .faq-answer-stage {
+                min-height: 0;
+            }
+            .faq-panel {
+                padding: 22px 18px;
+            }
+            .faq-panel p {
+                text-align: left;
+            }
+            .faq-answer table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
     </style>
 <style id="sm-import-fixes">
   .sm-nav-scroll { scrollbar-width: none; -ms-overflow-style: none; }
   .sm-nav-scroll::-webkit-scrollbar { display: none; }
   @media (max-width: 767px) { header[id] .font-label-caps { font-size: 11px; } }
 </style>
-<link href="assets/css/premium-polish.css" rel="stylesheet"/>
+<link href="assets/css/premium-polish.css?v=navfixed-20260617" rel="stylesheet"/>
+<style id="faq-final-overrides">
+  body[data-page="preguntas"] main.faq-page-main > section.faq-hero,
+  body[data-page="preguntas"] main.faq-page-main > section.faq-list {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  body[data-page="preguntas"] main.faq-page-main > section.faq-hero {
+    padding: 24px 0 10px !important;
+  }
+
+  body[data-page="preguntas"] .faq-hero h1 {
+    font-size: clamp(30px, 3vw, 42px) !important;
+  }
+
+  body[data-page="preguntas"] .faq-eyebrow,
+  body[data-page="preguntas"] .faq-hero p {
+    display: none !important;
+  }
+
+  body[data-page="preguntas"] main.faq-page-main > section.faq-list {
+    padding: 10px 0 72px !important;
+  }
+
+  body[data-page="preguntas"] .faq-page-main {
+    overflow-x: hidden;
+  }
+
+  body[data-page="preguntas"] {
+    overflow-x: hidden;
+  }
+
+  body[data-page="preguntas"] .faq-shell {
+    width: min(1180px, calc(100vw - 104px)) !important;
+    max-width: calc(100vw - 104px);
+  }
+
+  body[data-page="preguntas"] .faq-interactive,
+  body[data-page="preguntas"] .faq-question-column,
+  body[data-page="preguntas"] .faq-answer-stage,
+  body[data-page="preguntas"] .faq-panel {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  body[data-page="preguntas"] .faq-answer-stage {
+    display: block !important;
+    min-height: 0 !important;
+    height: auto;
+    align-self: start;
+    transition: height 0.52s var(--ease-out-expo);
+  }
+
+  @media (min-width: 1025px) {
+    body[data-page="preguntas"] .faq-question-column {
+      position: sticky !important;
+      top: 104px !important;
+      max-height: calc(100vh - 126px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 2px 8px 2px 0;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    body[data-page="preguntas"] .faq-question-column::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  body[data-page="preguntas"] .faq-panel {
+    position: absolute !important;
+    inset: 0;
+    width: 100%;
+  }
+
+  body[data-page="preguntas"] .faq-panel.is-active {
+    position: relative !important;
+  }
+
+  body[data-page="preguntas"] .faq-question,
+  body[data-page="preguntas"] .faq-question *,
+  body[data-page="preguntas"] .faq-hero p,
+  body[data-page="preguntas"] .faq-question > span:nth-child(2) {
+    min-width: 0;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    text-overflow: clip !important;
+  }
+
+  body[data-page="preguntas"] .faq-question > span:nth-child(2) {
+    display: block;
+  }
+
+  @media (max-width: 767px) {
+    body[data-page="preguntas"] .faq-shell {
+      width: calc(100vw - 28px) !important;
+      max-width: calc(100vw - 28px) !important;
+      margin-left: 14px !important;
+      margin-right: 14px !important;
+    }
+
+    body[data-page="preguntas"] .faq-question {
+      grid-template-columns: 26px minmax(0, 1fr) !important;
+      gap: 10px !important;
+      padding: 12px 14px !important;
+      font-size: 12px !important;
+      line-height: 1.16 !important;
+      max-width: 100% !important;
+    }
+
+    body[data-page="preguntas"] .faq-number {
+      font-size: 11px !important;
+    }
+
+    body[data-page="preguntas"] .faq-question .material-symbols-outlined {
+      display: none !important;
+    }
+
+    body[data-page="preguntas"] .faq-question > span:nth-child(2) {
+      max-width: 100%;
+      line-height: 1.18 !important;
+      hyphens: auto;
+    }
+  }
+</style>
 </head>
 <body data-page="preguntas" class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
 <!-- Scroll Progress -->
@@ -155,225 +608,197 @@
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="por-que-elegirnos.html">Por qu&eacute; elegirnos</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="servicios.html">Servicios y soluciones</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="marcas.html">Marcas</a>
-<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1 shrink-0" href="preguntas.html">Preguntas frecuentes</a>
+<a class="font-label-caps text-label-caps text-primary font-bold shrink-0" href="preguntas.html">Preguntas frecuentes</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="contacto.html">Contacto</a>
     </nav>
   </div>
 </header>
-<main class="pt-20">
-<!-- Hero Header -->
-<section class="relative h-[614px] flex items-center justify-center overflow-hidden">
-
-<div class="relative z-10 text-center px-margin-mobile max-w-4xl">
-<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-4 uppercase">Centro de Soporte Técnico</span>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">Preguntas Frecuentes</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-                    Resolvemos sus dudas sobre ingeniería, especificaciones técnicas y procesos de contratación para proyectos de precisión industrial.
-                </p>
+<main class="pt-20 faq-page-main">
+<section class="faq-hero">
+<div class="faq-shell">
+<span class="faq-eyebrow">Soporte claro para cotizar</span>
+<h1>Preguntas frecuentes</h1>
+<p>Selecciona una pregunta y revisa la respuesta al costado. El cambio es suave para que el cliente pueda leer sin perder el orden.</p>
 </div>
 </section>
-<!-- FAQ Section -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Sidebar: Categories or Progress -->
-<div class="lg:col-span-4 space-y-8">
-<div class="glass-panel p-8 rounded-xl sticky top-32">
-<h3 class="font-headline-md text-headline-md mb-6">Categorías</h3>
-<ul class="space-y-4">
-<li class="group flex items-center justify-between cursor-pointer text-primary border-l-2 border-primary pl-4 py-1">
-<span class="font-body-md">Ingeniería y Diseño</span>
-<span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
-</li>
-<li class="group flex items-center justify-between cursor-pointer text-on-surface-variant hover:text-primary transition-colors pl-4 py-1">
-<span class="font-body-md">Especificaciones Eléctricas</span>
-<span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
-</li>
-<li class="group flex items-center justify-between cursor-pointer text-on-surface-variant hover:text-primary transition-colors pl-4 py-1">
-<span class="font-body-md">Normativas y Calidad</span>
-<span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
-</li>
-<li class="group flex items-center justify-between cursor-pointer text-on-surface-variant hover:text-primary transition-colors pl-4 py-1">
-<span class="font-body-md">Logística y Tiempos</span>
-<span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
-</li>
-</ul>
-<div class="mt-12 p-6 bg-surface-container-high rounded-lg border border-outline-variant/10">
-<span class="material-symbols-outlined text-primary text-4xl mb-4">engineering</span>
-<h4 class="font-body-lg font-bold mb-2">¿Necesita un diseño a medida?</h4>
-<p class="text-body-md text-on-surface-variant mb-4">Nuestros ingenieros están listos para analizar su diagrama unifilar.</p>
-<a href="contacto.html" class="w-full py-3 border border-primary text-primary font-label-caps text-label-caps hover:bg-primary/10 transition-all inline-flex items-center justify-center">AGENDA UNA CONSULTA</a>
+<section class="faq-list">
+<div class="faq-shell faq-interactive" id="faq-interactive">
+<div class="faq-question-column" role="tablist" aria-label="Preguntas frecuentes">
+<button class="faq-question is-active" id="faq-question-0" type="button" role="tab" aria-selected="true" aria-controls="faq-answer-0" data-faq-index="0"><span class="faq-number">01</span><span>&iquest;Venden productos el&eacute;ctricos industriales?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-1" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-1" data-faq-index="1"><span class="faq-number">02</span><span>&iquest;Tambi&eacute;n fabrican tableros el&eacute;ctricos completos?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-2" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-2" data-faq-index="2"><span class="faq-number">03</span><span>&iquest;Qu&eacute; informaci&oacute;n necesitan para cotizar un tablero el&eacute;ctrico?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-3" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-3" data-faq-index="3"><span class="faq-number">04</span><span>&iquest;Puedo enviar una foto del tablero o equipo que necesito reemplazar?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-4" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-4" data-faq-index="4"><span class="faq-number">05</span><span>&iquest;Qu&eacute; es un tablero de presi&oacute;n constante?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-5" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-5" data-faq-index="5"><span class="faq-number">06</span><span>&iquest;Hacen tableros con variador de frecuencia?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-6" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-6" data-faq-index="6"><span class="faq-number">07</span><span>&iquest;Trabajan con marcas espec&iacute;ficas?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-7" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-7" data-faq-index="7"><span class="faq-number">08</span><span>&iquest;Puedo solicitar una marca espec&iacute;fica para mi tablero?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-8" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-8" data-faq-index="8"><span class="faq-number">09</span><span>&iquest;Los tableros se entregan cableados y probados?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-9" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-9" data-faq-index="9"><span class="faq-number">10</span><span>&iquest;Pueden fabricar un tablero usando un plano que ya tengo?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-10" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-10" data-faq-index="10"><span class="faq-number">11</span><span>&iquest;Hacen instalaci&oacute;n en campo?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-11" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-11" data-faq-index="11"><span class="faq-number">12</span><span>&iquest;Cu&aacute;nto tiempo demora fabricar un tablero el&eacute;ctrico?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-12" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-12" data-faq-index="12"><span class="faq-number">13</span><span>&iquest;Realizan env&iacute;os a provincia?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-13" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-13" data-faq-index="13"><span class="faq-number">14</span><span>&iquest;Puedo solicitar una cotizaci&oacute;n por WhatsApp?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-14" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-14" data-faq-index="14"><span class="faq-number">15</span><span>&iquest;Los productos y tableros tienen garant&iacute;a?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+<button class="faq-question" id="faq-question-15" type="button" role="tab" aria-selected="false" aria-controls="faq-answer-15" data-faq-index="15"><span class="faq-number">16</span><span>&iquest;Pueden mejorar o modernizar un tablero antiguo?</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+</div>
+<div class="faq-answer-stage" aria-live="polite">
+<article class="faq-panel faq-answer is-active" id="faq-answer-0" role="tabpanel" aria-labelledby="faq-question-0" data-faq-panel="0"><h2>&iquest;Venden productos el&eacute;ctricos industriales?</h2><p>S&iacute;. Vendemos productos el&eacute;ctricos industriales por unidad y tambi&eacute;n por proyecto. Atendemos requerimientos de llaves t&eacute;rmicas, contactores, guardamotores, variadores de frecuencia, PLC, rel&eacute;s, fuentes de poder, sensores, gabinetes, borneras y accesorios el&eacute;ctricos.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-1" role="tabpanel" aria-labelledby="faq-question-1" data-faq-panel="1"><h2>&iquest;Tambi&eacute;n fabrican tableros el&eacute;ctricos completos?</h2><p>S&iacute;. Dise&ntilde;amos y ensamblamos tableros el&eacute;ctricos completos seg&uacute;n la necesidad del cliente. Podemos fabricar tableros de arranque directo, estrella-tri&aacute;ngulo, bombas alternadas, presi&oacute;n constante, transferencia autom&aacute;tica, control y fuerza, automatizaci&oacute;n con PLC, entre otros.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-2" role="tabpanel" aria-labelledby="faq-question-2" data-faq-panel="2"><h2>&iquest;Qu&eacute; informaci&oacute;n necesitan para cotizar un tablero el&eacute;ctrico?</h2><p>Para cotizar correctamente necesitamos saber:</p><table><thead><tr><th>Dato requerido</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Tipo de tablero</td><td>Arranque directo, presi&oacute;n constante, bombas alternadas, transferencia, etc.</td></tr><tr><td>Tensi&oacute;n de trabajo</td><td>220 V, 380 V o 440 V</td></tr><tr><td>Potencia del motor</td><td>HP o kW</td></tr><tr><td>Cantidad de motores o bombas</td><td>1, 2, 3 o m&aacute;s</td></tr><tr><td>Tipo de control</td><td>Manual, autom&aacute;tico, con PLC, con variador</td></tr><tr><td>Aplicaci&oacute;n</td><td>Bomba, ventilador, compresor, m&aacute;quina, grupo electr&oacute;geno</td></tr><tr><td>Plano o referencia</td><td>Foto, esquema, lista de materiales o requerimiento t&eacute;cnico</td></tr></tbody></table></article>
+<article class="faq-panel faq-answer" id="faq-answer-3" role="tabpanel" aria-labelledby="faq-question-3" data-faq-panel="3"><h2>&iquest;Puedo enviar una foto del tablero o equipo que necesito reemplazar?</h2><p>S&iacute;. Puedes enviarnos fotos del tablero, placa del motor, componentes existentes o instalaci&oacute;n actual por WhatsApp. Con esa informaci&oacute;n podemos orientarte mejor y solicitar los datos adicionales necesarios para preparar una cotizaci&oacute;n.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-4" role="tabpanel" aria-labelledby="faq-question-4" data-faq-panel="4"><h2>&iquest;Qu&eacute; es un tablero de presi&oacute;n constante?</h2><p>Es un tablero que permite mantener una presi&oacute;n estable en una red de agua mediante variadores de frecuencia, sensores o transmisores de presi&oacute;n y l&oacute;gica de control. Este sistema regula la velocidad de las bombas seg&uacute;n el consumo, mejorando el funcionamiento y reduciendo arranques bruscos.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-5" role="tabpanel" aria-labelledby="faq-question-5" data-faq-panel="5"><h2>&iquest;Hacen tableros con variador de frecuencia?</h2><p>S&iacute;. Integramos variadores de frecuencia para controlar motores el&eacute;ctricos, bombas, ventiladores y otros equipos. Tambi&eacute;n podemos configurar par&aacute;metros b&aacute;sicos como rampas de aceleraci&oacute;n, desaceleraci&oacute;n, frecuencia m&aacute;xima, se&ntilde;ales de arranque, protecci&oacute;n y control externo.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-6" role="tabpanel" aria-labelledby="faq-question-6" data-faq-panel="6"><h2>&iquest;Trabajan con marcas espec&iacute;ficas?</h2><p>S&iacute;. Trabajamos con marcas reconocidas como Schneider Electric, ABB, Siemens, General Electric, Square D y otras marcas del sector el&eacute;ctrico industrial. La marca puede variar seg&uacute;n el requerimiento t&eacute;cnico, disponibilidad y presupuesto del cliente.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-7" role="tabpanel" aria-labelledby="faq-question-7" data-faq-panel="7"><h2>&iquest;Puedo solicitar una marca espec&iacute;fica para mi tablero?</h2><p>S&iacute;. El cliente puede solicitar una marca espec&iacute;fica para los componentes del tablero. Tambi&eacute;n podemos proponer alternativas equivalentes seg&uacute;n calidad, disponibilidad, plazo de entrega y presupuesto.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-8" role="tabpanel" aria-labelledby="faq-question-8" data-faq-panel="8"><h2>&iquest;Los tableros se entregan cableados y probados?</h2><p>S&iacute;. Los tableros se entregan ensamblados, cableados, rotulados y con pruebas b&aacute;sicas de funcionamiento. Antes de la entrega se revisa la correcta conexi&oacute;n de componentes, maniobra, protecciones y l&oacute;gica de control.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-9" role="tabpanel" aria-labelledby="faq-question-9" data-faq-panel="9"><h2>&iquest;Pueden fabricar un tablero usando un plano que ya tengo?</h2><p>S&iacute;. Podemos fabricar el tablero en base a un plano el&eacute;ctrico, lista de materiales, memoria descriptiva o requerimiento t&eacute;cnico enviado por el cliente. Tambi&eacute;n podemos revisar el plano y sugerir mejoras si fuera necesario.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-10" role="tabpanel" aria-labelledby="faq-question-10" data-faq-panel="10"><h2>&iquest;Hacen instalaci&oacute;n en campo?</h2><p>S&iacute;, podemos realizar instalaci&oacute;n, conexi&oacute;n, pruebas y puesta en marcha seg&uacute;n el tipo de proyecto y ubicaci&oacute;n. Tambi&eacute;n podemos entregar solo el tablero para que el cliente o su t&eacute;cnico lo instale.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-11" role="tabpanel" aria-labelledby="faq-question-11" data-faq-panel="11"><h2>&iquest;Cu&aacute;nto tiempo demora fabricar un tablero el&eacute;ctrico?</h2><p>El tiempo depende del tipo de tablero, cantidad de componentes, disponibilidad de materiales y complejidad del cableado o programaci&oacute;n. Un tablero simple puede tomar menos tiempo, mientras que un tablero automatizado con PLC, variadores o transferencia puede requerir mayor preparaci&oacute;n y pruebas.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-12" role="tabpanel" aria-labelledby="faq-question-12" data-faq-panel="12"><h2>&iquest;Realizan env&iacute;os a provincia?</h2><p>S&iacute;, podemos coordinar env&iacute;os a provincia seg&uacute;n el producto, peso, volumen y agencia de transporte elegida por el cliente. Tambi&eacute;n se puede coordinar recojo en tienda o entrega local.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-13" role="tabpanel" aria-labelledby="faq-question-13" data-faq-panel="13"><h2>&iquest;Puedo solicitar una cotizaci&oacute;n por WhatsApp?</h2><p>S&iacute;. Puedes enviarnos tu solicitud por WhatsApp indicando el producto o tablero que necesitas. Si cuentas con fotos, placa del motor, plano, lista de materiales o descripci&oacute;n del proyecto, eso ayudar&aacute; a cotizar con mayor precisi&oacute;n.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-14" role="tabpanel" aria-labelledby="faq-question-14" data-faq-panel="14"><h2>&iquest;Los productos y tableros tienen garant&iacute;a?</h2><p>S&iacute;. Los productos y tableros cuentan con garant&iacute;a seg&uacute;n la marca, condiciones de uso y alcance del servicio. La garant&iacute;a aplica siempre que la instalaci&oacute;n, operaci&oacute;n y mantenimiento se realicen correctamente.</p></article>
+<article class="faq-panel faq-answer" id="faq-answer-15" role="tabpanel" aria-labelledby="faq-question-15" data-faq-panel="15"><h2>&iquest;Pueden mejorar o modernizar un tablero antiguo?</h2><p>S&iacute;. Podemos evaluar tableros existentes para ordenar cableado, cambiar componentes deteriorados, incorporar protecciones, instalar variadores, mejorar la l&oacute;gica de control, agregar se&ntilde;alizaci&oacute;n o automatizar el sistema.</p></article>
 </div>
 </div>
+</section>
+</main>
+<main class="pt-20 faq-page-main legacy-faq" hidden aria-hidden="true">
+<section class="faq-hero">
+<div class="faq-shell">
+<h1>Preguntas frecuentes</h1>
+<div class="faq-rule"></div>
 </div>
-<!-- FAQ Accordion -->
-<div class="lg:col-span-8">
+</section>
+<section class="faq-list">
+<div class="faq-shell">
 <div class="space-y-4" id="faq-accordion">
-<!-- FAQ items will be injected or hardcoded here -->
-<!-- Repeat this block for all 16 questions -->
-<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
-<span class="font-body-lg font-bold group-hover:text-primary transition-colors">1. ¿Qué normas internacionales cumplen sus tableros eléctricos?</span>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group active">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">1. ¿Venden productos eléctricos industriales?</span>
 <span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
 </button>
-<div class="accordion-content">
-<div class="px-8 pb-8 text-on-surface-variant leading-relaxed">
-                                Todos nuestros equipos son diseñados y fabricados bajo estricto cumplimiento de la normativa IEC 61439-1/2, garantizando la máxima seguridad operativa y compatibilidad global en entornos industriales de alta exigencia.
-                            </div>
-</div>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Vendemos productos eléctricos industriales por unidad y también por proyecto. Atendemos requerimientos de llaves térmicas, contactores, guardamotores, variadores de frecuencia, PLC, relés, fuentes de poder, sensores, gabinetes, borneras y accesorios eléctricos.</div></div>
 </div>
 <div class="accordion-item glass-panel rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
-<span class="font-body-lg font-bold group-hover:text-primary transition-colors">2. ¿Realizan el cálculo de cortocircuito para las protecciones?</span>
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">2. ¿También fabrican tableros eléctricos completos?</span>
 <span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
 </button>
-<div class="accordion-content">
-<div class="px-8 pb-8 text-on-surface-variant leading-relaxed">
-                                Sí, nuestro departamento de ingeniería realiza el estudio de coordinación de protecciones y cálculo de niveles de cortocircuito basado en los parámetros de la red del cliente, asegurando la selectividad y protección de los activos.
-                            </div>
-</div>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Diseñamos y ensamblamos tableros eléctricos completos según la necesidad del cliente. Podemos fabricar tableros de arranque directo, estrella-triángulo, bombas alternadas, presión constante, transferencia automática, control y fuerza, automatización con PLC, entre otros.</div></div>
 </div>
 <div class="accordion-item glass-panel rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
-<span class="font-body-lg font-bold group-hover:text-primary transition-colors">3. ¿Qué grado de protección IP manejan para ambientes corrosivos?</span>
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">3. ¿Qué información necesitan para cotizar un tablero eléctrico?</span>
 <span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
 </button>
-<div class="accordion-content">
-<div class="px-8 pb-8 text-on-surface-variant leading-relaxed">
-                                Fabricamos envolventes con grados de protección desde IP54 hasta IP66 en acero inoxidable 316L, ideales para industrias químicas, mineras o instalaciones offshore donde la corrosión es un factor crítico.
-                            </div>
-</div>
-</div>
-<!-- Additional items (Simplified for brevity but representing the full 16) -->
-<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
-<span class="font-body-lg font-bold group-hover:text-primary transition-colors">4. ¿Incluyen protocolos de pruebas FAT en fábrica?</span>
-<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
-</button>
-<div class="accordion-content">
-<div class="px-8 pb-8 text-on-surface-variant leading-relaxed">
-                                Absolutamente. Cada unidad se somete a Pruebas de Aceptación en Fábrica (FAT) documentadas, incluyendo pruebas dieléctricas, de continuidad y funcionales ante la presencia del cliente o mediante reportes digitales certificados.
-                            </div>
-</div>
-</div>
-<!-- Repeat structures for 16 technical questions... (Simulated list for UI flow) -->
-<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
-<span class="font-body-lg font-bold group-hover:text-primary transition-colors">5. ¿Qué marcas de componentes eléctricos integran habitualmente?</span>
-<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
-</button>
-<div class="accordion-content">
-<div class="px-8 pb-8 text-on-surface-variant leading-relaxed">
-                                Trabajamos con líderes globales como Schneider Electric, ABB y Siemens, permitiendo que el cliente elija la plataforma que mejor se adapte a su stock de repuestos y estándares internos.
-                            </div>
-</div>
-</div>
-<!-- Add more blocks as needed to reach 16 -->
-<div class="space-y-4" id="hidden-faqs">
-<!-- Questions 6-16 simulated -->
-<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
-<span class="font-body-lg font-bold group-hover:text-primary transition-colors">6. ¿Ofrecen soporte para la puesta en marcha (Commissioning)?</span>
-<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
-</button>
-<div class="accordion-content"><div class="px-8 pb-8 text-on-surface-variant">Contamos con un equipo técnico especializado para servicios de supervisión en sitio y puesta en marcha a nivel nacional e internacional.</div></div>
-</div>
-<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
-<span class="font-body-lg font-bold group-hover:text-primary transition-colors">7. ¿Cuál es el tiempo promedio de entrega para un CCM?</span>
-<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
-</button>
-<div class="accordion-content"><div class="px-8 pb-8 text-on-surface-variant">Dependiendo de la complejidad y disponibilidad de componentes, el plazo oscila entre 8 y 12 semanas tras la aprobación de planos finales.</div></div>
-</div>
-<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
-<span class="font-body-lg font-bold group-hover:text-primary transition-colors">8. ¿Sus tableros son aptos para integración con SCADA?</span>
-<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
-</button>
-<div class="accordion-content"><div class="px-8 pb-8 text-on-surface-variant">Sí, integramos protocolos Modbus TCP/IP, Profinet y EtherNet/IP para una monitorización total de parámetros eléctricos en tiempo real.</div></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Technical Data Table Section -->
-<section class="py-section-gap bg-surface-container-low px-margin-mobile md:px-margin-desktop">
-<div class="max-w-container-max mx-auto">
-<div class="text-center mb-16">
-<h2 class="font-headline-md text-headline-md mb-4">Información para Cotización</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Para brindarle una propuesta precisa, agradecemos proporcionar los siguientes datos técnicos:</p>
-</div>
-<div class="glass-panel overflow-x-auto rounded-xl border border-primary/20">
-<table class="w-full min-w-[640px] border-collapse">
-<thead>
-<tr class="bg-primary/10 border-b border-primary/20">
-<th class="px-8 py-6 text-left font-label-caps text-label-caps text-primary uppercase tracking-widest">Requerimiento</th>
-<th class="px-8 py-6 text-left font-label-caps text-label-caps text-primary uppercase tracking-widest">Especificación Detalles</th>
-<th class="px-8 py-6 text-left font-label-caps text-label-caps text-primary uppercase tracking-widest">Importancia</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-outline-variant/10">
-<tr class="hover:bg-white/5 transition-colors">
-<td class="px-8 py-6 font-bold">Tipo de Tablero</td>
-<td class="px-8 py-6 text-on-surface-variant">CCM, Distribución, Automatización, Transferencia.</td>
-<td class="px-8 py-6"><span class="bg-error/10 text-error px-3 py-1 rounded text-xs font-bold uppercase">Crítico</span></td>
-</tr>
-<tr class="hover:bg-white/5 transition-colors">
-<td class="px-8 py-6 font-bold">Tensión de Operación</td>
-<td class="px-8 py-6 text-on-surface-variant">V AC (220V, 380V, 440V, etc.) o V DC.</td>
-<td class="px-8 py-6"><span class="bg-error/10 text-error px-3 py-1 rounded text-xs font-bold uppercase">Crítico</span></td>
-</tr>
-<tr class="hover:bg-white/5 transition-colors">
-<td class="px-8 py-6 font-bold">Potencia Instalada</td>
-<td class="px-8 py-6 text-on-surface-variant">Carga total en kVA o Amperios (In).</td>
-<td class="px-8 py-6"><span class="bg-error/10 text-error px-3 py-1 rounded text-xs font-bold uppercase">Crítico</span></td>
-</tr>
-<tr class="hover:bg-white/5 transition-colors">
-<td class="px-8 py-6 font-bold">Frecuencia</td>
-<td class="px-8 py-6 text-on-surface-variant">50 Hz / 60 Hz.</td>
-<td class="px-8 py-6"><span class="bg-secondary-container/10 text-secondary-container px-3 py-1 rounded text-xs font-bold uppercase">Estándar</span></td>
-</tr>
-<tr class="hover:bg-white/5 transition-colors">
-<td class="px-8 py-6 font-bold">Grado IP / NEMA</td>
-<td class="px-8 py-6 text-on-surface-variant">Condiciones ambientales (Interior/Exterior).</td>
-<td class="px-8 py-6"><span class="bg-primary/10 text-primary px-3 py-1 rounded text-xs font-bold uppercase">Esencial</span></td>
-</tr>
-<tr class="hover:bg-white/5 transition-colors">
-<td class="px-8 py-6 font-bold">Dimensiones Max.</td>
-<td class="px-8 py-6 text-on-surface-variant">Limitaciones de espacio en la sala eléctrica.</td>
-<td class="px-8 py-6"><span class="bg-secondary-container/10 text-secondary-container px-3 py-1 rounded text-xs font-bold uppercase">Opcional</span></td>
-</tr>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">
+<p>Para cotizar correctamente necesitamos saber:</p>
+<table>
+<thead><tr><th>Dato requerido</th><th>Ejemplo</th></tr></thead>
+<tbody>
+<tr><td>Tipo de tablero</td><td>Arranque directo, presión constante, bombas alternadas, transferencia, etc.</td></tr>
+<tr><td>Tensión de trabajo</td><td>220 V, 380 V o 440 V</td></tr>
+<tr><td>Potencia del motor</td><td>HP o kW</td></tr>
+<tr><td>Cantidad de motores o bombas</td><td>1, 2, 3 o más</td></tr>
+<tr><td>Tipo de control</td><td>Manual, automático, con PLC, con variador</td></tr>
+<tr><td>Aplicación</td><td>Bomba, ventilador, compresor, máquina, grupo electrógeno</td></tr>
+<tr><td>Plano o referencia</td><td>Foto, esquema, lista de materiales o requerimiento técnico</td></tr>
 </tbody>
 </table>
+</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">4. ¿Puedo enviar una foto del tablero o equipo que necesito reemplazar?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Puedes enviarnos fotos del tablero, placa del motor, componentes existentes o instalación actual por WhatsApp. Con esa información podemos orientarte mejor y solicitar los datos adicionales necesarios para preparar una cotización.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">5. ¿Qué es un tablero de presión constante?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Es un tablero que permite mantener una presión estable en una red de agua mediante variadores de frecuencia, sensores o transmisores de presión y lógica de control. Este sistema regula la velocidad de las bombas según el consumo, mejorando el funcionamiento y reduciendo arranques bruscos.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">6. ¿Hacen tableros con variador de frecuencia?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Integramos variadores de frecuencia para controlar motores eléctricos, bombas, ventiladores y otros equipos. También podemos configurar parámetros básicos como rampas de aceleración, desaceleración, frecuencia máxima, señales de arranque, protección y control externo.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">7. ¿Trabajan con marcas específicas?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Trabajamos con marcas reconocidas como Schneider Electric, ABB, Siemens, General Electric, Square D y otras marcas del sector eléctrico industrial. La marca puede variar según el requerimiento técnico, disponibilidad y presupuesto del cliente.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">8. ¿Puedo solicitar una marca específica para mi tablero?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. El cliente puede solicitar una marca específica para los componentes del tablero. También podemos proponer alternativas equivalentes según calidad, disponibilidad, plazo de entrega y presupuesto.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">9. ¿Los tableros se entregan cableados y probados?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Los tableros se entregan ensamblados, cableados, rotulados y con pruebas básicas de funcionamiento. Antes de la entrega se revisa la correcta conexión de componentes, maniobra, protecciones y lógica de control.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">10. ¿Pueden fabricar un tablero usando un plano que ya tengo?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Podemos fabricar el tablero en base a un plano eléctrico, lista de materiales, memoria descriptiva o requerimiento técnico enviado por el cliente. También podemos revisar el plano y sugerir mejoras si fuera necesario.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">11. ¿Hacen instalación en campo?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí, podemos realizar instalación, conexión, pruebas y puesta en marcha según el tipo de proyecto y ubicación. También podemos entregar solo el tablero para que el cliente o su técnico lo instale.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">12. ¿Cuánto tiempo demora fabricar un tablero eléctrico?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">El tiempo depende del tipo de tablero, cantidad de componentes, disponibilidad de materiales y complejidad del cableado o programación. Un tablero simple puede tomar menos tiempo, mientras que un tablero automatizado con PLC, variadores o transferencia puede requerir mayor preparación y pruebas.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">13. ¿Realizan envíos a provincia?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí, podemos coordinar envíos a provincia según el producto, peso, volumen y agencia de transporte elegida por el cliente. También se puede coordinar recojo en tienda o entrega local.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">14. ¿Puedo solicitar una cotización por WhatsApp?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Puedes enviarnos tu solicitud por WhatsApp indicando el producto o tablero que necesitas. Si cuentas con fotos, placa del motor, plano, lista de materiales o descripción del proyecto, eso ayudará a cotizar con mayor precisión.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">15. ¿Los productos y tableros tienen garantía?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Los productos y tableros cuentan con garantía según la marca, condiciones de uso y alcance del servicio. La garantía aplica siempre que la instalación, operación y mantenimiento se realicen correctamente.</div></div>
+</div>
+<div class="accordion-item glass-panel rounded-xl overflow-hidden group">
+<button class="w-full px-7 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-body-lg font-bold group-hover:text-primary transition-colors">16. ¿Pueden mejorar o modernizar un tablero antiguo?</span>
+<span class="material-symbols-outlined icon-rotate transition-transform duration-500 text-primary">expand_more</span>
+</button>
+<div class="accordion-content"><div class="faq-answer px-7 pb-7">Sí. Podemos evaluar tableros existentes para ordenar cableado, cambiar componentes deteriorados, incorporar protecciones, instalar variadores, mejorar la lógica de control, agregar señalización o automatizar el sistema.</div></div>
 </div>
 </div>
-</section>
-<!-- Final CTA -->
-<section class="py-section-gap px-margin-mobile overflow-hidden relative">
-<div class="absolute inset-0 z-0 opacity-20">
-<div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent"></div>
-</div>
-<div class="max-w-4xl mx-auto glass-panel p-12 md:p-20 rounded-3xl text-center relative z-10 border border-primary/30 industrial-glow transition-all duration-500">
-<span class="material-symbols-outlined text-6xl text-primary mb-8 block" style="font-variation-settings: 'FILL' 1;">contact_support</span>
-<h2 class="font-headline-md text-headline-md mb-6 uppercase tracking-tight">¿Dudas Técnicas no resueltas?</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
-                    Nuestros especialistas en ingeniería están disponibles para sesiones de consulta técnica profunda. Analizamos su proyecto desde la base para optimizar eficiencia y costes.
-                </p>
-<div class="flex flex-col md:flex-row items-center justify-center gap-6">
-<a class="bg-primary text-on-primary px-12 py-4 rounded font-bold font-label-caps text-label-caps hover:bg-primary-fixed transition-all duration-300 w-full md:w-auto" href="contacto.html">HABLAR CON UN INGENIERO</a>
-<a class="border border-outline px-12 py-4 rounded font-bold font-label-caps text-label-caps hover:bg-white/5 transition-all duration-300 w-full md:w-auto" href="assets/docs/Brochure_SM_Premium_FINAL.pdf" target="_blank" rel="noopener">DESCARGAR BROCHURE TÉCNICO</a>
-</div>
-</div>
-</section>
-<!-- Newsletter / Secondary Footer Contact -->
-<section class="pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center glass-panel p-10 rounded-2xl">
-<div>
-<h4 class="font-headline-md text-headline-md mb-2">Manténgase Actualizado</h4>
-<p class="text-on-surface-variant">Reciba actualizaciones sobre normativas eléctricas y nuevas tecnologías industriales.</p>
-</div>
-<form class="flex flex-col sm:flex-row gap-4">
-<input class="w-full min-w-0 flex-grow bg-surface-container-highest border-none focus:ring-1 focus:ring-primary rounded px-4 py-3 text-on-surface" placeholder="Su correo corporativo" type="email"/>
-<a href="contacto.html" class="w-full sm:w-auto bg-primary-container text-on-primary-container px-8 py-3 rounded font-bold inline-flex items-center justify-center">SUSCRIBIR</a>
-</form>
 </div>
 </section>
 </main>
@@ -415,6 +840,141 @@
 </div>
 </footer>
 <script>
+        const faqButtons = Array.from(document.querySelectorAll('.faq-question'));
+        const faqPanels = Array.from(document.querySelectorAll('.faq-panel'));
+        const faqStage = document.querySelector('.faq-answer-stage');
+        const faqQuestionColumn = document.querySelector('.faq-question-column');
+        let faqHeightTimer;
+
+        function sizeFaqStage(panel, lockCurrentHeight = true) {
+            if (!faqStage || !panel) return;
+
+            if (lockCurrentHeight) {
+                faqStage.style.height = `${Math.ceil(faqStage.getBoundingClientRect().height)}px`;
+            }
+
+            window.requestAnimationFrame(() => {
+                faqStage.style.height = `${Math.ceil(panel.scrollHeight)}px`;
+            });
+
+            window.clearTimeout(faqHeightTimer);
+            faqHeightTimer = window.setTimeout(() => {
+                if (panel.classList.contains('is-active')) {
+                    faqStage.style.height = 'auto';
+                }
+            }, 560);
+        }
+
+        function keepFaqAnswerVisible() {
+            if (!faqStage || window.innerWidth < 1024) return;
+
+            const rect = faqStage.getBoundingClientRect();
+            const topLimit = 104;
+            const bottomLimit = window.innerHeight - 38;
+            const availableHeight = bottomLimit - topLimit;
+
+            if (rect.height <= availableHeight && (rect.top < topLimit || rect.bottom > bottomLimit)) {
+                window.scrollBy({
+                    top: rect.top - topLimit,
+                    behavior: 'smooth'
+                });
+                return;
+            }
+
+            if (rect.top < topLimit) {
+                window.scrollBy({
+                    top: rect.top - topLimit,
+                    behavior: 'smooth'
+                });
+            } else if (rect.bottom > bottomLimit) {
+                window.scrollBy({
+                    top: rect.bottom - bottomLimit,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function keepFaqQuestionVisible(button) {
+            if (!button || !faqQuestionColumn || window.innerWidth < 1024) return;
+
+            const columnRect = faqQuestionColumn.getBoundingClientRect();
+            const buttonRect = button.getBoundingClientRect();
+            const topPadding = 14;
+            const bottomPadding = 14;
+            const isOutside =
+                buttonRect.top < columnRect.top + topPadding ||
+                buttonRect.bottom > columnRect.bottom - bottomPadding;
+
+            if (!isOutside) return;
+
+            const centeredTop =
+                faqQuestionColumn.scrollTop +
+                buttonRect.top -
+                columnRect.top -
+                ((columnRect.height - buttonRect.height) / 2);
+
+            faqQuestionColumn.scrollTo({
+                top: Math.max(0, centeredTop),
+                behavior: 'smooth'
+            });
+        }
+
+        function activateFaq(index) {
+            const targetPanel = faqPanels[index];
+            const targetButton = faqButtons[index];
+            const currentPanel = faqPanels.find((panel) => panel.classList.contains('is-active'));
+
+            if (faqStage && currentPanel && currentPanel !== targetPanel) {
+                faqStage.style.height = `${Math.ceil(currentPanel.scrollHeight)}px`;
+            }
+
+            faqButtons.forEach((button, buttonIndex) => {
+                const isActive = buttonIndex === index;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-selected', String(isActive));
+            });
+
+            faqPanels.forEach((panel, panelIndex) => {
+                const isActive = panelIndex === index;
+                panel.classList.toggle('is-active', isActive);
+                panel.setAttribute('aria-hidden', String(!isActive));
+            });
+
+            if (targetPanel) {
+                sizeFaqStage(targetPanel, Boolean(currentPanel && currentPanel !== targetPanel));
+                window.setTimeout(() => keepFaqQuestionVisible(targetButton), 40);
+                window.setTimeout(keepFaqAnswerVisible, 120);
+            }
+        }
+
+        faqButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                activateFaq(Number(button.dataset.faqIndex || 0));
+            });
+
+            button.addEventListener('keydown', (event) => {
+                if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+                event.preventDefault();
+                const currentIndex = Number(button.dataset.faqIndex || 0);
+                const direction = event.key === 'ArrowDown' ? 1 : -1;
+                const nextIndex = (currentIndex + direction + faqButtons.length) % faqButtons.length;
+                faqButtons[nextIndex].focus();
+                activateFaq(nextIndex);
+            });
+        });
+
+        if (faqPanels[0]) {
+            sizeFaqStage(faqPanels[0], false);
+        }
+
+        window.addEventListener('resize', () => {
+            const activePanel = faqPanels.find((panel) => panel.classList.contains('is-active'));
+            if (activePanel && faqStage) {
+                faqStage.style.height = 'auto';
+                window.requestAnimationFrame(() => sizeFaqStage(activePanel, false));
+            }
+        });
+
         function toggleAccordion(button) {
             const item = button.parentElement;
             const isOpen = item.classList.contains('active');

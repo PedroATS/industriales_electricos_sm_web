@@ -46,38 +46,24 @@
   function whatsappIcon() {
     return [
       '<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">',
-      '<path d="M16 3.4A12.4 12.4 0 0 0 5.4 22.2L4 28l5.9-1.5A12.4 12.4 0 1 0 16 3.4Z" fill="currentColor"/>',
-      '<path d="M22.7 18.9c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.5-.5-2.8-1.7-1-.9-1.7-2-1.9-2.4-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2.1-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.4 3.6 1.6 3.9c.2.2 2.7 4.1 6.6 5.7.9.4 1.6.6 2.2.8.9.3 1.7.2 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.3-.3-.4-.7-.6Z" fill="#fff"/>',
+      '<path d="M16.02 3.2C8.95 3.2 3.2 8.86 3.2 15.82c0 2.23.6 4.42 1.75 6.33L3.1 28.8l6.86-1.78a12.98 12.98 0 0 0 6.06 1.51c7.07 0 12.82-5.66 12.82-12.62C28.84 8.86 23.09 3.2 16.02 3.2Zm0 22.98c-1.95 0-3.85-.52-5.52-1.5l-.4-.23-4.06 1.05 1.08-3.88-.26-.41a10.05 10.05 0 0 1-1.55-5.39c0-5.66 4.8-10.26 10.71-10.26 5.91 0 10.72 4.6 10.72 10.26 0 5.75-4.8 10.36-10.72 10.36Z" fill="currentColor"/>',
+      '<path d="M22.42 18.83c-.35-.17-2.1-1.02-2.42-1.13-.32-.12-.55-.17-.78.17-.23.35-.9 1.12-1.1 1.35-.2.23-.41.26-.76.09-.35-.17-1.48-.54-2.82-1.72-1.04-.92-1.75-2.05-1.95-2.4-.2-.35-.02-.54.15-.71.16-.15.35-.4.52-.6.17-.2.23-.35.35-.58.12-.23.06-.43-.03-.6-.09-.17-.78-1.86-1.07-2.55-.28-.67-.57-.58-.78-.59h-.66c-.23 0-.6.09-.92.43-.32.35-1.22 1.18-1.22 2.87 0 1.7 1.25 3.34 1.42 3.57.17.23 2.46 3.7 5.96 5.19.83.35 1.48.56 1.99.72.84.26 1.6.22 2.2.14.67-.1 2.1-.85 2.39-1.67.29-.82.29-1.52.2-1.67-.08-.14-.31-.23-.67-.4Z" fill="currentColor"/>',
       "</svg>"
     ].join("");
   }
 
   function injectWhatsAppWidget() {
-    if (document.getElementById("whatsapp-widget")) return;
+    if (pageId() === "contacto" || document.getElementById("whatsapp-widget")) return;
 
     var url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(whatsappMessage);
     var node = document.createElement("div");
     node.className = "whatsapp-widget";
     node.id = "whatsapp-widget";
     node.innerHTML = [
-      '<section class="whatsapp-panel" aria-hidden="true" aria-label="Chat de WhatsApp">',
-      '<div class="whatsapp-panel-head">',
-      '<span class="whatsapp-avatar">S&amp;M<i></i></span>',
-      '<span><strong>Industriales El&eacute;ctricos S&amp;M</strong><small>Normalmente respondemos r&aacute;pido</small></span>',
-      '<button class="whatsapp-close" type="button" aria-label="Cerrar chat"><i data-lucide="x"></i></button>',
-      "</div>",
-      '<div class="whatsapp-panel-body">',
-      '<div class="whatsapp-message">',
-      '<strong>Hola, somos S&amp;M</strong>',
-      '<span>Cu&eacute;ntanos qu&eacute; componente o tablero necesitas y te ayudamos.</span>',
-      '<time>Ahora</time>',
-      "</div>",
-      "</div>",
-      '<div class="whatsapp-panel-action">',
-      '<a href="' + url + '" target="_blank" rel="noopener">' + whatsappIcon() + "<span>Iniciar chat</span></a>",
-      "</div>",
-      "</section>",
-      '<button class="whatsapp-toggle" type="button" aria-label="Abrir chat de WhatsApp" aria-expanded="false">' + whatsappIcon() + "</button>"
+      '<a class="sm-whatsapp-float" href="' + url + '" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">',
+      whatsappIcon(),
+      '<span>WhatsApp</span>',
+      "</a>"
     ].join("");
     document.body.appendChild(node);
   }
@@ -86,42 +72,9 @@
     var widget = document.getElementById("whatsapp-widget");
     if (!widget) return;
 
-    var panel = widget.querySelector(".whatsapp-panel");
-    var toggle = widget.querySelector(".whatsapp-toggle");
-    var close = widget.querySelector(".whatsapp-close");
-
-    function setOpen(open) {
-      widget.classList.toggle("is-open", open);
-      panel.setAttribute("aria-hidden", open ? "false" : "true");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    }
-
     function updateVisibility() {
       widget.classList.add("is-visible");
     }
-
-    toggle.addEventListener("click", function () {
-      setOpen(!widget.classList.contains("is-open"));
-      updateVisibility();
-    });
-
-    close.addEventListener("click", function () {
-      setOpen(false);
-      updateVisibility();
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        setOpen(false);
-        updateVisibility();
-      }
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!widget.contains(event.target)) {
-        setOpen(false);
-      }
-    });
 
     updateVisibility();
     window.addEventListener("scroll", updateVisibility, { passive: true });
@@ -133,28 +86,34 @@
     if (!slot) return;
 
     slot.innerHTML = [
-      '<footer class="site-footer">',
-      '<div class="site-shell footer-grid">',
-      "<div>",
-      '<span class="brand-mark">S&amp;M</span>',
-      "<strong>Industriales El&eacute;ctricos S&amp;M</strong>",
-      "<p>Industriales El&eacute;ctricos S&amp;M E.I.R.L. RUC: 20552965028. Venta de componentes el&eacute;ctricos industriales, automatizaci&oacute;n y fabricaci&oacute;n de tableros a medida.</p>",
-      "</div>",
-      '<div class="footer-links">',
-      "<strong>Contacto</strong>",
-      '<a href="https://wa.me/51998265837" target="_blank" rel="noopener">WhatsApp: 998 265 837</a>',
-      '<a href="https://wa.me/51955345973" target="_blank" rel="noopener">WhatsApp: 955 345 973</a>',
-      '<a href="https://wa.me/51947342139" target="_blank" rel="noopener">WhatsApp: 947 342 139</a>',
-      '<a href="mailto:ochoa@smindustrial.com.pe">ochoa@smindustrial.com.pe</a>',
-      '<a href="https://smindustrial.com.pe" target="_blank" rel="noopener">smindustrial.com.pe</a>',
-      "</div>",
-      "<div>",
-      "<strong>Ubicaci&oacute;n</strong>",
-      "<p>Av. Oscar R. Benavides 282, Cercado de Lima.</p>",
-      "<p>Lunes a s&aacute;bado de 9:00 a.m. a 6:30 p.m. Atenci&oacute;n para Lima, provincias y todo el Per&uacute;.</p>",
-      "</div>",
-      "</div>",
-      "</footer>"
+      '<footer class="sm-site-footer">',
+      '<div class="sm-footer-shell">',
+      '<div class="sm-footer-main">',
+      '<section class="sm-footer-col">',
+      '<h3>Vis&iacute;tanos en:</h3>',
+      '<a class="sm-footer-item" href="https://www.google.com/maps/search/?api=1&query=Av.%20Oscar%20R.%20Benavides%20282%2C%20Cercado%20de%20Lima%2C%20Per%C3%BA" target="_blank" rel="noopener">',
+      '<span class="sm-footer-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Zm0-8.2A3.8 3.8 0 1 1 12 5.2a3.8 3.8 0 0 1 0 7.6Z"/></svg></span>',
+      '<span>Av. Oscar R. Benavides 282,<br>Cercado de Lima, Per&uacute;.</span>',
+      '</a>',
+      '</section>',
+      '<section class="sm-footer-col">',
+      '<h3>Tel&eacute;fono:</h3>',
+      '<a class="sm-footer-item" href="tel:+51998265837"><span class="sm-footer-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.5 3 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1v3.6c0 .6-.4 1-1 1C10.8 21.7 3 13.9 3 4.5c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.3 1.5Z"/></svg></span><span>+51 998 265 837</span></a>',
+      '<a class="sm-footer-item" href="https://wa.me/51955345973" target="_blank" rel="noopener"><span class="sm-footer-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 3.1A8.8 8.8 0 0 0 4.6 16.5L3.5 20.7l4.3-1.1a8.8 8.8 0 1 0 4.3-16.5Zm0 15.9c-1.4 0-2.8-.4-4-1.2l-.3-.2-2.5.7.7-2.4-.2-.4a7 7 0 1 1 6.3 3.5Zm4-5.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.3 0-.5 0-.1-.5-1.2-.7-1.7-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.9 2.2 1 2.3c.1.2 1.7 2.7 4.3 3.7.6.2 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.3-.5 1.5-1 .2-.5.2-1 .1-1.1 0-.1-.2-.2-.5-.3Z"/></svg></span><span>+51 955 345 973</span></a>',
+      '</section>',
+      '<section class="sm-footer-col">',
+      '<h3>E-mail</h3>',
+      '<a class="sm-footer-item" href="mailto:ochoa@smindustrial.com.pe"><span class="sm-footer-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16c.6 0 1 .4 1 1v12c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1V6c0-.6.4-1 1-1Zm8 7.6L5.3 7H5v10h14V7h-.3L12 12.6Zm0-2.5L15.9 7H8.1l3.9 3.1Z"/></svg></span><span>ochoa@smindustrial.com.pe</span></a>',
+      '</section>',
+      '<section class="sm-footer-col">',
+      '<h3>S&iacute;guenos</h3>',
+      '<span class="sm-footer-item"><span class="sm-footer-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.3l.7-3h-3V9c0-.6.4-1 1-1Z"/></svg></span><span>Facebook</span></span>',
+      '<span class="sm-footer-item"><span class="sm-footer-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10c2.8 0 5 2.2 5 5v10c0 2.8-2.2 5-5 5H7c-2.8 0-5-2.2-5-5V7c0-2.8 2.2-5 5-5Zm0 2c-1.7 0-3 1.3-3 3v10c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3V7c0-1.7-1.3-3-3-3H7Zm5 3.8a4.2 4.2 0 1 1 0 8.4 4.2 4.2 0 0 1 0-8.4Zm0 2a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4ZM17.4 6.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span><span>Instagram</span></span>',
+      '</section>',
+      '</div>',
+      '<div class="sm-footer-bottom">Copyright &copy; 2026 Industriales El&eacute;ctricos S&amp;M E.I.R.L.</div>',
+      '</div>',
+      '</footer>'
     ].join("");
   }
 
@@ -332,4 +291,3 @@
 
   window.addEventListener("load", initIcons);
 }());
-

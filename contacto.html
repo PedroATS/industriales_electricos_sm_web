@@ -106,6 +106,145 @@
         .glow-hover:hover {
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
+        .contact-hero {
+            height: min(520px, 62vh) !important;
+            min-height: 430px;
+        }
+        .contact-main-section {
+            padding-top: 52px !important;
+            padding-bottom: 58px !important;
+            gap: 30px !important;
+        }
+        .contact-sidebar {
+            row-gap: 30px !important;
+        }
+        .contact-channel-list {
+            display: grid;
+            gap: 12px;
+        }
+        .contact-channel-card {
+            --channel-rgb: 242 202 80;
+            position: relative;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 14px;
+            align-items: center;
+            min-height: 92px;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background:
+                radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.04), transparent 38%),
+                linear-gradient(145deg, rgba(26, 29, 35, 0.84), rgba(12, 14, 17, 0.78));
+            color: inherit;
+            overflow: hidden;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+        }
+        .contact-channel-card::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 2px;
+            background: rgb(var(--channel-rgb));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+        }
+        .contact-channel-card:hover,
+        .contact-channel-card:focus-visible {
+            transform: translateY(-4px);
+            border-color: rgb(var(--channel-rgb) / 0.78);
+            box-shadow: 0 18px 42px rgb(var(--channel-rgb) / 0.22), inset 0 0 28px rgb(var(--channel-rgb) / 0.08);
+            background:
+                radial-gradient(circle at 20% 0%, rgb(var(--channel-rgb) / 0.24), transparent 42%),
+                linear-gradient(145deg, rgba(26, 29, 35, 0.94), rgba(12, 14, 17, 0.86));
+        }
+        .contact-channel-card:hover::after,
+        .contact-channel-card:focus-visible::after {
+            transform: scaleX(1);
+        }
+        .contact-channel-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d0c5af;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.35s ease, color 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+        }
+        .contact-channel-card:hover .contact-channel-icon,
+        .contact-channel-card:focus-visible .contact-channel-icon {
+            transform: scale(1.08);
+            color: rgb(var(--channel-rgb));
+            background: rgb(var(--channel-rgb) / 0.16);
+            border-color: rgb(var(--channel-rgb) / 0.38);
+        }
+        .contact-channel-icon svg,
+        .contact-channel-icon .material-symbols-outlined {
+            width: 25px;
+            height: 25px;
+            font-size: 25px;
+        }
+        .contact-channel-card .font-body-md {
+            font-size: 14px;
+            line-height: 1.45;
+        }
+        .contact-channel-label {
+            color: #d0c5af;
+            font-size: 10px;
+            line-height: 1.2;
+            transition: color 0.35s ease;
+        }
+        .contact-channel-card:hover .contact-channel-label,
+        .contact-channel-card:focus-visible .contact-channel-label {
+            color: rgb(var(--channel-rgb));
+        }
+        .contact-channel-arrow {
+            color: #d0c5af;
+            opacity: 0.38;
+            transform: translateX(-4px);
+            transition: opacity 0.35s ease, transform 0.35s ease, color 0.35s ease;
+        }
+        .contact-channel-card:hover .contact-channel-arrow,
+        .contact-channel-card:focus-visible .contact-channel-arrow {
+            color: rgb(var(--channel-rgb));
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .contact-form-panel {
+            padding: 28px !important;
+        }
+        .contact-form-panel h3 {
+            font-size: 28px !important;
+            line-height: 1.15 !important;
+            margin-bottom: 26px !important;
+        }
+        #quote-form > :not([hidden]) ~ :not([hidden]) {
+            margin-top: 18px !important;
+        }
+        #quote-form .gap-6 {
+            gap: 18px !important;
+        }
+        #quote-form label {
+            font-size: 10px !important;
+            line-height: 1.2 !important;
+        }
+        #quote-form input:not([type="checkbox"]),
+        #quote-form select,
+        #quote-form textarea {
+            padding: 10px 14px !important;
+            min-height: 44px;
+            font-size: 14px !important;
+        }
+        #quote-form textarea {
+            min-height: 108px;
+        }
+        #quote-form button[type="submit"] {
+            padding: 12px 34px !important;
+        }
         .scroll-reveal {
             opacity: 0;
             transform: translateY(20px);
@@ -124,7 +263,90 @@
   .sm-nav-scroll::-webkit-scrollbar { display: none; }
   @media (max-width: 767px) { header[id] .font-label-caps { font-size: 11px; } }
 </style>
-<link href="assets/css/premium-polish.css" rel="stylesheet"/>
+<link href="assets/css/premium-polish.css?v=navfixed-20260617" rel="stylesheet"/>
+<style id="contact-compact-overrides">
+  body[data-page="contacto"] .contact-hero {
+    height: min(500px, 58vh) !important;
+    min-height: 400px !important;
+  }
+  body[data-page="contacto"] .contact-main-section {
+    padding-top: 46px !important;
+    padding-bottom: 54px !important;
+    gap: 30px !important;
+  }
+  body[data-page="contacto"] .contact-sidebar {
+    row-gap: 28px !important;
+  }
+  body[data-page="contacto"] .contact-channel-list {
+    gap: 10px !important;
+  }
+  body[data-page="contacto"] .contact-channel-card {
+    min-height: 88px !important;
+    padding: 13px 15px !important;
+    gap: 13px !important;
+  }
+  body[data-page="contacto"] .contact-channel-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 11px !important;
+  }
+  body[data-page="contacto"] .contact-channel-icon svg,
+  body[data-page="contacto"] .contact-channel-icon .material-symbols-outlined {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 24px !important;
+  }
+  body[data-page="contacto"] .contact-channel-card .font-body-md {
+    font-size: 13.5px !important;
+    line-height: 1.42 !important;
+  }
+  body[data-page="contacto"] .contact-channel-label {
+    font-size: 9.5px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 6px !important;
+  }
+  body[data-page="contacto"] .contact-main-section h2 {
+    font-size: 28px !important;
+    line-height: 1.12 !important;
+    margin-bottom: 22px !important;
+  }
+  body[data-page="contacto"] .contact-form-panel {
+    padding: 24px 28px !important;
+  }
+  body[data-page="contacto"] .contact-form-panel h3 {
+    font-size: 27px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 22px !important;
+  }
+  body[data-page="contacto"] #quote-form > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 14px !important;
+  }
+  body[data-page="contacto"] #quote-form .gap-6 {
+    gap: 14px !important;
+  }
+  body[data-page="contacto"] #quote-form .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 6px !important;
+  }
+  body[data-page="contacto"] #quote-form label {
+    font-size: 9.5px !important;
+    line-height: 1.2 !important;
+  }
+  body[data-page="contacto"] #quote-form input:not([type="checkbox"]),
+  body[data-page="contacto"] #quote-form select {
+    min-height: 40px !important;
+    padding: 8px 12px !important;
+    font-size: 13.5px !important;
+  }
+  body[data-page="contacto"] #quote-form textarea {
+    height: 104px !important;
+    min-height: 104px !important;
+    padding: 10px 12px !important;
+    font-size: 13.5px !important;
+  }
+  body[data-page="contacto"] #quote-form button[type="submit"] {
+    padding: 10px 30px !important;
+  }
+</style>
 </head>
 <body data-page="contacto" class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container font-body-md overflow-x-hidden">
 <!-- Scroll Progress -->
@@ -145,13 +367,13 @@
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="servicios.html">Servicios y soluciones</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="marcas.html">Marcas</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="preguntas.html">Preguntas frecuentes</a>
-<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1 shrink-0" href="contacto.html">Contacto</a>
+<a class="font-label-caps text-label-caps text-primary font-bold shrink-0" href="contacto.html">Contacto</a>
     </nav>
   </div>
 </header>
 <main class="pt-20">
 <!-- Hero Section -->
-<section class="relative h-[614px] flex items-center overflow-hidden">
+<section class="contact-hero relative h-[614px] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
 <img class="w-full h-full object-cover" data-alt="A cinematic, wide shot of a professional female engineer in a modern industrial setting, holding a tablet and smiling warmly at the camera. The background is a clean, technologically advanced warehouse with soft golden accent lighting reflecting off metallic surfaces. The overall mood is human-centric, professional, and sophisticated, utilizing a palette of deep blacks and warm gold highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYDCjRhNxMmTgWICpjjx8T9UN3rnFkGQRWkYSGem5oTC1EGbz18rgK2AMuKdGdQmu6hU90i6Aoo6m0XJSyIwntAngKUEBp1BpvnJvBEWjgNN_yBw4gLH9Gzz1ZAh8qh2PA7a-cRO5IHrOPZA7IpDkUBlT7JLf2e3dIUxVeT4sdFdI4tl8L69ugo3WVtLPalMxZHLZIK0efHR6VT5884PECCG1l2pE_EcCslwi1R9ZBRkWe9UwM3VtKd3aBOiPXHexSJst1bhaYxK7e"/>
 <div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
@@ -165,51 +387,58 @@
 </div>
 </section>
 <!-- Main Content Area -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<section class="contact-main-section py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 <!-- Contact Details Sidebar -->
-<div class="lg:col-span-4 space-y-12">
+<div class="contact-sidebar lg:col-span-4 space-y-8">
 <div class="scroll-reveal">
 <h2 class="font-headline-md text-headline-md mb-8 text-on-surface">Canales de Atención</h2>
-<div class="space-y-8">
-<div class="flex gap-6 group">
-<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-lg flex items-center justify-center text-primary border border-outline-variant/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+<div class="contact-channel-list">
+<a class="contact-channel-card group" style="--channel-rgb: 249 115 22;" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Oscar%20R.%20Benavides%20282%2C%20Cercado%20de%20Lima%2C%20Per%C3%BA" target="_blank" rel="noopener" aria-label="Abrir ubicación principal en Google Maps">
+<span class="contact-channel-icon" aria-hidden="true">
 <span class="material-symbols-outlined">location_on</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-primary mb-1">UBICACIÓN PRINCIPAL</p>
-<p class="font-body-md text-on-surface">Av. Oscar R. Benavides 282,<br/>Cercado de Lima, Perú</p>
-</div>
-</div>
-<div class="flex gap-6 group">
-<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-lg flex items-center justify-center text-primary border border-outline-variant/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
-<span class="material-symbols-outlined">phone_iphone</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-primary mb-1">WHATSAPP DIRECTO</p>
-<p class="font-body-md text-on-surface">+51 987 654 321</p>
-<p class="font-body-md text-on-surface">+51 912 345 678</p>
-</div>
-</div>
-<div class="flex gap-6 group">
-<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-lg flex items-center justify-center text-primary border border-outline-variant/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+</span>
+<span>
+<span class="font-label-caps text-label-caps contact-channel-label block mb-2">UBICACIÓN PRINCIPAL</span>
+<span class="font-body-md text-on-surface block">Av. Oscar R. Benavides 282,<br/>Cercado de Lima, Perú</span>
+</span>
+<span class="material-symbols-outlined contact-channel-arrow" aria-hidden="true">chevron_right</span>
+</a>
+<a class="contact-channel-card group" style="--channel-rgb: 34 197 94;" href="https://wa.me/51998265837?text=Hola%20Industriales%20El%C3%A9ctricos%20S%26M%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+<span class="contact-channel-icon" aria-hidden="true">
+<svg viewBox="0 0 32 32" fill="none">
+<path d="M16 3.4A12.4 12.4 0 0 0 5.4 22.2L4 28l5.9-1.5A12.4 12.4 0 1 0 16 3.4Z" fill="currentColor"/>
+<path d="M22.7 18.9c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.5-.5-2.8-1.7-1-.9-1.7-2-1.9-2.4-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2.1-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.4 3.6 1.6 3.9c.2.2 2.7 4.1 6.6 5.7.9.4 1.6.6 2.2.8.9.3 1.7.2 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.3-.3-.4-.7-.6Z" fill="#0c0e11"/>
+</svg>
+</span>
+<span>
+<span class="font-label-caps text-label-caps contact-channel-label block mb-2">WHATSAPP DIRECTO</span>
+<span class="font-body-md text-on-surface block">+51 987 654 321</span>
+<span class="font-body-md text-on-surface block">+51 912 345 678</span>
+</span>
+<span class="material-symbols-outlined contact-channel-arrow" aria-hidden="true">chevron_right</span>
+</a>
+<a class="contact-channel-card group" style="--channel-rgb: 14 165 233;" href="mailto:ochoa@smindustrial.com.pe" aria-label="Enviar correo corporativo">
+<span class="contact-channel-icon" aria-hidden="true">
 <span class="material-symbols-outlined">mail</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-primary mb-1">CORREO CORPORATIVO</p>
-<p class="font-body-md text-on-surface">ochoa@smindustrial.com.pe</p>
-<p class="font-body-md text-on-surface">ochoa@smindustrial.com.pe</p>
-</div>
-</div>
-<div class="flex gap-6 group">
-<div class="w-12 h-12 flex-shrink-0 bg-surface-container-high rounded-lg flex items-center justify-center text-primary border border-outline-variant/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+</span>
+<span>
+<span class="font-label-caps text-label-caps contact-channel-label block mb-2">CORREO CORPORATIVO</span>
+<span class="font-body-md text-on-surface block">ochoa@smindustrial.com.pe</span>
+<span class="font-body-md text-on-surface block">ochoa@smindustrial.com.pe</span>
+</span>
+<span class="material-symbols-outlined contact-channel-arrow" aria-hidden="true">chevron_right</span>
+</a>
+<a class="contact-channel-card group" style="--channel-rgb: 242 202 80;" href="#quote-form" aria-label="Ir al formulario de cotización">
+<span class="contact-channel-icon" aria-hidden="true">
 <span class="material-symbols-outlined">schedule</span>
-</div>
-<div>
-<p class="font-label-caps text-label-caps text-primary mb-1">HORARIO DE OFICINA</p>
-<p class="font-body-md text-on-surface">Lun - Vie: 8:00 AM - 6:00 PM</p>
-<p class="font-body-md text-on-surface">Sáb: 9:00 AM - 1:00 PM</p>
-</div>
-</div>
+</span>
+<span>
+<span class="font-label-caps text-label-caps contact-channel-label block mb-2">HORARIO DE OFICINA</span>
+<span class="font-body-md text-on-surface block">Lun - Vie: 8:00 AM - 6:00 PM</span>
+<span class="font-body-md text-on-surface block">Sáb: 9:00 AM - 1:00 PM</span>
+</span>
+<span class="material-symbols-outlined contact-channel-arrow" aria-hidden="true">chevron_right</span>
+</a>
 </div>
 </div>
 <!-- Office Humanism Image -->
@@ -222,7 +451,7 @@
 </div>
 <!-- Contact Form Container -->
 <div class="lg:col-span-8">
-<div class="glass-panel p-8 md:p-12 rounded-xl glow-hover scroll-reveal transition-all">
+<div class="contact-form-panel glass-panel p-8 md:p-12 rounded-xl glow-hover scroll-reveal transition-all">
 <h3 class="font-headline-md text-headline-md mb-8 text-on-surface">Solicitud de Cotización</h3>
 <form class="space-y-6" id="quote-form">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -271,19 +500,25 @@
 </div>
 </section>
 <!-- Map Section -->
-<section class="w-full h-[500px] relative scroll-reveal">
-<div class="absolute inset-0 bg-surface-container-low grayscale opacity-40 hover:opacity-100 transition-opacity duration-1000" id="map-container">
-<!-- Location placeholder for interactive map logic -->
-<div class="w-full h-full bg-surface-dim flex items-center justify-center border-y border-outline-variant/20 overflow-hidden">
-<img class="w-full h-full object-cover mix-blend-luminosity" data-alt="A stylized aerial map view of an industrial district in Lima, processed with a dark professional aesthetic and gold markers for location points. The image uses high contrast and deep blacks, consistent with a high-end engineering brand's visual identity." data-location="Cercado de Lima" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsDer841vxRR3sSm-tNzKTyIEV2o8yoKx_0YgLAP7P-TCPlP52DxDk_iIrfK1mYF099iCDtpRyQOxJ4i35orwDU9_Sie3PZfgjvB6iVQm3GZU6Es79Qx1Nfzm5ixjoaOcyQJ6BkLXxcwRFxX7vYEl5ZaCIIG1Kq9W3-MbhJS3f7LsWA5lrqB4DHfyVmI_dsyA7wwUtU3m00BJqvVb4eKIN9CdvVM_Hvc7zTX3NlQGSMJ7MthMGJWRvRVFi6Bqo7HilWBSqLmMMx5vb"/>
-<div class="absolute z-10 flex flex-col items-center">
-<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center animate-bounce shadow-2xl shadow-primary/50">
-<span class="material-symbols-outlined text-on-primary text-3xl">location_on</span>
+<section class="sm-location-section" id="ubicacion" aria-labelledby="location-title">
+<div class="sm-location-shell">
+<div class="sm-location-copy">
+<span class="sm-location-eyebrow">NUESTRA SEDE CENTRAL</span>
+<h2 id="location-title">Elige c&oacute;mo llegar</h2>
+<p>Av. Oscar R. Benavides 282, Cercado de Lima, Per&uacute;.</p>
+<div class="sm-location-actions" aria-label="Opciones para abrir ruta">
+<a class="sm-location-btn sm-location-btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Oscar%20R.%20Benavides%20282%2C%20Cercado%20de%20Lima%2C%20Per%C3%BA" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" aria-hidden="true">map</span>
+Abrir en Google Maps
+</a>
+<a class="sm-location-btn" href="https://www.waze.com/ul?q=Av.%20Oscar%20R.%20Benavides%20282%2C%20Cercado%20de%20Lima%2C%20Peru&amp;navigate=yes" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" aria-hidden="true">near_me</span>
+Abrir en Waze
+</a>
 </div>
-<div class="mt-4 glass-panel px-6 py-3 rounded-lg border border-primary/20">
-<p class="font-label-caps text-label-caps text-on-surface text-center">NUESTRA SEDE CENTRAL</p>
 </div>
-</div>
+<div class="sm-map-card" id="map-container">
+<iframe title="Mapa de Industriales El&eacute;ctricos S&amp;M en Av. Oscar R. Benavides 282, Cercado de Lima" src="https://maps.google.com/maps?hl=es&amp;q=Av.%20Oscar%20R.%20Benavides%20282%2C%20Cercado%20de%20Lima%2C%20Per%C3%BA&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" loading="eager" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
 </div>
 </div>
 </section>
@@ -391,15 +626,15 @@
         const formInputs = document.querySelectorAll('input, select, textarea');
         formInputs.forEach(input => {
             input.addEventListener('focus', () => {
-                input.parentElement.querySelector('label')?.classList.add('text-primary');
+                input.parentElement.querySelector('label').classList.add('text-primary');
             });
             input.addEventListener('blur', () => {
-                input.parentElement.querySelector('label')?.classList.remove('text-primary');
+                input.parentElement.querySelector('label').classList.remove('text-primary');
             });
         });
 
         const quoteForm = document.getElementById('quote-form');
-        quoteForm?.addEventListener('submit', (e) => {
+        quoteForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const data = new FormData(quoteForm);
             const body = [
@@ -411,7 +646,7 @@
                 '',
                 `Detalle: ${data.get('detalle') || ''}`
             ].join('\n');
-            window.location.href = `mailto:ochoa@smindustrial.com.pe?subject=${encodeURIComponent('Solicitud de cotización web')}&body=${encodeURIComponent(body)}`;
+            window.location.href = `mailto:ochoa@smindustrial.com.pesubject=${encodeURIComponent('Solicitud de cotización web')}&body=${encodeURIComponent(body)}`;
         });
     </script>
 <script src="assets/js/premium-polish.js"></script>

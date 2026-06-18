@@ -1,483 +1,815 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="es"><head>
+<html class="dark" lang="es">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Industriales El&eacute;ctricos S&M | Soluciones de Precisi&oacute;n</title>
+<title>Inicio | Industriales Eléctricos S&amp;M</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "secondary-fixed": "#ffdf9e",
-                    "surface-container-low": "#1a1c1f",
-                    "tertiary": "#cdced7",
-                    "surface-container-lowest": "#0c0e11",
-                    "on-secondary": "#3f2e00",
-                    "on-secondary-container": "#6a4e00",
-                    "surface-variant": "#333538",
-                    "on-surface-variant": "#d0c5af",
-                    "on-error": "#690005",
-                    "surface-container": "#1e2023",
-                    "outline-variant": "#4d4635",
-                    "secondary-fixed-dim": "#fabd00",
-                    "surface": "#111317",
-                    "on-tertiary-container": "#42454c",
-                    "inverse-surface": "#e2e2e6",
-                    "surface-tint": "#e9c349",
-                    "tertiary-container": "#b1b3bb",
-                    "secondary": "#ffdf9e",
-                    "tertiary-fixed-dim": "#c4c6ce",
-                    "on-secondary-fixed-variant": "#5b4300",
-                    "inverse-primary": "#735c00",
-                    "surface-container-high": "#282a2d",
-                    "on-tertiary": "#2d3037",
-                    "on-surface": "#e2e2e6",
-                    "secondary-container": "#fabd00",
-                    "inverse-on-surface": "#2f3034",
-                    "on-tertiary-fixed": "#191c22",
-                    "primary": "#f2ca50",
-                    "tertiary-fixed": "#e1e2ea",
-                    "on-secondary-fixed": "#261a00",
-                    "outline": "#99907c",
-                    "on-background": "#e2e2e6",
-                    "on-primary-container": "#554300",
-                    "on-primary": "#3c2f00",
-                    "background": "#111317",
-                    "error-container": "#93000a",
-                    "surface-container-highest": "#333538",
-                    "surface-dim": "#111317",
-                    "primary-fixed": "#ffe088",
-                    "on-primary-fixed-variant": "#574500",
-                    "on-error-container": "#ffdad6",
-                    "primary-container": "#d4af37",
-                    "surface-bright": "#37393d",
-                    "primary-fixed-dim": "#e9c349",
-                    "error": "#ffb4ab",
-                    "on-primary-fixed": "#241a00",
-                    "on-tertiary-fixed-variant": "#44474d"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "margin-desktop": "80px",
-                    "container-max": "1440px",
-                    "section-gap": "160px",
-                    "gutter": "32px",
-                    "margin-tablet": "40px",
-                    "margin-mobile": "20px"
-            },
-            "fontFamily": {
-                    "headline-md": ["Hanken Grotesk"],
-                    "body-md": ["Manrope"],
-                    "label-caps": ["JetBrains Mono"],
-                    "display-lg-mobile": ["Hanken Grotesk"],
-                    "display-lg": ["Hanken Grotesk"],
-                    "body-lg": ["Manrope"]
-            },
-            "fontSize": {
-                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
-                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                    "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
-            }
-          },
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "secondary-fixed": "#ffdf9e",
+          "surface-container-low": "#1a1c1f",
+          "tertiary": "#cdced7",
+          "surface-container-lowest": "#0c0e11",
+          "on-secondary": "#3f2e00",
+          "on-secondary-container": "#6a4e00",
+          "surface-variant": "#333538",
+          "on-surface-variant": "#d0c5af",
+          "surface-container": "#1e2023",
+          "outline-variant": "#4d4635",
+          "secondary-fixed-dim": "#fabd00",
+          "surface": "#111317",
+          "on-surface": "#e2e2e6",
+          "secondary-container": "#fabd00",
+          "on-primary": "#3c2f00",
+          "background": "#111317",
+          "primary": "#f2ca50",
+          "primary-fixed": "#ffe088",
+          "outline": "#99907c"
         },
+        spacing: {
+          "margin-desktop": "80px",
+          "container-max": "1440px",
+          "margin-mobile": "20px"
+        },
+        fontFamily: {
+          "headline-md": ["Hanken Grotesk", "Arial", "sans-serif"],
+          "body-md": ["Manrope", "Arial", "sans-serif"],
+          "label-caps": ["JetBrains Mono", "monospace"],
+          "display-lg": ["Hanken Grotesk", "Arial", "sans-serif"]
+        }
       }
-    </script>
-
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    }
+  };
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/premium-polish.css?v=navfixed-20260617" rel="stylesheet"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        
-        .glass-nav {
-            background: rgba(17, 19, 23, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    line-height: 1;
+  }
 
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+  .home-hero {
+    position: relative;
+    min-height: clamp(500px, 64vh, 620px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 112px 0 74px;
+    background: #0c0e11;
+    border-bottom: 1px solid rgba(242, 202, 80, 0.14);
+    isolation: isolate;
+  }
 
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  .home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.82), transparent 72%);
+  }
 
-        .glow-hover:hover {
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
-        }
+  .home-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 1;
+    width: min(58vw, 720px);
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 18% 42%, rgba(242, 202, 80, 0.10), transparent 34%),
+      linear-gradient(90deg, rgba(9, 10, 12, 0.78), rgba(9, 10, 12, 0));
+  }
 
-        .ease-out-expo {
-            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-        }
+  .home-hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: #0c0e11;
+  }
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
-        }
+  .home-hero-bg img,
+  .home-hero-bg video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    image-rendering: auto;
+    filter: brightness(0.92) contrast(1.04) saturate(1.03);
+    transform: none;
+    transition: opacity 1400ms ease, filter 1400ms ease;
+    will-change: opacity;
+  }
 
-        .industrial-card {
-            background: #1A1D23;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease-out-expo;
-        }
+  .home-hero-bg video {
+    object-fit: contain;
+    object-position: center right;
+    background:
+      radial-gradient(circle at 72% 46%, rgba(242, 202, 80, 0.08), transparent 30%),
+      #0c0e11;
+    filter: brightness(0.96) contrast(1.02) saturate(1.05);
+  }
 
-        .industrial-card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-4px);
-        }
+  .home-hero-bg img.is-active,
+  .home-hero-bg video.is-active {
+    opacity: 1;
+    transform: none;
+  }
 
-        #scroll-progress {
-            transform-origin: 0% 50%;
-        }
-    </style>
-<style id="sm-import-fixes">
+  .home-hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(9, 10, 12, 0.96) 0%, rgba(9, 10, 12, 0.72) 42%, rgba(9, 10, 12, 0.12) 72%, rgba(9, 10, 12, 0.48) 100%),
+      linear-gradient(180deg, rgba(9, 10, 12, 0.34) 0%, rgba(9, 10, 12, 0.08) 48%, rgba(9, 10, 12, 0.86) 100%);
+  }
+
+  .home-hero-panel {
+    position: relative;
+    z-index: 2;
+    max-width: 560px;
+    padding-left: 22px;
+  }
+
+  .home-hero-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 2px;
+    height: 224px;
+    background: linear-gradient(180deg, rgba(242, 202, 80, 0), #f2ca50 18%, rgba(242, 202, 80, 0.7) 72%, rgba(242, 202, 80, 0));
+  }
+
+  .home-hero-slider-copy {
+    position: relative;
+    min-height: 284px;
+    max-width: 540px;
+  }
+
+  .home-hero-slide {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    max-width: 540px;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(18px);
+    pointer-events: none;
+    transition: opacity 900ms ease, transform 900ms ease;
+  }
+
+  .home-hero-slide.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .home-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 13px;
+    color: #f2ca50;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .home-hero-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .home-hero-heading {
+    max-width: 540px;
+    margin: 0 0 16px;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
+    font-size: clamp(34px, 3.55vw, 52px);
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: 0;
+    color: #f5f5f6;
+    text-shadow: 0 18px 34px rgba(0, 0, 0, 0.42);
+  }
+
+  .home-hero-heading .accent {
+    color: #f2ca50;
+  }
+
+  .home-hero-description {
+    max-width: 500px;
+    margin: 0 0 24px;
+    color: rgba(255, 248, 230, 0.88);
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.72;
+  }
+
+  .home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .home-hero-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 20px;
+    border: 1px solid rgba(242, 202, 80, 0.64);
+    background: #f2ca50;
+    color: #201801;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+
+  .home-hero-actions a:hover {
+    transform: translateY(-2px);
+    background: #ffe08a;
+  }
+
+  .home-hero-actions a.secondary {
+    background: rgba(11, 13, 15, 0.35);
+    color: #fff3d4;
+    border-color: rgba(255, 243, 212, 0.5);
+  }
+
+  .home-hero-actions a.secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(242, 202, 80, 0.9);
+  }
+
+  @media (max-width: 767px) {
+    .home-hero {
+      min-height: auto;
+      padding: 106px 0 50px;
+    }
+
+    .home-hero-panel {
+      padding-left: 16px;
+    }
+
+    .home-hero-panel::before {
+      height: 248px;
+    }
+
+    .home-hero-slider-copy {
+      min-height: 342px;
+    }
+
+    .home-hero-heading {
+      font-size: 34px;
+    }
+
+    .home-hero-description {
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .home-hero-actions a {
+      width: 100%;
+    }
+  }
+
+  .home-service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .home-service-card {
+    position: relative;
+    flex: 0 1 100%;
+    height: 245px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(242, 202, 80, 0.12), transparent 34%),
+      linear-gradient(145deg, rgba(30, 32, 35, 0.96), rgba(12, 14, 17, 0.98));
+    border: 1px solid rgba(242, 202, 80, 0.16);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  }
+
+  @media (min-width: 640px) {
+    .home-service-card {
+      flex-basis: calc((100% - 16px) / 2);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .home-service-card {
+      flex-basis: calc((100% - 48px) / 4);
+    }
+  }
+
+  .home-service-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(242, 202, 80, 0.5);
+    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.34);
+    background:
+      radial-gradient(circle at 12% 0%, rgba(242, 202, 80, 0.2), transparent 36%),
+      linear-gradient(145deg, rgba(36, 38, 42, 0.98), rgba(12, 14, 17, 0.98));
+  }
+
+  .home-service-card img {
+    transition: transform 0.55s ease;
+  }
+
+  .home-service-card:hover img {
+    transform: scale(1.055);
+  }
+
+  .home-service-card::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f2ca50, rgba(242, 202, 80, 0));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .home-service-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .service-media {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .service-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1.08) contrast(1.04) saturate(1.06);
+  }
+
+  .service-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(12, 14, 17, 0.06) 0%, rgba(12, 14, 17, 0.02) 38%, rgba(12, 14, 17, 0.16) 100%);
+  }
+
+  .home-service-card .p-6 {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    bottom: auto;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(21, 23, 26, 0.76), rgba(49, 51, 56, 0.58));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateY(0);
+    transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+  }
+
+  .home-service-card:hover .p-6 {
+    transform: translateY(0);
+    border-color: rgba(242, 202, 80, 0.28);
+    background: linear-gradient(145deg, rgba(18, 20, 23, 0.86), rgba(55, 57, 61, 0.68));
+  }
+
+  .home-service-card:has(.service-media:hover) .p-6 {
+    transform: translateY(0);
+    border-color: rgba(242, 202, 80, 0.28);
+    background: linear-gradient(145deg, rgba(18, 20, 23, 0.86), rgba(55, 57, 61, 0.68));
+  }
+
+  .home-service-card h3 {
+    font-size: 18px !important;
+    line-height: 1.18 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .home-service-card p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, max-height 0.35s ease, margin-top 0.3s ease, transform 0.3s ease;
+  }
+
+  .home-service-card:hover p {
+    max-height: 130px;
+    opacity: 1;
+    margin-top: 12px;
+    transform: translateY(0);
+  }
+
+  .home-service-card:has(.service-media:hover) p {
+    max-height: 130px;
+    opacity: 1;
+    margin-top: 12px;
+    transform: translateY(0);
+  }
+
+  .service-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #f2ca50;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .service-chip::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: #f2ca50;
+  }
+
+  .work-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border: 1px solid rgba(242, 202, 80, 0.16);
+    background: #111317;
+  }
+
+  .work-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.65s ease, filter 0.65s ease;
+  }
+
+  .work-card:hover img {
+    transform: scale(1.06);
+    filter: saturate(1.08) contrast(1.05);
+  }
+
+  .work-card span {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    padding: 8px 10px;
+    background: rgba(12, 14, 17, 0.76);
+    border: 1px solid rgba(242, 202, 80, 0.24);
+    color: #f2ca50;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #servicios-inicio {
+    background:
+      linear-gradient(180deg, rgba(17, 19, 23, 0.98), rgba(12, 14, 17, 1)),
+      radial-gradient(circle at 75% 0%, rgba(242, 202, 80, 0.1), transparent 36%);
+  }
+
+  #servicios-inicio {
+    padding-top: 52px;
+    padding-bottom: 58px;
+  }
+
+  #servicios-inicio h2,
+  #servicios-inicio h3 {
+    color: #f1f1f4;
+  }
+
+  #servicios-inicio p {
+    color: rgba(226, 226, 230, 0.84);
+  }
+
+  #trabajos-inicio {
+    padding-top: 52px;
+    padding-bottom: 58px;
+  }
+
+  #trabajos-inicio .work-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @media (max-width: 1023px) {
+    #trabajos-inicio .work-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    #trabajos-inicio .work-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .home-service-row {
+    display: grid;
+    grid-template-columns: 84px minmax(150px, 0.7fr) minmax(260px, 1.8fr);
+    gap: 18px;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid rgba(242, 202, 80, 0.14);
+    background: linear-gradient(145deg, rgba(30, 32, 35, 0.9), rgba(12, 14, 17, 0.94));
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .home-service-row:hover {
+    transform: translateX(4px);
+    border-color: rgba(242, 202, 80, 0.42);
+    background: linear-gradient(145deg, rgba(36, 38, 42, 0.96), rgba(12, 14, 17, 0.96));
+  }
+
+  .home-service-row img {
+    width: 84px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 767px) {
+    .home-service-row {
+      grid-template-columns: 72px 1fr;
+      gap: 12px;
+    }
+
+    .home-service-row img {
+      width: 72px;
+      height: 58px;
+    }
+
+    .home-service-row p {
+      grid-column: 1 / -1;
+    }
+  }
+
   .sm-nav-scroll { scrollbar-width: none; -ms-overflow-style: none; }
   .sm-nav-scroll::-webkit-scrollbar { display: none; }
-  @media (max-width: 767px) { header[id] .font-label-caps { font-size: 11px; } }
+
+  @media (max-width: 767px) {
+    header[id] .font-label-caps { font-size: 11px; }
+  }
 </style>
-<link href="assets/css/premium-polish.css" rel="stylesheet"/>
 </head>
-<body data-page="inicio" class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
-<!-- Scroll Progress -->
+<body data-page="inicio" class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
 <div class="fixed top-0 left-0 w-full h-[2px] bg-primary z-[60] scale-x-0" id="scroll-progress"></div>
-<!-- Navigation -->
-<header class="fixed top-0 w-full z-50 bg-surface/85 dark:bg-surface/85 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm transition-all duration-300 h-20" id="top-nav">
+
+<header class="fixed top-0 w-full z-50 bg-surface/88 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm transition-all duration-300 h-20" id="top-nav">
   <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center gap-5">
-    <a class="flex items-center gap-3 shrink-0 group" href="index.html" aria-label="Industriales El&eacute;ctricos S&M">
+    <a class="flex items-center gap-3 shrink-0 group" href="index.html" aria-label="Industriales Eléctricos S&M">
       <span class="sm-brand-mark" aria-hidden="true"><img src="assets/img/sm-brand-logo.png" alt=""/></span>
       <span class="sm-brand-copy hidden sm:flex">
-        <strong class="block font-headline-md text-lg text-on-surface">Industriales El&eacute;ctricos S&amp;M</strong>
+        <strong class="block font-headline-md text-lg text-on-surface">Industriales Eléctricos S&amp;M</strong>
       </span>
     </a>
-    <nav class="sm-nav-scroll flex-1 flex items-center justify-start lg:justify-end gap-5 overflow-x-auto whitespace-nowrap" aria-label="Men&uacute; principal">
-<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1 shrink-0" href="index.html">Inicio</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="nosotros.html">Nosotros</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="por-que-elegirnos.html">Por qu&eacute; elegirnos</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="servicios.html">Servicios y soluciones</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="marcas.html">Marcas</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="preguntas.html">Preguntas frecuentes</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="contacto.html">Contacto</a>
+    <nav class="sm-nav-scroll flex-1 flex items-center justify-start lg:justify-end gap-5 overflow-x-auto whitespace-nowrap" aria-label="Menú principal">
+      <a class="font-label-caps text-label-caps text-primary font-bold shrink-0" href="index.html">Inicio</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="nosotros.html">Nosotros</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="por-que-elegirnos.html">Por qué elegirnos</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="servicios.html">Servicios y soluciones</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="marcas.html">Marcas</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="preguntas.html">Preguntas frecuentes</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="contacto.html">Contacto</a>
     </nav>
   </div>
 </header>
-<!-- Hero Section -->
-<section class="relative h-screen min-h-[700px] flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover" data-alt="A cinematic, high-quality wide shot of a professional female electrical engineer and a male technician collaborating over an open industrial control panel in a modern, clean manufacturing facility. The scene is illuminated by dramatic yet professional lighting that highlights the intricate wiring and gold-toned electrical components. The overall aesthetic is dark and sophisticated, featuring deep midnight blues and charcoal greys with sharp golden-amber accents reflecting from the machinery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY6qwsRWc5GxEfTDqIrON-p14UUwggxuq_Kf3iEYuQDnUJFO9apy36oLCKYufobn7F_CmMH_jm14XXxuI9xgLsOtmi197TNqjTKirHA_LxApgKmPzsVBTrcACwwvkWvq-1JQpNwKsxpiSkskjB4lYECHGPYV5KSn5IBnzB0rjbitmozSuohF2fGRcXkw1zX5FRjx0aSjet0APn9xo3TtJUaMRfLJXsYtwNhIloIAT8JBjvB3zdo8mYEUh1RwXQUJ0uqoFYkS6CJhui"/>
-<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
-</div>
-<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
-<div class="max-w-3xl scroll-reveal active">
-<span class="inline-block py-1 px-3 bg-primary/10 border border-primary/20 text-primary font-label-caps text-label-caps mb-6">
-                    EXCELENCIA EN INGENIERÍA ELÉCTRICA
-                </span>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-none">
-                    Soluciones <span class="text-primary italic">eléctricas</span> industriales a medida.
-                </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
-                    Especialistas en automatización, fabricación de tableros eléctricos y sistemas de potencia. Elevamos la eficiencia de su industria con tecnología de vanguardia y precisión humana.
-                </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<a href="servicios.html" class="bg-primary hover:bg-secondary-container text-on-primary px-8 py-4 font-label-caps text-label-caps font-bold transition-all duration-300 glow-hover flex items-center justify-center gap-2 group">
-                        EXPLORAR SOLUCIONES
-                        <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-<a href="index.html#proyectos" class="border border-outline hover:bg-surface-bright/20 text-on-surface px-8 py-4 font-label-caps text-label-caps font-bold transition-all duration-300 flex items-center justify-center">
-                        NUESTROS PROYECTOS
-                    </a>
-</div>
-</div>
-</div>
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-on-surface-variant opacity-50">
-<span class="font-label-caps text-[10px]">SCROLL</span>
-<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
-</div>
-</section>
-<!-- Why Choose Us / Trust Section -->
-<section class="py-section-gap bg-surface relative overflow-hidden" id="nosotros">
-<div class="max-w-container-max mx-auto px-margin-desktop">
-<div class="grid lg:grid-cols-2 gap-gutter items-center">
-<div class="scroll-reveal">
-<h2 class="font-headline-md text-headline-md mb-8">
-                        Ingeniería con <span class="text-primary">visión humana</span> y rigor industrial.
-                    </h2>
-<p class="text-on-surface-variant mb-12">
-                        En Industriales Eléctricos S&amp;M, no solo instalamos cables; diseñamos el sistema circulatorio de su producción. Con más de una década en el mercado peruano, hemos perfeccionado el equilibrio entre la robustez técnica y la atención personalizada.
-                    </p>
-<div class="grid grid-cols-2 gap-8">
-<div>
-<div class="text-primary font-display-lg text-4xl mb-2">12+</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">AÑOS DE EXPERIENCIA</div>
-</div>
-<div>
-<div class="text-primary font-display-lg text-4xl mb-2">500+</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">PROYECTOS EJECUTADOS</div>
-</div>
-<div>
-<div class="text-primary font-display-lg text-4xl mb-2">100%</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">CUMPLIMIENTO NORMATIVO</div>
-</div>
-<div>
-<div class="text-primary font-display-lg text-4xl mb-2">24/7</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">SOPORTE TÉCNICO</div>
-</div>
-</div>
-</div>
-<div class="relative scroll-reveal">
-<div class="aspect-square relative rounded-2xl overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up, high-detail photograph of a skilled electrical worker wearing a clean branded uniform, precisely adjusting components inside a complex industrial breaker panel. The image has a shallow depth of field, focusing on the worker's hands and the vibrant amber and yellow wiring labels. The background shows a soft-focus industrial setting with warm, golden accent lighting and cool charcoal shadows, emphasizing a premium and safe working environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAMhm4GUvbL_Z3thkDq4Z2FDW8uon0hO7MKQxrydBUnJ7Hl9FDAT2NKSJKzBWCtsgGgLiZAkniWKLEpgKXwesKR-WxPKRic2-_wgf42bGx0TBPl-JRUyWYaMlykG9iR4qsFXB7ZeiUaa50ZwTUAV_hLt73vdkhWvwsvCf5uki_wev12Udq_AF9pvj6pSVTlezlSSNiEbpm5br2r7xcXOYvC-_2M978b-gtrwb6CpJS-TMio-aIIOEFEeMXqL3BYRkRqQD72fUQs1xJ"/>
-<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
-</div>
-<!-- Decorative element -->
-<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 blur-3xl rounded-full"></div>
-</div>
-</div>
-</div>
-</section>
-<!-- Servicios Bento Grid -->
-<section class="py-section-gap bg-surface-container-lowest" id="servicios">
-<div class="max-w-container-max mx-auto px-margin-desktop">
-<div class="text-center max-w-2xl mx-auto mb-20 scroll-reveal">
-<span class="font-label-caps text-label-caps text-primary mb-4 block">PORTAFOLIO TÉCNICO</span>
-<h2 class="font-headline-md text-headline-md mb-6">Servicios Especializados de Alto Impacto</h2>
-<p class="text-on-surface-variant">Soluciones integrales diseñadas para maximizar la continuidad operativa y la seguridad de su infraestructura eléctrica.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<div class="industrial-card p-10 flex flex-col scroll-reveal">
-<span class="material-symbols-outlined text-primary text-4xl mb-6">settings_input_component</span>
-<h3 class="font-headline-md text-2xl mb-4">Fabricación de Tableros</h3>
-<p class="text-on-surface-variant mb-8 flex-grow text-sm leading-relaxed">
-                        Diseño y ensamblaje de tableros eléctricos a medida: distribución, transferencia automática, y centros de control de motores (CCM) bajo normas IEC/NEMA.
-                    </p>
-<a class="text-primary font-label-caps text-label-caps flex items-center gap-2 group" href="contacto.html">
-                        DETALLES TÉCNICOS 
-                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-<!-- Card 2 -->
-<div class="industrial-card p-10 flex flex-col scroll-reveal" style="transition-delay: 100ms;">
-<span class="material-symbols-outlined text-primary text-4xl mb-6">bolt</span>
-<h3 class="font-headline-md text-2xl mb-4">Sistemas de Potencia</h3>
-<p class="text-on-surface-variant mb-8 flex-grow text-sm leading-relaxed">
-                        Instalación y mantenimiento de subestaciones, transformadores y bancos de condensadores para optimización del factor de potencia.
-                    </p>
-<a class="text-primary font-label-caps text-label-caps flex items-center gap-2 group" href="contacto.html">
-                        DETALLES TÉCNICOS 
-                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-<!-- Card 3 -->
-<div class="industrial-card p-10 flex flex-col scroll-reveal" style="transition-delay: 200ms;">
-<span class="material-symbols-outlined text-primary text-4xl mb-6">precision_manufacturing</span>
-<h3 class="font-headline-md text-2xl mb-4">Automatización</h3>
-<p class="text-on-surface-variant mb-8 flex-grow text-sm leading-relaxed">
-                        Integración de PLC, HMI y variadores de frecuencia para procesos industriales inteligentes y monitoreo en tiempo real.
-                    </p>
-<a class="text-primary font-label-caps text-label-caps flex items-center gap-2 group" href="contacto.html">
-                        DETALLES TÉCNICOS 
-                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-<!-- Card 4 - Larger -->
-<div class="industrial-card md:col-span-2 p-10 flex flex-col md:flex-row gap-8 scroll-reveal">
-<div class="flex-1">
-<span class="material-symbols-outlined text-primary text-4xl mb-6">construction</span>
-<h3 class="font-headline-md text-2xl mb-4">Mantenimiento Predictivo</h3>
-<p class="text-on-surface-variant mb-8 text-sm leading-relaxed">
-                            Análisis termográfico, medición de pozos a tierra y pruebas de aislamiento para prevenir paradas no programadas en su planta.
-                        </p>
-<ul class="space-y-3 mb-8">
-<li class="flex items-center gap-2 text-xs font-label-caps"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> TERMOGRAFÍA INFRARROJA</li>
-<li class="flex items-center gap-2 text-xs font-label-caps"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> ANÁLISIS DE REDES</li>
-</ul>
-</div>
-<div class="flex-1 rounded-xl overflow-hidden min-h-[200px]">
-<img class="w-full h-full object-cover" data-alt="A professional technician using a high-end thermal imaging camera to inspect a large industrial electrical panel. The screen of the camera displays vibrant heat signatures of wires and breakers in shades of purple and orange. The surrounding factory environment is dimly lit with cool blue and charcoal tones, emphasizing the precision and high-tech nature of the maintenance work. The style is premium industrial B2B, clean and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvPCxRZctCqxynx8kPC9gyMgH2aLD1HI37RG9a8xpgHpwiQv3vk1XXjxDMxqRjzn9zadJG4f-wDkO4TdUzbJnbYvmnndigzNaDxTXWw_qWVeEj2IS6I1JWIddPBZjB-wv_DfH9sW3la0c3Oq7YcbvaDD5F-bBmw9CLYDz1Dc7OegNWgN21ngNJWqg_1xA0Y1P5Qz06N-yMP28LhgB9KzHwTEHSX2HlVfPF1uGGBP7vx61ty7JZIldVf7fghLeYYbok0g7m6lXvub9O"/>
-</div>
-</div>
-<!-- Card 5 -->
-<div class="industrial-card p-10 flex flex-col scroll-reveal">
-<span class="material-symbols-outlined text-primary text-4xl mb-6">support_agent</span>
-<h3 class="font-headline-md text-2xl mb-4">Asesoría Técnica</h3>
-<p class="text-on-surface-variant mb-8 flex-grow text-sm leading-relaxed">
-                        Consultoría para proyectos de eficiencia energética y cumplimiento de normativas de seguridad eléctrica nacional e internacional.
-                    </p>
-<a class="text-primary font-label-caps text-label-caps flex items-center gap-2 group" href="contacto.html">
-                        INICIAR CONSULTA
-                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Project Highlight -->
-<section class="py-section-gap bg-surface overflow-hidden" id="proyectos">
-<div class="max-w-container-max mx-auto px-margin-desktop">
-<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 scroll-reveal">
-<div class="max-w-xl">
-<span class="font-label-caps text-label-caps text-primary mb-4 block">CASOS DE ÉXITO</span>
-<h2 class="font-headline-md text-headline-md">Soluciones reales para industrias líderes.</h2>
-</div>
-<a href="index.html#proyectos" class="border-b border-primary text-primary font-label-caps text-label-caps pb-1 hover:text-on-surface hover:border-on-surface transition-all inline-flex items-center justify-center">VER TODOS LOS PROYECTOS</a>
-</div>
-<div class="relative scroll-reveal">
-<div class="flex gap-gutter overflow-x-auto pb-10 snap-x no-scrollbar">
-<div class="min-w-[320px] md:min-w-[600px] snap-start group cursor-pointer">
-<div class="aspect-[16/9] overflow-hidden rounded-xl mb-6">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide, sweeping shot of a large-scale industrial facility interior at night, showing a complex network of overhead electrical conduits and brilliantly lit workstations. The lighting is crisp and modern, featuring a mix of cool white LEDs and warm amber glow from the machinery. The atmosphere is professional, orderly, and high-tech, showcasing the scale of an electrical installation project in a premier B2B industrial context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSCiebhtixDzZxZFrdxi_2sSJ1Np6F7cZrlwLSOpx65vvdPkQmAKtlAgyWVzyw8RLjVbi8-KFLzpgt3qoEwwFQjNjgfu4dkp4mnlSyjJGRhZEg_j8k34WeUnme8k5MYNqpOGhTrSJ8li4XUj6QM2ofmzjp5zLDBrrJV97o-qnsEIvvXTd1-CgthNH_U-t1EhFICIvfXaH27mCIiakm6BijNZY1yparIWuH8_v6ApPs6tl3Rm3DqAouU8UqoG_l--lNEDhjUkMa7v0X"/>
-</div>
-<div class="flex justify-between items-start">
-<div>
-<h4 class="font-headline-md text-xl mb-2 group-hover:text-primary transition-colors">Sistema de Distribución MT/BT</h4>
-<p class="text-on-surface-variant text-sm font-label-caps">PLANTA METALÚRGICA - LIMA</p>
-</div>
-<span class="font-label-caps text-xs px-2 py-1 border border-outline-variant/30 text-on-surface-variant">2023</span>
-</div>
-</div>
-<div class="min-w-[320px] md:min-w-[600px] snap-start group cursor-pointer">
-<div class="aspect-[16/9] overflow-hidden rounded-xl mb-6">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A detailed, high-contrast photograph of a row of perfectly aligned, high-tech electrical control cabinets in a modern data center or industrial facility. The cabinets feature glowing LED indicators in primary amber and blue. The reflection on the polished dark floor creates a sense of infinite depth and extreme cleanliness. The photography style is minimalist, premium, and emphasizes architectural precision and technological authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDufbl5ZvXMOwcmkobUNasmibIUctuzOJznCNZMW_70yY4SwqJ09pENyN8y9F0po3E0Shq0H1WIDejT4RKY5-vlhniIbOy4r6Hx5WDDqeQZVzUrL4f47wMy-YKxXyJjZzPRZm8j7PHdlsJl8grCYcZouR7YlvSlqV2kTIuoJtGrAN_QOy20N0OnCgCLbOU0g_LPX6_XMsHxvvLOEPhbn6AL32F18iaFZ3INFxCgODwjUlpbLaJ01bdhE7AaSxWAXErjRzW2_LXxYH5B"/>
-</div>
-<div class="flex justify-between items-start">
-<div>
-<h4 class="font-headline-md text-xl mb-2 group-hover:text-primary transition-colors">Automatización de Línea de Empaque</h4>
-<p class="text-on-surface-variant text-sm font-label-caps">INDUSTRIA ALIMENTARIA - CALLAO</p>
-</div>
-<span class="font-label-caps text-xs px-2 py-1 border border-outline-variant/30 text-on-surface-variant">2023</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-outline-variant/20 pt-20 pb-10">
-<div class="max-w-container-max mx-auto px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20">
-<div class="col-span-1 md:col-span-1">
-<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary block mb-6">S&amp;M</span>
-<p class="text-on-surface-variant text-sm mb-8">
-                        Líderes en ingeniería eléctrica industrial, comprometidos con la innovación y la seguridad en cada conexión.
-                    </p>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="contacto.html">
-<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-</a>
-<a class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="contacto.html">
-<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
-</a>
-</div>
-</div>
-<div class="col-span-1">
-<h5 class="font-label-caps text-label-caps text-on-surface mb-8">NAVEGACIÓN</h5>
-<ul class="space-y-4">
-<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="servicios.html">Soluciones</a></li>
-<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="servicios.html">Servicios Técnicos</a></li>
-<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="index.html#proyectos">Casos de Estudio</a></li>
-<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="contacto.html">Bolsa de Trabajo</a></li>
-</ul>
-</div>
-<div class="col-span-1">
-<h5 class="font-label-caps text-label-caps text-on-surface mb-8">LEGAL</h5>
-<ul class="space-y-4">
-<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="contacto.html">Política de Privacidad</a></li>
-<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="servicios.html">Términos de Servicio</a></li>
-<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="por-que-elegirnos.html">Ética &amp; Cumplimiento</a></li>
-<li><a class="text-on-surface-variant hover:text-primary text-sm transition-colors" href="preguntas.html">Libro de Reclamaciones</a></li>
-</ul>
-</div>
-<div class="col-span-1">
-<h5 class="font-label-caps text-label-caps text-on-surface mb-8">OFICINA CENTRAL</h5>
-<p class="text-on-surface-variant text-sm mb-4">
-                        Av. Industrial 1234, Cercado de Lima<br/>
-                        Lima, Perú
-                    </p>
-<p class="text-on-surface-variant text-sm">
-                        Lunes - Viernes: 8:00 AM - 6:00 PM<br/>
-                        Sábado: 9:00 AM - 1:00 PM
-                    </p>
-</div>
-</div>
-<div class="pt-10 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6">
-<p class="text-on-surface-variant text-xs">© 2026 Industriales Eléctricos S&amp;M Engineering. Todos los derechos reservados.</p>
-<div class="flex items-center gap-6">
-<span class="text-on-surface-variant text-xs flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        Estado del Sistema: Óptimo
-                    </span>
-<span class="text-on-surface-variant text-xs flex items-center gap-1" aria-label="Idioma actual">
-                        ESPAÑOL (PERÚ) <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
-</span>
-</div>
-</div>
-</div>
+
+<main>
+  <section class="home-hero" data-hero-slider>
+    <div class="home-hero-bg" aria-hidden="true">
+      <video class="is-active" src="assets/video/hero-slider-sm.mp4" poster="assets/img/brochure/hero-panel.jpg" muted autoplay playsinline loop preload="metadata"></video>
+      <img alt="" src="assets/img/brochure/store-front.jpg"/>
+      <img alt="" src="assets/img/real/tablero-taller-abierto.jpeg"/>
+    </div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+      <div class="home-hero-panel scroll-reveal active">
+        <div class="home-hero-slider-copy" aria-live="polite">
+          <article class="home-hero-slide is-active" data-hero-text>
+            <p class="home-hero-eyebrow">Ingeniería eléctrica industrial</p>
+            <h1 class="home-hero-heading">Soluciones eléctricas industriales <span class="accent">a medida</span></h1>
+            <p class="home-hero-description">En Industriales Eléctricos S&amp;M E.I.R.L. brindamos soluciones para distribución eléctrica, automatización industrial, arranque de motores, presión constante y tableros personalizados.</p>
+            <div class="home-hero-actions">
+              <a href="servicios.html">Ver servicios</a>
+              <a class="secondary" href="contacto.html">Solicitar cotización</a>
+            </div>
+          </article>
+          <article class="home-hero-slide" data-hero-text>
+            <p class="home-hero-eyebrow">Fabricación y automatización</p>
+            <h2 class="home-hero-heading">Tableros listos para operar con seguridad</h2>
+            <p class="home-hero-description">Diseñamos tableros ATS, bombas contra incendio, bombas alternadas, presión constante y control con PLC según carga, tensión y condiciones de instalación.</p>
+            <div class="home-hero-actions">
+              <a href="servicios.html">Explorar soluciones</a>
+              <a class="secondary" href="por-que-elegirnos.html">Ver trabajos</a>
+            </div>
+          </article>
+          <article class="home-hero-slide" data-hero-text>
+            <p class="home-hero-eyebrow">Montaje ordenado</p>
+            <h2 class="home-hero-heading">Componentes confiables para proyectos exigentes</h2>
+            <p class="home-hero-description">Trabajamos con marcas reconocidas y cableado limpio para sistemas de protección, control, maniobra y automatización industrial.</p>
+            <div class="home-hero-actions">
+              <a href="marcas.html">Ver marcas</a>
+              <a class="secondary" href="contacto.html">Hablar con asesor</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-16 bg-surface-container-lowest relative overflow-hidden" id="servicios-inicio">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-3xl mb-9 scroll-reveal">
+        <h2 class="font-display-lg text-[28px] md:text-[38px] leading-tight text-on-surface mb-4">Soluciones que el cliente identifica rápido</h2>
+        <p class="text-on-surface-variant text-[15px] md:text-[16px] leading-7">Cada bloque mantiene el contenido técnico del documento, pero presentado como una solución clara para cotizar, comparar y entender sin perder tiempo.</p>
+      </div>
+      <div class="home-service-grid">
+        <article class="home-service-card rounded-xl scroll-reveal">
+          <div class="service-media"><img alt="Tableros de distribución eléctrica" class="w-full h-full object-cover" src="assets/img/brochure/protection-panel.jpg"/></div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Distribución eléctrica</h3>
+            <p class="text-on-surface-variant text-[14px] leading-6">Tableros eléctricos para distribución, protección y control de circuitos en instalaciones comerciales e industriales.</p>
+          </div>
+        </article>
+        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 60ms;">
+          <div class="service-media"><img alt="Tablero ATS para transferencia automática" class="w-full h-full object-cover" src="assets/img/brochure/transfer-panel.jpg"/></div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Transferencia automática</h3>
+            <p class="text-on-surface-variant text-[14px] leading-6">Tableros ATS para cambio automático entre red eléctrica y grupo electrógeno.</p>
+          </div>
+        </article>
+        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 120ms;">
+          <div class="service-media"><img alt="Tablero para bombas y sistemas contra incendio" class="w-full h-full object-cover" src="assets/img/brochure/pump-panel.jpg"/></div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Bombas contra incendio</h3>
+            <p class="text-on-surface-variant text-[14px] leading-6">Tableros para control de bomba principal, bomba jockey y sistemas auxiliares contra incendio.</p>
+          </div>
+        </article>
+        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 180ms;">
+          <div class="service-media"><img alt="Automatización industrial con PLC, relés y sensores" class="w-full h-full object-cover" src="assets/img/brochure/control-panel.jpg"/></div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Automatización industrial</h3>
+            <p class="text-on-surface-variant text-[14px] leading-6">Soluciones con PLC, sensores, relés, variadores y lógica de control.</p>
+          </div>
+        </article>
+        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 240ms;">
+          <div class="service-media"><img alt="Contactores y arrancadores para motores" class="w-full h-full object-cover" src="assets/img/brochure/contactors.jpg"/></div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Arranque de motores</h3>
+            <p class="text-on-surface-variant text-[14px] leading-6">Tableros de arranque directo, estrella-triángulo, doble estrella, soft starter y variador.</p>
+          </div>
+        </article>
+        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 300ms;">
+          <div class="service-media"><img alt="Control de bombas alternadas" class="w-full h-full object-cover" src="assets/img/brochure/orange-panel.jpg"/></div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Bombas alternadas</h3>
+            <p class="text-on-surface-variant text-[14px] leading-6">Control automático para alternancia de bombas en cisternas, tanques, presurización y drenaje.</p>
+          </div>
+        </article>
+        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 360ms;">
+          <div class="service-media"><img alt="Sistema de presión constante con variador" class="w-full h-full object-cover" src="assets/img/brochure/vfd-panel.jpg"/></div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Presión constante</h3>
+            <p class="text-on-surface-variant text-[14px] leading-6">Sistemas con variador y transmisor de presión para mantener presión estable en redes de agua.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-16 bg-background" id="trabajos-inicio">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-8 scroll-reveal">
+        <div>
+          <span class="service-chip mb-4">Ver nuestros trabajos</span>
+          <h2 class="font-display-lg text-[28px] md:text-[38px] leading-tight text-on-surface">Trabajos reales en tableros y control industrial</h2>
+        </div>
+        <a href="contacto.html" class="bg-primary hover:bg-primary-fixed text-on-primary px-6 py-3 font-label-caps text-label-caps font-bold transition-all duration-300 inline-flex items-center justify-center gap-2 w-fit">
+          Solicitar cotización
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+      <div class="work-grid grid gap-5">
+        <a class="work-card rounded-xl scroll-reveal" href="contacto.html">
+          <img alt="Tablero eléctrico industrial con componentes de protección" src="assets/img/brochure/hero-panel.jpg"/>
+          <span>Distribución y protección</span>
+        </a>
+        <a class="work-card rounded-xl scroll-reveal" href="contacto.html" style="transition-delay: 80ms;">
+          <img alt="Control y automatización industrial" src="assets/img/brochure/control-panel.jpg"/>
+          <span>Control industrial</span>
+        </a>
+        <a class="work-card rounded-xl scroll-reveal" href="contacto.html" style="transition-delay: 160ms;">
+          <img alt="Tablero de transferencia automática" src="assets/img/brochure/transfer-panel.jpg"/>
+          <span>Transferencia ATS</span>
+        </a>
+        <a class="work-card rounded-xl scroll-reveal" href="contacto.html" style="transition-delay: 240ms;">
+          <img alt="Tablero con variadores para presión constante" src="assets/img/brochure/vfd-panel.jpg"/>
+          <span>Variadores y presión constante</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 py-8">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <p class="text-on-surface-variant text-sm">© 2026 Industriales Eléctricos S&amp;M E.I.R.L.</p>
+  </div>
 </footer>
+
 <script>
-        // Scroll progress bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height);
-            document.getElementById('scroll-progress').style.transform = `scaleX(${scrolled})`;
-            
-            // Header shrink
-            const nav = document.getElementById('top-nav');
-            if (winScroll > 50) {
-                nav.classList.add('h-16');
-                nav.classList.remove('h-20');
-            } else {
-                nav.classList.add('h-20');
-                nav.classList.remove('h-16');
-            }
-        });
+  window.addEventListener("scroll", () => {
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = height > 0 ? ((document.documentElement.scrollTop || document.body.scrollTop) / height) : 0;
+    const progress = document.getElementById("scroll-progress");
+    if (progress) progress.style.transform = `scaleX(${scrolled})`;
+  });
 
-        // Scroll Reveal implementation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  }, observerOptions);
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
+  document.querySelectorAll(".scroll-reveal").forEach((el) => observer.observe(el));
 
-        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+  const heroSlider = document.querySelector("[data-hero-slider]");
+  if (heroSlider) {
+    const heroMedia = Array.from(heroSlider.querySelectorAll(".home-hero-bg img, .home-hero-bg video"));
+    const heroTexts = Array.from(heroSlider.querySelectorAll("[data-hero-text]"));
+    const slideCount = Math.min(heroMedia.length, heroTexts.length);
+    const videoDelay = 15000;
+    const imageDelay = 7000;
+    let heroIndex = 0;
+    let heroTimer;
 
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    const getHeroDelay = () => {
+      const activeMedia = heroMedia[heroIndex];
+      return activeMedia && activeMedia.tagName === "VIDEO" ? videoDelay : imageDelay;
+    };
+
+    const syncHeroVideo = (media, isActive) => {
+      if (!media || media.tagName !== "VIDEO") return;
+      if (isActive) {
+        media.currentTime = 0;
+        media.play().catch(() => {});
+      } else {
+        media.pause();
+      }
+    };
+
+    const showHeroSlide = (index) => {
+      if (!slideCount) return;
+      heroIndex = (index + slideCount) % slideCount;
+      heroMedia.forEach((media, mediaIndex) => {
+        const isActive = mediaIndex === heroIndex;
+        media.classList.toggle("is-active", isActive);
+        syncHeroVideo(media, isActive);
+      });
+      heroTexts.forEach((text, textIndex) => text.classList.toggle("is-active", textIndex === heroIndex));
+      startHeroSlider();
+    };
+
+    const startHeroSlider = () => {
+      window.clearTimeout(heroTimer);
+      heroTimer = window.setTimeout(() => showHeroSlide(heroIndex + 1), getHeroDelay());
+    };
+
+    syncHeroVideo(heroMedia[0], true);
+    if (slideCount > 1) startHeroSlider();
+  }
+</script>
 <script src="assets/js/premium-polish.js"></script>
-</body></html>
+</body>
+</html>

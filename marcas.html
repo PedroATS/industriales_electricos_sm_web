@@ -107,6 +107,57 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
             border-color: rgba(212, 175, 55, 0.3);
         }
+        .brand-logo-img {
+            width: min(82%, 190px);
+            max-height: 70px;
+            object-fit: contain;
+            filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.25));
+        }
+        .brand-logo-hover:hover .brand-logo-img {
+            transform: scale(1.08);
+        }
+        .brand-intro-panel {
+            max-width: 780px;
+            margin: 0 auto 42px;
+            padding: 34px 38px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            border-radius: 18px;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), transparent 46%),
+                linear-gradient(145deg, rgba(28, 30, 33, 0.82), rgba(12, 14, 17, 0.72));
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+        }
+        .brand-intro-panel h2 {
+            margin-bottom: 14px;
+        }
+        .brand-intro-line {
+            width: 78px;
+            height: 3px;
+            margin: 0 auto 20px;
+            background: linear-gradient(90deg, transparent, #f2ca50, transparent);
+            border-radius: 999px;
+        }
+        .brand-intro-panel p {
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .brand-logo-grid {
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (max-width: 767px) {
+            .brand-intro-panel {
+                padding: 26px 20px;
+                margin-bottom: 28px;
+            }
+            .brand-logo-grid .glass-card {
+                height: 132px;
+                padding: 20px;
+            }
+        }
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -122,7 +173,7 @@
   .sm-nav-scroll::-webkit-scrollbar { display: none; }
   @media (max-width: 767px) { header[id] .font-label-caps { font-size: 11px; } }
 </style>
-<link href="assets/css/premium-polish.css" rel="stylesheet"/>
+<link href="assets/css/premium-polish.css?v=navfixed-20260617" rel="stylesheet"/>
 </head>
 <body data-page="marcas" class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
 <div class="scroll-progress" id="scroll-indicator"></div>
@@ -140,7 +191,7 @@
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="nosotros.html">Nosotros</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="por-que-elegirnos.html">Por qu&eacute; elegirnos</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="servicios.html">Servicios y soluciones</a>
-<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1 shrink-0" href="marcas.html">Marcas</a>
+<a class="font-label-caps text-label-caps text-primary font-bold shrink-0" href="marcas.html">Marcas</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="preguntas.html">Preguntas frecuentes</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 shrink-0" href="contacto.html">Contacto</a>
     </nav>
@@ -166,71 +217,55 @@
 </div>
 </section>
 <!-- Brands Content Section -->
-<section class="py-section-gap relative overflow-hidden">
+<section class="py-16 md:py-20 relative overflow-hidden">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start mb-24">
-<div class="md:col-span-5">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-8">Excelencia t&eacute;cnica mediante integraci&oacute;n</h2>
-<div class="h-1 w-20 bg-primary mb-8"></div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+<div class="brand-intro-panel">
+<h2 class="font-headline-md text-headline-md text-on-surface">Excelencia t&eacute;cnica mediante integraci&oacute;n</h2>
+<div class="brand-intro-line"></div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">
                             Integramos tecnolog&iacute;as de fabricantes reconocidos para que cada soluci&oacute;n mantenga continuidad operativa, seguridad y eficiencia en campo.
                         </p>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                             Desde componentes Schneider Electric hasta automatizaci&oacute;n Siemens y soluciones ABB, priorizamos marcas con respaldo t&eacute;cnico y presencia industrial comprobada.
                         </p>
 </div>
-<div class="md:col-span-7 grid grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="brand-logo-grid grid grid-cols-2 md:grid-cols-3 gap-4">
 <!-- Brand Grid (Bento Style) -->
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">SCHNEIDER ELECTRIC</span>
+<img src="assets/img/brand-logos/schneider_electric.svg" alt="Schneider Electric" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 </div>
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 text-3xl font-bold">ABB</span>
+<img src="assets/img/brand-logos/abb.svg" alt="ABB" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 </div>
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">SIEMENS</span>
+<img src="assets/img/brand-logos/siemens.svg" alt="Siemens" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 </div>
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">GENERAL ELECTRIC</span>
+<img src="assets/img/brand-logos/general_electric.svg" alt="General Electric" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 </div>
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">SQUARE D</span>
+<img src="assets/img/brand-logos/square_d.svg" alt="Square D" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 </div>
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">RITTAL</span>
+<img src="assets/img/brand-logos/rittal.svg" alt="Rittal" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 </div>
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">LOVATO</span>
+<img src="assets/img/brand-logos/lovato_electric.svg" alt="Lovato Electric" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 </div>
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">STECK</span>
+<img src="assets/img/brand-logos/steck.svg" alt="Steck" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 </div>
 <div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">
-<span class="font-label-caps text-label-caps text-on-surface opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">CHINT</span>
+<img src="assets/img/brand-logos/chint.svg" alt="Chint" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>
 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-</div>
-</div>
-</div>
-<!-- Call to Action Card -->
-<div class="relative w-full rounded-2xl overflow-hidden glass-card p-12 md:p-20 text-center border-primary/20">
-
-<div class="relative z-10 max-w-3xl mx-auto space-y-8">
-<h3 class="font-display-lg-mobile md:font-headline-md text-on-surface">&iquest;Listo para iniciar tu pr&oacute;ximo proyecto con tecnolog&iacute;a de marcas l&iacute;deres?</h3>
-<p class="font-body-lg text-on-surface-variant">Nuestro equipo te ayuda a elegir los componentes adecuados seg&uacute;n carga, tensi&oacute;n, aplicaci&oacute;n y disponibilidad.</p>
-<div class="flex flex-col sm:flex-row gap-6 justify-center pt-4">
-<a href="contacto.html" class="bg-primary text-surface font-label-caps text-label-caps py-4 px-10 font-bold hover:bg-secondary-fixed transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 inline-flex items-center justify-center">
-                                HABLAR CON UN EXPERTO
-                            </a>
-<a href="assets/docs/Brochure_SM_Premium_FINAL.pdf" target="_blank" rel="noopener" class="border border-primary text-primary font-label-caps text-label-caps py-4 px-10 font-bold hover:bg-primary/5 transition-all duration-300 inline-flex items-center justify-center"> DESCARGAR BROCHURE </a>
-</div>
 </div>
 </div>
 </div>
