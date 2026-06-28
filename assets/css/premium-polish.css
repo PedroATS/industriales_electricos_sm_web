@@ -1243,6 +1243,233 @@ body[data-page="contacto"] select {
   line-height: 1.4 !important;
 }
 
+body[data-page="contacto"] .contact-brochure-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 26px;
+  min-width: 0;
+}
+
+body[data-page="contacto"] .brochure-premium-button {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 13px;
+  min-height: 58px;
+  width: min(100%, 520px);
+  padding: 10px 13px 10px 11px;
+  overflow: hidden;
+  color: #fff7e2;
+  text-decoration: none;
+  border: 1px solid rgba(242, 202, 80, 0.42);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(242, 202, 80, 0.22), rgba(255, 255, 255, 0.06) 46%, rgba(9, 11, 14, 0.86)),
+    rgba(17, 19, 22, 0.92);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.26), 0 10px 28px rgba(242, 202, 80, 0.10);
+  isolation: isolate;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+body[data-page="contacto"] .brochure-premium-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 15% 20%, rgba(242, 202, 80, 0.26), transparent 32%);
+  opacity: 0.78;
+  z-index: -1;
+}
+
+body[data-page="contacto"] .brochure-premium-button:hover,
+body[data-page="contacto"] .brochure-premium-button:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(242, 202, 80, 0.78);
+  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.34), 0 14px 34px rgba(242, 202, 80, 0.16);
+  outline: none;
+}
+
+body[data-page="contacto"] .brochure-premium-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  color: #111316;
+  background: linear-gradient(135deg, #ffe184, #f2bd32);
+  box-shadow: 0 10px 24px rgba(242, 202, 80, 0.2);
+}
+
+body[data-page="contacto"] .brochure-premium-icon .material-symbols-outlined {
+  font-size: 22px;
+}
+
+body[data-page="contacto"] .brochure-premium-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+body[data-page="contacto"] .brochure-premium-copy span {
+  color: #f2ca50;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+body[data-page="contacto"] .brochure-premium-copy strong {
+  display: block;
+  color: #fffaf0;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-size: clamp(16px, 1.35vw, 20px);
+  font-weight: 850;
+  line-height: 1.08;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-page="contacto"] .brochure-premium-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 11px;
+  border: 1px solid rgba(242, 202, 80, 0.34);
+  border-radius: 999px;
+  color: #f8efd2;
+  background: rgba(255, 255, 255, 0.06);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+body[data-page="contacto"] .brochure-premium-arrow {
+  color: #f2ca50;
+  font-size: 18px;
+}
+
+body[data-page="contacto"] .brochure-download-cta {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+  min-height: 108px;
+  padding: 18px 20px;
+  overflow: hidden;
+  color: #f8f3e8;
+  text-decoration: none;
+  border: 1px solid rgba(242, 202, 80, 0.34);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(242, 202, 80, 0.24), transparent 34%),
+    linear-gradient(135deg, rgba(242, 202, 80, 0.13), rgba(255, 255, 255, 0.05) 45%, rgba(8, 10, 12, 0.86));
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  isolation: isolate;
+}
+
+body[data-page="contacto"] .brochure-download-cta::before {
+  content: "";
+  position: absolute;
+  inset: -80% auto -80% -35%;
+  width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(18deg);
+  opacity: 0;
+  transition: transform 520ms ease, opacity 220ms ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body[data-page="contacto"] .brochure-download-cta:hover,
+body[data-page="contacto"] .brochure-download-cta:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(242, 202, 80, 0.72);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34), 0 16px 42px rgba(242, 202, 80, 0.14);
+  outline: none;
+}
+
+body[data-page="contacto"] .brochure-download-cta:hover::before,
+body[data-page="contacto"] .brochure-download-cta:focus-visible::before {
+  opacity: 1;
+  transform: translateX(330%) rotate(18deg);
+}
+
+body[data-page="contacto"] .brochure-download-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  color: #111316;
+  background: linear-gradient(135deg, #ffe28b, #f2bd32);
+  box-shadow: 0 16px 34px rgba(242, 202, 80, 0.2);
+  flex: 0 0 auto;
+}
+
+body[data-page="contacto"] .brochure-download-icon .material-symbols-outlined {
+  font-size: 27px;
+}
+
+body[data-page="contacto"] .brochure-download-copy {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+body[data-page="contacto"] .brochure-download-eyebrow {
+  color: #f2ca50;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+body[data-page="contacto"] .brochure-download-copy strong {
+  color: #fffaf0;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 850;
+  line-height: 1.03;
+}
+
+body[data-page="contacto"] .brochure-download-copy > span:last-child {
+  color: rgba(246, 244, 239, 0.74);
+  font-size: 13.5px;
+  line-height: 1.38;
+}
+
+body[data-page="contacto"] .brochure-download-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(242, 202, 80, 0.32);
+  border-radius: 999px;
+  color: #f8f3e8;
+  background: rgba(255, 255, 255, 0.06);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+body[data-page="contacto"] .brochure-download-action .material-symbols-outlined {
+  font-size: 17px;
+}
+
 body[data-page="contacto"] label,
 .sm-footer-item,
 .sm-footer-bottom {
@@ -1254,6 +1481,7 @@ body[data-page="contacto"] .sm-location-section {
   width: min(1080px, calc(100% - 144px));
   margin: 16px auto 0;
   padding: 0 0 56px;
+  scroll-margin-top: 96px;
 }
 
 body[data-page="contacto"] .sm-location-shell {
@@ -1389,6 +1617,259 @@ body[data-page="contacto"] .sm-map-card::after {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
+body[data-page="contacto"] .sm-location-shell-premium {
+  grid-template-columns: minmax(320px, 0.48fr) minmax(460px, 1fr);
+  gap: 20px;
+  padding: 22px;
+}
+
+body[data-page="contacto"] .sm-location-shell-premium .sm-location-copy {
+  justify-content: flex-start;
+  min-height: 430px;
+}
+
+body[data-page="contacto"] .sm-location-branches {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+body[data-page="contacto"] .sm-location-branch {
+  position: relative;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(242, 202, 80, 0.18);
+  border-radius: 9px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+    rgba(7, 9, 12, 0.38);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  outline: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body[data-page="contacto"] .sm-location-branch:hover,
+body[data-page="contacto"] .sm-location-branch:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(242, 202, 80, 0.48);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(242, 202, 80, 0.12), transparent 36%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+}
+
+body[data-page="contacto"] .sm-location-branch.is-active {
+  border-color: rgba(242, 202, 80, 0.82);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.10) inset,
+    0 0 34px rgba(242, 202, 80, 0.11);
+}
+
+body[data-page="contacto"] .sm-branch-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #f2ca50;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+body[data-page="contacto"] .sm-branch-top .material-symbols-outlined {
+  font-size: 19px;
+}
+
+body[data-page="contacto"] .sm-location-branch h3 {
+  margin: 12px 0 7px;
+  color: #f8f5eb;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-size: clamp(19px, 1.6vw, 23px);
+  line-height: 1.08;
+  font-weight: 850;
+}
+
+body[data-page="contacto"] .sm-location-branch p {
+  max-width: none;
+  margin: 0;
+  color: rgba(246, 244, 239, 0.76);
+}
+
+body[data-page="contacto"] .sm-location-branch .sm-location-actions {
+  margin-top: 14px;
+}
+
+body[data-page="contacto"] .sm-map-card.sm-map-card-premium {
+  height: 430px;
+  min-height: 430px;
+}
+
+body[data-page="contacto"] .sm-map-status {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(242, 202, 80, 0.20);
+  background:
+    linear-gradient(135deg, rgba(12, 14, 17, 0.96), rgba(23, 24, 22, 0.88));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body[data-page="contacto"] .sm-map-status span {
+  color: #f2ca50;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+body[data-page="contacto"] .sm-map-status strong {
+  color: #f8f5eb;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-size: clamp(16px, 1.3vw, 20px);
+  line-height: 1.1;
+}
+
+body[data-page="contacto"] .sm-map-card.sm-map-card-premium iframe {
+  top: 70px;
+  height: calc(100% - 70px);
+}
+
+@media (min-width: 1100px) {
+  body[data-page="contacto"] .sm-map-card.sm-map-card-premium {
+    height: 100%;
+    min-height: 430px;
+  }
+}
+
+body[data-page="contacto"] .sm-location-section-premium {
+  width: min(1080px, calc(100% - 144px));
+}
+
+body[data-page="contacto"] .sm-location-heading {
+  margin: 0 0 16px;
+  padding: 22px 24px;
+  border: 1px solid rgba(242, 202, 80, 0.22);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(242, 202, 80, 0.11), transparent 34%),
+    linear-gradient(135deg, rgba(24, 27, 28, 0.92), rgba(10, 12, 15, 0.96));
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+}
+
+body[data-page="contacto"] .sm-location-heading h2 {
+  max-width: 720px;
+  margin: 14px 0 10px;
+  color: #f8f5eb;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-size: clamp(32px, 3.2vw, 48px);
+  line-height: 0.98;
+  font-weight: 900;
+}
+
+body[data-page="contacto"] .sm-location-heading p {
+  max-width: 660px;
+  margin: 0;
+  color: rgba(246, 244, 239, 0.78);
+}
+
+body[data-page="contacto"] .sm-location-grid {
+  display: grid;
+  gap: 18px;
+}
+
+body[data-page="contacto"] .sm-location-spot {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.42fr) minmax(420px, 1fr);
+  gap: 18px;
+  align-items: stretch;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid rgba(242, 202, 80, 0.24);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(242, 202, 80, 0.10), transparent 34%),
+    linear-gradient(135deg, rgba(24, 27, 28, 0.92), rgba(10, 12, 15, 0.96));
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.26);
+}
+
+body[data-page="contacto"] .sm-location-spot-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+body[data-page="contacto"] .sm-location-spot-copy h3 {
+  margin: 14px 0 9px;
+  color: #f8f5eb;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-size: clamp(24px, 2.1vw, 34px);
+  line-height: 1.03;
+  font-weight: 900;
+}
+
+body[data-page="contacto"] .sm-location-spot-copy p {
+  max-width: 300px;
+  margin: 0;
+  color: rgba(246, 244, 239, 0.78);
+}
+
+body[data-page="contacto"] .sm-location-spot-copy .sm-location-actions {
+  margin-top: 24px;
+}
+
+body[data-page="contacto"] .sm-location-spot-map {
+  height: 360px;
+  min-height: 360px;
+  border-color: rgba(242, 202, 80, 0.34);
+}
+
+body[data-page="contacto"] .sm-location-spot-map iframe {
+  top: 70px;
+  height: calc(100% - 70px);
+  min-height: 0;
+}
+
+body[data-page="contacto"] .sm-location-spot-map .sm-map-status {
+  min-height: 70px;
+}
+
+@media (min-width: 1100px) {
+  body[data-page="contacto"] .sm-location-spot-map {
+    height: clamp(340px, 28vw, 430px);
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 1099px) {
+  body[data-page="contacto"] .sm-location-section-premium {
+    width: min(100% - 40px, 760px);
+  }
+
+  body[data-page="contacto"] .sm-location-spot {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="contacto"] .sm-location-spot-copy {
+    padding: 12px 10px 2px;
+  }
+}
+
 @media (max-width: 767px) {
   :root {
     --sm-copy-size: 13.4px;
@@ -1415,6 +1896,118 @@ body[data-page="contacto"] .sm-map-card,
   body[data-page="contacto"] .sm-map-card iframe {
     height: 300px;
     min-height: 300px;
+  }
+
+  body[data-page="contacto"] .sm-location-shell-premium {
+    padding: 14px;
+  }
+
+  body[data-page="contacto"] .sm-location-shell-premium .sm-location-copy {
+    min-height: auto;
+  }
+
+  body[data-page="contacto"] .sm-location-branch {
+    padding: 14px;
+  }
+
+  body[data-page="contacto"] .sm-location-branch .sm-location-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body[data-page="contacto"] .sm-location-btn {
+    padding: 0 10px;
+  }
+
+  body[data-page="contacto"] .sm-map-card.sm-map-card-premium {
+    height: 360px;
+    min-height: 360px;
+  }
+
+  body[data-page="contacto"] .sm-map-card.sm-map-card-premium iframe {
+    top: 70px;
+    height: calc(100% - 70px);
+    min-height: 0;
+  }
+
+  body[data-page="contacto"] .sm-location-section-premium {
+    width: min(100% - 28px, 620px);
+  }
+
+  body[data-page="contacto"] .sm-location-heading {
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+
+  body[data-page="contacto"] .sm-location-heading h2 {
+    font-size: clamp(30px, 9vw, 40px);
+    line-height: 1.02;
+  }
+
+  body[data-page="contacto"] .sm-location-spot {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  body[data-page="contacto"] .sm-location-spot-copy h3 {
+    font-size: clamp(24px, 7.4vw, 34px);
+  }
+
+  body[data-page="contacto"] .sm-location-spot-copy .sm-location-actions {
+    display: grid;
+    grid-template-columns: 1fr 0.78fr;
+    margin-top: 20px;
+  }
+
+  body[data-page="contacto"] .sm-location-spot-map {
+    height: 340px;
+    min-height: 340px;
+  }
+
+  body[data-page="contacto"] .brochure-download-cta {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 14px;
+    min-height: auto;
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  body[data-page="contacto"] .brochure-download-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  body[data-page="contacto"] .brochure-download-copy strong {
+    font-size: clamp(21px, 6.2vw, 27px);
+  }
+
+  body[data-page="contacto"] .brochure-download-action {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 42px;
+  }
+
+  body[data-page="contacto"] .contact-brochure-row {
+    margin-top: 18px;
+  }
+
+  body[data-page="contacto"] .brochure-premium-button {
+    width: 100%;
+    min-height: 68px;
+    border-radius: 14px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    padding: 12px;
+  }
+
+  body[data-page="contacto"] .brochure-premium-copy strong {
+    font-size: clamp(16px, 4.8vw, 19px);
+    white-space: normal;
+  }
+
+  body[data-page="contacto"] .brochure-premium-badge {
+    display: none;
   }
 }
 
@@ -1763,5 +2356,76 @@ body.sm-mobile-menu-active {
   .sm-mobile-menu-toggle {
     width: 46px !important;
     min-width: 46px !important;
+  }
+}
+
+@media (max-width: 1099px) {
+  body[data-page="contacto"] .sm-map-card.sm-location-spot-map {
+    height: 360px !important;
+    min-height: 360px !important;
+  }
+
+  body[data-page="contacto"] .sm-map-card.sm-location-spot-map iframe {
+    top: 70px !important;
+    height: calc(100% - 70px) !important;
+    min-height: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body[data-page="contacto"] .sm-map-card.sm-location-spot-map {
+    height: 340px !important;
+    min-height: 340px !important;
+  }
+}
+
+/* Contact mobile priority: keep brochure and both map cards visible before the form. */
+body[data-page="contacto"] .contact-sidebar {
+  order: 1;
+  min-width: 0;
+}
+
+body[data-page="contacto"] .contact-form-wrap {
+  order: 2;
+  min-width: 0;
+}
+
+body[data-page="contacto"] .contact-main-section > .sm-location-section-premium {
+  order: 3;
+  grid-column: 1 / -1;
+  width: min(1080px, 100%) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 1099px) {
+  body[data-page="contacto"] .contact-form-wrap {
+    order: 3;
+    width: 100%;
+  }
+
+  body[data-page="contacto"] .contact-main-section > .sm-location-section-premium {
+    order: 2;
+    width: min(100%, 760px) !important;
+    margin-top: 0 !important;
+  }
+
+  body[data-page="contacto"] .contact-side-visual {
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 767px) {
+  body[data-page="contacto"] .contact-main-section > .sm-location-section-premium {
+    width: 100% !important;
+  }
+
+  body[data-page="contacto"] .contact-main-section > .sm-location-section-premium .sm-location-heading {
+    margin-top: 2px;
+  }
+
+  body[data-page="contacto"] .contact-main-section > .sm-location-section-premium .sm-location-spot {
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
   }
 }
