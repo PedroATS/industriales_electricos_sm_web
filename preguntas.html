@@ -460,7 +460,7 @@
   .sm-nav-scroll::-webkit-scrollbar { display: none; }
   @media (max-width: 767px) { header[id] .font-label-caps { font-size: 11px; } }
 </style>
-<link href="assets/css/premium-polish.css?v=navfixed-20260617" rel="stylesheet"/>
+<link href="assets/css/premium-polish.css?v=responsive-20260627d" rel="stylesheet"/>
 <style id="faq-final-overrides">
   body[data-page="preguntas"] main.faq-page-main > section.faq-hero,
   body[data-page="preguntas"] main.faq-page-main > section.faq-list {
@@ -557,6 +557,55 @@
     display: block;
   }
 
+  body[data-page="preguntas"] .faq-mobile-answer-slot {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    body[data-page="preguntas"] .faq-answer-stage {
+      display: none !important;
+    }
+
+    body[data-page="preguntas"] .faq-mobile-answer-slot {
+      display: block;
+      margin: -2px 0 12px;
+      border: 1px solid rgba(242, 202, 80, 0.18);
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(242, 202, 80, 0.10), transparent 34%),
+        linear-gradient(145deg, rgba(25, 28, 32, 0.92), rgba(10, 12, 15, 0.96));
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+    }
+
+    body[data-page="preguntas"] .faq-mobile-answer-slot .faq-panel.is-active {
+      position: relative !important;
+      inset: auto !important;
+      width: 100% !important;
+      padding: 20px 18px !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      filter: none !important;
+      pointer-events: auto !important;
+    }
+
+    body[data-page="preguntas"] .faq-mobile-answer-slot .faq-panel:not(.is-active) {
+      display: none !important;
+    }
+
+    body[data-page="preguntas"] .faq-mobile-answer-slot .faq-panel.is-active h2 {
+      margin-top: 0 !important;
+      font-size: 20px !important;
+      line-height: 1.12 !important;
+    }
+
+    body[data-page="preguntas"] .faq-mobile-answer-slot .faq-panel.is-active p {
+      margin-top: 12px !important;
+      text-align: left !important;
+    }
+  }
+
   @media (max-width: 767px) {
     body[data-page="preguntas"] .faq-shell {
       width: calc(100vw - 28px) !important;
@@ -598,7 +647,7 @@
   <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center gap-5">
     <a class="flex items-center gap-3 shrink-0 group" href="index.html" aria-label="Industriales El&eacute;ctricos S&M">
       <span class="sm-brand-mark" aria-hidden="true"><img src="assets/img/sm-brand-logo.png" alt=""/></span>
-      <span class="sm-brand-copy hidden sm:flex">
+      <span class="sm-brand-copy">
         <strong class="block font-headline-md text-lg text-on-surface">Industriales El&eacute;ctricos S&amp;M</strong>
       </span>
     </a>
@@ -844,9 +893,14 @@
         const faqPanels = Array.from(document.querySelectorAll('.faq-panel'));
         const faqStage = document.querySelector('.faq-answer-stage');
         const faqQuestionColumn = document.querySelector('.faq-question-column');
+        const faqMobile = window.matchMedia('(max-width: 1024px)');
+        const faqMobileSlot = document.createElement('div');
+        faqMobileSlot.className = 'faq-mobile-answer-slot';
+        faqMobileSlot.setAttribute('aria-live', 'polite');
         let faqHeightTimer;
 
         function sizeFaqStage(panel, lockCurrentHeight = true) {
+            if (faqMobile.matches) return;
             if (!faqStage || !panel) return;
 
             if (lockCurrentHeight) {
@@ -919,10 +973,69 @@
             });
         }
 
+        function placeFaqPanel(panel, button) {
+            if (!faqStage || !panel || !button) return;
+
+            if (faqMobile.matches) {
+                button.insertAdjacentElement('afterend', faqMobileSlot);
+                faqPanels.forEach((item) => {
+                    if (item !== panel && item.parentElement === faqMobileSlot) {
+                        faqStage.appendChild(item);
+                    }
+                });
+                if (panel.parentElement !== faqMobileSlot) {
+                    faqMobileSlot.appendChild(panel);
+                }
+                faqStage.setAttribute('aria-hidden', 'true');
+                faqStage.style.height = 'auto';
+                return;
+            }
+
+            if (faqMobileSlot.parentElement) {
+                faqMobileSlot.remove();
+            }
+
+            faqPanels.forEach((item) => {
+                if (item.parentElement !== faqStage) {
+                    faqStage.appendChild(item);
+                }
+            });
+            faqStage.removeAttribute('aria-hidden');
+        }
+
+        function collapseFaq() {
+            faqButtons.forEach((button) => {
+                button.classList.remove('is-active');
+                button.setAttribute('aria-selected', 'false');
+            });
+
+            faqPanels.forEach((panel) => {
+                panel.classList.remove('is-active');
+                panel.setAttribute('aria-hidden', 'true');
+                if (faqStage && panel.parentElement !== faqStage) {
+                    faqStage.appendChild(panel);
+                }
+            });
+
+            if (faqMobileSlot.parentElement) {
+                faqMobileSlot.remove();
+            }
+
+            if (faqStage) {
+                faqStage.setAttribute('aria-hidden', 'true');
+                faqStage.style.height = 'auto';
+            }
+        }
+
         function activateFaq(index) {
             const targetPanel = faqPanels[index];
             const targetButton = faqButtons[index];
             const currentPanel = faqPanels.find((panel) => panel.classList.contains('is-active'));
+
+            if (faqMobile.matches && targetPanel && targetButton && targetButton.classList.contains('is-active')) {
+                collapseFaq();
+                return;
+            }
 
             if (faqStage && currentPanel && currentPanel !== targetPanel) {
                 faqStage.style.height = `${Math.ceil(currentPanel.scrollHeight)}px`;
@@ -941,9 +1054,12 @@
             });
 
             if (targetPanel) {
-                sizeFaqStage(targetPanel, Boolean(currentPanel && currentPanel !== targetPanel));
-                window.setTimeout(() => keepFaqQuestionVisible(targetButton), 40);
-                window.setTimeout(keepFaqAnswerVisible, 120);
+                placeFaqPanel(targetPanel, targetButton);
+                if (!faqMobile.matches) {
+                    sizeFaqStage(targetPanel, Boolean(currentPanel && currentPanel !== targetPanel));
+                    window.setTimeout(() => keepFaqQuestionVisible(targetButton), 40);
+                    window.setTimeout(keepFaqAnswerVisible, 120);
+                }
             }
         }
 
@@ -964,12 +1080,21 @@
         });
 
         if (faqPanels[0]) {
+            placeFaqPanel(faqPanels[0], faqButtons[0]);
             sizeFaqStage(faqPanels[0], false);
         }
 
         window.addEventListener('resize', () => {
             const activePanel = faqPanels.find((panel) => panel.classList.contains('is-active'));
-            if (activePanel && faqStage) {
+            const activeButton = faqButtons.find((button) => button.classList.contains('is-active'));
+            if (!activePanel && !faqMobile.matches && faqPanels[0]) {
+                activateFaq(0);
+                return;
+            }
+            if (activePanel && activeButton) {
+                placeFaqPanel(activePanel, activeButton);
+            }
+            if (activePanel && faqStage && !faqMobile.matches) {
                 faqStage.style.height = 'auto';
                 window.requestAnimationFrame(() => sizeFaqStage(activePanel, false));
             }
@@ -1028,5 +1153,5 @@
             observer.observe(el);
         });
     </script>
-<script src="assets/js/premium-polish.js"></script>
+<script src="assets/js/premium-polish.js?v=responsive-20260627d"></script>
 </body></html>

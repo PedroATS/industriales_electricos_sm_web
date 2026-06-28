@@ -38,7 +38,8 @@
       '<span class="brand-mark">S&amp;M</span>',
       '<span><strong>Industriales El&eacute;ctricos S&amp;M</strong><small>Componentes, tableros y asesor&iacute;a</small></span>',
       "</a>",
-      '<nav class="site-nav" aria-label="Menu principal">' + nav + "</nav>",
+      '<button class="site-mobile-menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu principal"><span class="site-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span><span>Menu</span></button>',
+      '<nav class="site-nav" id="site-nav" aria-label="Menu principal">' + nav + "</nav>",
       "</header>"
     ].join("");
   }
@@ -162,8 +163,9 @@
       var currentY = window.scrollY || 0;
       var goingDown = currentY > lastY;
       var pastHeroStart = currentY > 120;
+      var menuOpen = header.classList.contains("is-mobile-menu-open");
 
-      header.classList.toggle("is-hidden", goingDown && pastHeroStart);
+      header.classList.toggle("is-hidden", !menuOpen && goingDown && pastHeroStart);
       header.classList.toggle("is-compact", currentY > 24);
       lastY = currentY;
       ticking = false;
@@ -175,6 +177,67 @@
         ticking = true;
       }
     }, { passive: true });
+  }
+
+  function initSiteMobileNavigation() {
+    var header = document.querySelector(".site-header");
+    var toggle = document.querySelector(".site-mobile-menu-toggle");
+    var nav = document.querySelector(".site-nav");
+    if (!header || !toggle || !nav) return;
+
+    nav.classList.add("sm-desktop-nav-source");
+    var panel = document.createElement("nav");
+    panel.className = "sm-mobile-menu-panel";
+    panel.id = "site-mobile-menu-panel";
+    panel.setAttribute("aria-label", "Menu principal movil");
+    panel.innerHTML = nav.innerHTML;
+    document.body.appendChild(panel);
+    toggle.setAttribute("aria-controls", panel.id);
+
+    function setPageLock(locked) {
+      document.documentElement.classList.toggle("sm-mobile-menu-active", locked);
+      document.body.classList.toggle("sm-mobile-menu-active", locked);
+    }
+
+    function closeMenu() {
+      header.classList.remove("is-mobile-menu-open");
+      panel.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Abrir menu principal");
+      setPageLock(false);
+    }
+
+    toggle.addEventListener("click", function () {
+      var open = !header.classList.contains("is-mobile-menu-open");
+      header.classList.toggle("is-mobile-menu-open", open);
+      panel.classList.toggle("is-open", open);
+      header.classList.remove("is-hidden");
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Cerrar menu principal" : "Abrir menu principal");
+      setPageLock(open);
+    });
+
+    panel.addEventListener("click", function (event) {
+      if (event.target.closest("a")) closeMenu();
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!header.classList.contains("is-mobile-menu-open")) return;
+      if (header.contains(event.target)) return;
+      if (panel.contains(event.target)) return;
+      closeMenu();
+    });
+
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && header.classList.contains("is-mobile-menu-open")) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1099 && header.classList.contains("is-mobile-menu-open")) closeMenu();
+    });
   }
 
   function revealOnScroll() {
@@ -277,6 +340,7 @@
     injectWhatsAppWidget();
     initScrollProgress();
     initSmartHeader();
+    initSiteMobileNavigation();
     smoothPageLinks();
     initHeroSlider();
     revealOnScroll();

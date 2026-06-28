@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="assets/css/premium-polish.css?v=navfixed-20260617" rel="stylesheet"/>
+  <link href="assets/css/premium-polish.css?v=responsive-20260627d" rel="stylesheet"/>
   <style>
     :root {
       --bg: #0b0d10;
@@ -703,21 +703,35 @@
       .services-shell {
         grid-template-columns: 1fr;
         width: min(100% - 36px, 780px);
+        padding-top: 150px;
         padding-left: 0;
         padding-right: 0;
       }
 
       .solutions-sidebar {
-        position: relative;
-        top: auto;
-        left: auto;
+        position: fixed;
+        top: 68px;
+        left: 18px;
+        right: 18px;
         width: auto;
         max-height: none;
-        overflow: visible;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        overscroll-behavior-inline: contain;
         min-height: 0;
-        padding: 16px;
+        padding: 10px;
         border-right: 1px solid rgba(242, 202, 80, 0.16);
         border-bottom: 1px solid rgba(242, 202, 80, 0.16);
+        background:
+          linear-gradient(145deg, rgba(23, 26, 25, 0.96), rgba(9, 11, 12, 0.98)),
+          rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        z-index: 45;
+        -webkit-overflow-scrolling: touch;
       }
 
       .services-shell .services-page {
@@ -725,16 +739,22 @@
       }
 
       .solutions-sidebar p {
-        margin-bottom: 12px;
+        flex: 0 0 auto;
+        margin: 0 4px 0 0;
+        white-space: nowrap;
       }
 
       .solution-link {
         display: inline-flex;
-        margin: 0 8px 9px 0;
-        min-height: 38px;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: min(250px, 72vw);
+        margin: 0;
+        min-height: 40px;
         font-size: 12px;
         justify-content: flex-start;
         text-align: left;
+        white-space: normal;
       }
 
       .services-shell .service-block,
@@ -762,21 +782,27 @@
     @media (max-width: 680px) {
       .services-shell {
         width: min(100% - 28px, 520px);
-        padding-top: 104px;
+        padding-top: 144px;
       }
 
       .solutions-sidebar {
-        padding: 14px;
+        left: 14px;
+        right: 14px;
+        width: auto;
+        margin-left: 0;
+        padding: 9px;
       }
 
       .solutions-sidebar p {
-        text-align: center;
+        font-size: 11px;
+        text-align: left;
       }
 
       .solution-link {
-        width: 100%;
+        width: auto;
+        max-width: 78vw;
         justify-content: flex-start;
-        font-size: 12px;
+        font-size: 11.5px;
       }
 
       .services-shell .service-block {
@@ -996,7 +1022,7 @@
     <div class="h-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center gap-5">
       <a class="flex items-center gap-3 shrink-0 group" href="index.html" aria-label="Industriales El&eacute;ctricos S&amp;M">
         <span class="sm-brand-mark" aria-hidden="true"><img src="assets/img/sm-brand-logo.png" alt=""/></span>
-        <span class="sm-brand-copy hidden sm:flex">
+        <span class="sm-brand-copy">
           <strong class="block font-headline-md text-lg text-on-surface">Industriales El&eacute;ctricos S&amp;M</strong>
         </span>
       </a>
@@ -1166,9 +1192,12 @@
     const solutionLinks = Array.from(document.querySelectorAll(".solution-link"));
     const servicesDesktop = window.matchMedia("(min-width: 1041px)");
     const serviceBlockList = Array.from(serviceBlocks);
+    const solutionsSidebar = document.querySelector(".solutions-sidebar");
     const headerOffset = () => {
       const header = document.getElementById("sm-main-header");
-      return (header ? header.offsetHeight : 80) + 30;
+      const headerHeight = header ? header.offsetHeight : 80;
+      const sidebarHeight = !servicesDesktop.matches && solutionsSidebar ? solutionsSidebar.offsetHeight : 0;
+      return headerHeight + sidebarHeight + (servicesDesktop.matches ? 30 : 14);
     };
 
     const activateServiceLink = (index) => {
@@ -1197,6 +1226,7 @@
       const block = serviceBlockList[targetIndex];
       if (!block) return;
 
+      activateServiceLink(targetIndex);
       const top = block.getBoundingClientRect().top + window.pageYOffset - headerOffset();
       window.scrollTo({ top, behavior: "smooth" });
       window.setTimeout(syncActiveFromScroll, 560);
@@ -1208,7 +1238,6 @@
 
     solutionLinks.forEach((link, index) => {
       link.addEventListener("click", (event) => {
-        if (!servicesDesktop.matches) return;
         event.preventDefault();
         scrollToService(index);
       });
@@ -1218,10 +1247,18 @@
     let activeFrame = null;
 
     const syncActiveFromScroll = () => {
-      if (!servicesDesktop.matches || activeFrame) return;
+      if (activeFrame) return;
       activeFrame = window.requestAnimationFrame(() => {
         activeFrame = null;
-        activateServiceLink(nearestServiceIndex());
+        const index = nearestServiceIndex();
+        activateServiceLink(index);
+        if (!servicesDesktop.matches && solutionLinks[index]) {
+          solutionLinks[index].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+          });
+        }
       });
     };
 
@@ -1256,6 +1293,6 @@
       if (bar) bar.style.width = progress + "%";
     }, { passive: true });
   </script>
-  <script src="assets/js/premium-polish.js"></script>
+  <script src="assets/js/premium-polish.js?v=responsive-20260627d"></script>
 </body>
 </html>
