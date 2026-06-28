@@ -1,0 +1,1421 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-28T11:34:32.087Z",
+  "sections": [
+    {
+      "id": "global",
+      "label": "General",
+      "description": "Datos compartidos en cabecera, footer y enlaces importantes.",
+      "fields": [
+        {
+          "id": "global.brand.name",
+          "label": "Nombre de la empresa",
+          "type": "text",
+          "pages": "all",
+          "selector": ".sm-brand-copy strong, .brand strong",
+          "property": "text",
+          "value": "Industriales Eléctricos S&M"
+        },
+        {
+          "id": "global.footer.email.text",
+          "label": "Correo del footer",
+          "type": "email",
+          "pages": "all",
+          "selector": ".sm-footer-col:nth-child(3) .sm-footer-item span:last-child",
+          "property": "text",
+          "value": "ventas@smindustrial.com.pe"
+        },
+        {
+          "id": "global.footer.email.href",
+          "label": "Link mailto del footer",
+          "type": "url",
+          "pages": "all",
+          "selector": ".sm-footer-col:nth-child(3) .sm-footer-item",
+          "property": "href",
+          "value": "mailto:ventas@smindustrial.com.pe"
+        },
+        {
+          "id": "global.tiktok.href",
+          "label": "TikTok",
+          "type": "url",
+          "pages": "all",
+          "selector": ".sm-footer-col:nth-child(4) .sm-footer-item",
+          "property": "href",
+          "value": "https://www.tiktok.com/@smindustrial.pe"
+        },
+        {
+          "id": "global.brochure.href",
+          "label": "Archivo del brochure",
+          "type": "pdf",
+          "pages": "contacto",
+          "selector": ".brochure-premium-button",
+          "property": "href",
+          "value": "assets/docs/Brochure_SM_industriales_electricos.pdf"
+        }
+      ]
+    },
+    {
+      "id": "inicio",
+      "label": "Inicio",
+      "description": "Administra portada, textos principales, servicios destacados y trabajos reales.",
+      "fields": [
+        {
+          "id": "inicio.hero.video",
+          "label": "Video principal",
+          "type": "video",
+          "pages": "inicio",
+          "selector": ".home-hero-bg video",
+          "property": "src",
+          "value": "assets/video/hero-slider-sm.mp4",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "id": "inicio.hero.poster",
+          "label": "Poster del video",
+          "type": "image",
+          "pages": "inicio",
+          "selector": ".home-hero-bg video",
+          "property": "poster",
+          "value": "assets/img/brochure/hero-panel.jpg",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "id": "inicio.hero.image.1",
+          "label": "Imagen slider 1",
+          "type": "image",
+          "pages": "inicio",
+          "selector": ".home-hero-bg img:nth-of-type(1)",
+          "property": "src",
+          "value": "assets/img/brochure/store-front.jpg",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "id": "inicio.hero.eyebrow",
+          "label": "Etiqueta de portada",
+          "type": "text",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(1) .home-hero-eyebrow",
+          "property": "text",
+          "value": "Ingeniería eléctrica industrial"
+        },
+        {
+          "id": "inicio.hero.title",
+          "label": "Titulo de portada",
+          "type": "html",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(1) .home-hero-heading",
+          "property": "html",
+          "value": "Soluciones eléctricas industriales <span class=\"accent\">a medida</span>"
+        },
+        {
+          "id": "inicio.hero.description",
+          "label": "Descripcion de portada",
+          "type": "textarea",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(1) .home-hero-description",
+          "property": "text",
+          "value": "En Industriales Eléctricos S&M E.I.R.L. brindamos soluciones para distribución eléctrica, automatización industrial, arranque de motores, presión constante y tableros personalizados."
+        },
+        {
+          "id": "inicio.services.title",
+          "label": "Titulo de servicios en inicio",
+          "type": "text",
+          "pages": "inicio",
+          "selector": "#servicios-inicio h2",
+          "property": "text",
+          "value": "Soluciones que el cliente identifica rápido"
+        },
+        {
+          "id": "inicio.services.description",
+          "label": "Descripcion de servicios en inicio",
+          "type": "textarea",
+          "pages": "inicio",
+          "selector": "#servicios-inicio .max-w-3xl p",
+          "property": "text",
+          "value": "Cada bloque mantiene el contenido técnico del documento, pero presentado como una solución clara para cotizar, comparar y entender sin perder tiempo."
+        },
+        {
+          "id": "inicio.works.title",
+          "label": "Titulo de trabajos",
+          "type": "text",
+          "pages": "inicio",
+          "selector": "#trabajos-inicio h2",
+          "property": "text",
+          "value": "Trabajos reales en tableros y control industrial"
+        },
+        {
+          "id": "inicio.hero.image.2",
+          "label": "Imagen slider 2",
+          "type": "image",
+          "pages": "inicio",
+          "selector": ".home-hero-bg img:nth-of-type(2)",
+          "property": "src",
+          "value": "assets/img/real/tablero-taller-abierto.jpeg",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "id": "inicio.hero.slide2.eyebrow",
+          "label": "Slide 2: etiqueta",
+          "type": "text",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(2) .home-hero-eyebrow",
+          "property": "text",
+          "value": "Fabricación y automatización"
+        },
+        {
+          "id": "inicio.hero.slide2.title",
+          "label": "Slide 2: título",
+          "type": "html",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(2) .home-hero-heading",
+          "property": "html",
+          "value": "Tableros listos para operar con seguridad"
+        },
+        {
+          "id": "inicio.hero.slide2.text",
+          "label": "Slide 2: texto",
+          "type": "textarea",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(2) .home-hero-description",
+          "property": "text",
+          "value": "Diseñamos tableros ATS, bombas contra incendio, bombas alternadas, presión constante y control con PLC según carga, tensión y condiciones de instalación."
+        },
+        {
+          "id": "inicio.hero.slide3.eyebrow",
+          "label": "Slide 3: etiqueta",
+          "type": "text",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(3) .home-hero-eyebrow",
+          "property": "text",
+          "value": "Montaje ordenado"
+        },
+        {
+          "id": "inicio.hero.slide3.title",
+          "label": "Slide 3: título",
+          "type": "html",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(3) .home-hero-heading",
+          "property": "html",
+          "value": "Componentes confiables para proyectos exigentes"
+        },
+        {
+          "id": "inicio.hero.slide3.text",
+          "label": "Slide 3: texto",
+          "type": "textarea",
+          "pages": "inicio",
+          "selector": ".home-hero-slide:nth-of-type(3) .home-hero-description",
+          "property": "text",
+          "value": "Trabajamos con marcas reconocidas y cableado limpio para sistemas de protección, control, maniobra y automatización industrial."
+        },
+        {
+          "id": "inicio.works.cta.text",
+          "label": "Botón de trabajos",
+          "type": "text",
+          "pages": "inicio",
+          "selector": "#trabajos-inicio a.bg-primary",
+          "property": "text",
+          "value": "Solicitar cotización"
+        }
+      ],
+      "collections": [
+        {
+          "id": "inicio.services.items",
+          "label": "Servicios destacados del inicio",
+          "help": "Administra todas las tarjetas de servicios de la portada. Puedes agregar, ocultar, ordenar o eliminar sin romper la grilla responsive.",
+          "pages": "inicio",
+          "renderer": "homeServices",
+          "itemLabel": "Servicio",
+          "addLabel": "Agregar servicio",
+          "itemFields": [
+            {
+              "key": "title",
+              "label": "Título",
+              "type": "text"
+            },
+            {
+              "key": "text",
+              "label": "Texto",
+              "type": "textarea"
+            },
+            {
+              "key": "image",
+              "label": "Imagen",
+              "type": "image"
+            },
+            {
+              "key": "alt",
+              "label": "Texto alternativo",
+              "type": "text"
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/protection-panel.jpg",
+              "alt": "Tableros de distribución eléctrica",
+              "title": "Distribución eléctrica",
+              "text": "Tableros eléctricos para distribución, protección y control de circuitos en instalaciones comerciales e industriales."
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/transfer-panel.jpg",
+              "alt": "Tablero ATS para transferencia automática",
+              "title": "Transferencia automática",
+              "text": "Tableros ATS para cambio automático entre red eléctrica y grupo electrógeno."
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/pump-panel.jpg",
+              "alt": "Tablero para bombas y sistemas contra incendio",
+              "title": "Bombas contra incendio",
+              "text": "Tableros para control de bomba principal, bomba jockey y sistemas auxiliares contra incendio."
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/control-panel.jpg",
+              "alt": "Automatización industrial con PLC, relés y sensores",
+              "title": "Automatización industrial",
+              "text": "Soluciones con PLC, sensores, relés, variadores y lógica de control."
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/contactors.jpg",
+              "alt": "Contactores y arrancadores para motores",
+              "title": "Arranque de motores",
+              "text": "Tableros de arranque directo, estrella-triángulo, doble estrella, soft starter y variador."
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/orange-panel.jpg",
+              "alt": "Control de bombas alternadas",
+              "title": "Bombas alternadas",
+              "text": "Control automático para alternancia de bombas en cisternas, tanques, presurización y drenaje."
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/vfd-panel.jpg",
+              "alt": "Sistema de presión constante con variador",
+              "title": "Presión constante",
+              "text": "Sistemas con variador y transmisor de presión para mantener presión estable en redes de agua."
+            }
+          ]
+        },
+        {
+          "id": "inicio.works.items",
+          "label": "Trabajos reales del inicio",
+          "help": "Edita todas las imágenes de trabajos y sus etiquetas manteniendo el mosaico premium.",
+          "pages": "inicio",
+          "renderer": "homeWorks",
+          "itemLabel": "Trabajo",
+          "addLabel": "Agregar trabajo",
+          "itemFields": [
+            {
+              "key": "title",
+              "label": "Etiqueta",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "label": "Imagen",
+              "type": "image"
+            },
+            {
+              "key": "alt",
+              "label": "Texto alternativo",
+              "type": "text"
+            },
+            {
+              "key": "href",
+              "label": "Enlace",
+              "type": "url",
+              "default": "contacto.html"
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "href": "contacto.html",
+              "image": "assets/img/brochure/hero-panel.jpg",
+              "alt": "Tablero eléctrico industrial con componentes de protección",
+              "title": "Distribución y protección"
+            },
+            {
+              "enabled": true,
+              "href": "contacto.html",
+              "image": "assets/img/brochure/control-panel.jpg",
+              "alt": "Control y automatización industrial",
+              "title": "Control industrial"
+            },
+            {
+              "enabled": true,
+              "href": "contacto.html",
+              "image": "assets/img/brochure/transfer-panel.jpg",
+              "alt": "Tablero de transferencia automática",
+              "title": "Transferencia ATS"
+            },
+            {
+              "enabled": true,
+              "href": "contacto.html",
+              "image": "assets/img/brochure/vfd-panel.jpg",
+              "alt": "Tablero con variadores para presión constante",
+              "title": "Variadores y presión constante"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nosotros",
+      "label": "Nosotros",
+      "description": "Administra historia, misión, visión, imágenes y textos institucionales.",
+      "fields": [
+        {
+          "id": "nosotros.hero.image",
+          "label": "Imagen principal",
+          "type": "image",
+          "pages": "nosotros",
+          "selector": ".page-hero img",
+          "property": "src",
+          "value": "assets/img/real/showroom-tablero-abierto.jpeg",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "id": "nosotros.hero.intro",
+          "label": "Texto principal del hero",
+          "type": "html",
+          "pages": "nosotros",
+          "selector": ".hero-copy .hero-intro",
+          "property": "html",
+          "value": "Somos una empresa peruana enfocada en brindar soluciones eléctricas industriales <strong>confiables, seguras y adaptadas</strong> a cada proyecto."
+        },
+        {
+          "id": "nosotros.about.title",
+          "label": "Título: Quiénes somos",
+          "type": "text",
+          "pages": "nosotros",
+          "selector": "main > section:nth-of-type(2) .copy-block h2",
+          "property": "text",
+          "value": "Quiénes somos"
+        },
+        {
+          "id": "nosotros.about.p1",
+          "label": "Párrafo 1: Quiénes somos",
+          "type": "textarea",
+          "pages": "nosotros",
+          "selector": "main > section:nth-of-type(2) .copy-block p:nth-of-type(1)",
+          "property": "text",
+          "value": "Industriales Eléctricos S&M E.I.R.L. es una empresa peruana especializada en la venta de productos eléctricos industriales, automatización y fabricación de tableros eléctricos para aplicaciones comerciales, industriales y de bombeo."
+        },
+        {
+          "id": "nosotros.about.p2",
+          "label": "Párrafo 2: Qué ofrecemos",
+          "type": "textarea",
+          "pages": "nosotros",
+          "selector": "main > section:nth-of-type(2) .copy-block p:nth-of-type(2)",
+          "property": "text",
+          "value": "Brindamos soluciones integrales para empresas, contratistas, técnicos e industrias que requieren productos confiables, asesoría técnica y tableros eléctricos diseñados según sus necesidades operativas."
+        },
+        {
+          "id": "nosotros.mission.title",
+          "label": "Título de misión",
+          "type": "text",
+          "pages": "nosotros",
+          "selector": ".values-showcase .value-copy:nth-of-type(1) h2",
+          "property": "text",
+          "value": "Soluciones eléctricas confiables para cada operación"
+        },
+        {
+          "id": "nosotros.mission.text",
+          "label": "Texto de misión",
+          "type": "textarea",
+          "pages": "nosotros",
+          "selector": ".values-showcase .value-copy:nth-of-type(1) p",
+          "property": "text",
+          "value": "Brindar soluciones eléctricas industriales confiables mediante la venta de productos de calidad, asesoría técnica especializada y fabricación de tableros eléctricos seguros, eficientes y adaptados a las necesidades de cada cliente."
+        },
+        {
+          "id": "nosotros.vision.title",
+          "label": "Título de visión",
+          "type": "text",
+          "pages": "nosotros",
+          "selector": ".values-showcase .value-copy:nth-of-type(2) h2",
+          "property": "text",
+          "value": "Calidad técnica y confianza en el sector industrial"
+        },
+        {
+          "id": "nosotros.vision.text",
+          "label": "Texto de visión",
+          "type": "textarea",
+          "pages": "nosotros",
+          "selector": ".values-showcase .value-copy:nth-of-type(2) p",
+          "property": "text",
+          "value": "Ser una empresa reconocida en el sector eléctrico industrial por la calidad de nuestros productos, la eficiencia de nuestros tableros eléctricos y la confianza que generamos en nuestros clientes."
+        }
+      ],
+      "collections": [
+        {
+          "id": "nosotros.experience.items",
+          "label": "Lista de experiencia",
+          "help": "Administra todos los puntos de experiencia sin romper la lista premium.",
+          "pages": "nosotros",
+          "renderer": "aboutServices",
+          "itemLabel": "Punto",
+          "addLabel": "Agregar punto",
+          "itemFields": [
+            {
+              "key": "text",
+              "label": "Texto del punto",
+              "type": "textarea"
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "text": "Tableros para bombas alternadas."
+            },
+            {
+              "enabled": true,
+              "text": "Tableros de presión constante."
+            },
+            {
+              "enabled": true,
+              "text": "Tableros automatizados con PLC."
+            },
+            {
+              "enabled": true,
+              "text": "Tableros para bombas contra incendio."
+            },
+            {
+              "enabled": true,
+              "text": "Tableros de transferencia automática."
+            },
+            {
+              "enabled": true,
+              "text": "Tableros estrella-triángulo, doble estrella y arranque directo."
+            },
+            {
+              "enabled": true,
+              "text": "Integración de variadores de frecuencia, contactores, guardamotores, relés, sensores y dispositivos de control."
+            }
+          ]
+        },
+        {
+          "id": "nosotros.stack.items",
+          "label": "Imágenes de presentación",
+          "help": "Administra las imágenes superiores de Nosotros. La primera se muestra grande y las demás pequeñas.",
+          "pages": "nosotros",
+          "renderer": "aboutImageStack",
+          "itemLabel": "Imagen",
+          "addLabel": "Agregar imagen",
+          "itemFields": [
+            {
+              "key": "image",
+              "label": "Imagen",
+              "type": "image"
+            },
+            {
+              "key": "alt",
+              "label": "Texto alternativo",
+              "type": "text"
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "image": "assets/img/real/tablero-transferencia-frontal.jpeg",
+              "alt": ""
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/real/tablero-distribucion-compacto.jpeg",
+              "alt": ""
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/real/tablero-ptar-tamshiyacu.jpeg",
+              "alt": ""
+            }
+          ]
+        },
+        {
+          "id": "nosotros.gallery.items",
+          "label": "Galería de experiencia",
+          "help": "Administra el mosaico de imágenes de experiencia. Puedes marcar una imagen como ancha.",
+          "pages": "nosotros",
+          "renderer": "aboutPhotoGrid",
+          "itemLabel": "Imagen",
+          "addLabel": "Agregar imagen",
+          "itemFields": [
+            {
+              "key": "image",
+              "label": "Imagen",
+              "type": "image"
+            },
+            {
+              "key": "alt",
+              "label": "Texto alternativo",
+              "type": "text"
+            },
+            {
+              "key": "wide",
+              "label": "Imagen ancha",
+              "type": "checkbox",
+              "default": false
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "wide": true,
+              "image": "assets/img/real/tablero-variadores-abb.jpeg",
+              "alt": ""
+            },
+            {
+              "enabled": true,
+              "wide": false,
+              "image": "assets/img/real/tablero-bombeo-compacto.jpeg",
+              "alt": ""
+            },
+            {
+              "enabled": true,
+              "wide": false,
+              "image": "assets/img/real/tablero-controlador-puerta.jpeg",
+              "alt": ""
+            },
+            {
+              "enabled": true,
+              "wide": true,
+              "image": "assets/img/real/tablero-rojo-fuerza.jpeg",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "por-que-elegirnos",
+      "label": "Por qué elegirnos",
+      "description": "Administra argumentos comerciales, botón de asesoría y slider de imágenes.",
+      "fields": [
+        {
+          "id": "why.text.1",
+          "label": "Texto principal 1",
+          "type": "textarea",
+          "pages": "por-que-elegirnos",
+          "selector": ".why-copy p:nth-of-type(1)",
+          "property": "html",
+          "value": "En <strong>Industriales Eléctricos S&M E.I.R.L.</strong> desarrollamos soluciones eléctricas industriales seguras, ordenadas y adaptadas a cada necesidad. Brindamos asesoría técnica personalizada, trabajamos con componentes de calidad y fabricamos tableros eléctricos diseñados para una operación confiable y eficiente."
+        },
+        {
+          "id": "why.text.2",
+          "label": "Texto principal 2",
+          "type": "textarea",
+          "pages": "por-que-elegirnos",
+          "selector": ".why-copy p:nth-of-type(2)",
+          "property": "text",
+          "value": "Nuestro compromiso es entregar trabajos profesionales, con correcta selección de equipos, cableado ordenado, identificación de circuitos, protecciones adecuadas y pruebas de funcionamiento antes de la entrega."
+        },
+        {
+          "id": "why.text.3",
+          "label": "Texto destacado amarillo",
+          "type": "html",
+          "pages": "por-que-elegirnos",
+          "selector": ".why-copy p:nth-of-type(3)",
+          "property": "html",
+          "value": "<strong>Nos eligen por nuestra atención técnica, la calidad de nuestros tableros, el orden en cada instalación y la capacidad de brindar soluciones completas para distribución eléctrica, automatización, bombeo, autosoportados, arranque de motores y transferencia automática.</strong>"
+        },
+        {
+          "id": "why.cta",
+          "label": "Botón de asesoría",
+          "type": "text",
+          "pages": "por-que-elegirnos",
+          "selector": ".why-cta",
+          "property": "text",
+          "value": "Solicitar Asesoría →"
+        }
+      ],
+      "collections": [
+        {
+          "id": "why.slider.items",
+          "label": "Imágenes del slider",
+          "help": "Administra todas las fotos del slider de Por qu? elegirnos. La web las adapta al contenedor sin deformarlas.",
+          "pages": "por-que-elegirnos",
+          "renderer": "whySlides",
+          "itemLabel": "Imagen",
+          "addLabel": "Agregar imagen",
+          "itemFields": [
+            {
+              "key": "label",
+              "label": "Etiqueta visible",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "label": "Imagen",
+              "type": "image"
+            },
+            {
+              "key": "alt",
+              "label": "Texto alternativo",
+              "type": "text"
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "image": "assets/img/real/tablero-taller-abierto.jpeg",
+              "alt": "Tablero eléctrico industrial abierto con cableado ordenado",
+              "label": "Proyecto: tablero industrial"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/hero-panel.jpg",
+              "alt": "Tablero de distribución y control industrial",
+              "label": "Proyecto: distribución y control"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/orange-panel.jpg",
+              "alt": "Tablero eléctrico con fondo naranja y cableado ordenado",
+              "label": "Proyecto: tablero de protección"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/transfer-panel.jpg",
+              "alt": "Tablero de transferencia automática abierto",
+              "label": "Proyecto: transferencia automática"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/process-panel.jpg",
+              "alt": "Tablero de automatización y proceso industrial",
+              "label": "Proyecto: automatización industrial"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brochure/store-front.jpg",
+              "alt": "Showroom de componentes eléctricos industriales",
+              "label": "Proyecto: suministro industrial"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "servicios",
+      "label": "Servicios y soluciones",
+      "description": "Administra todas las soluciones completas: menú lateral, textos e imágenes.",
+      "fields": [
+        {
+          "id": "servicios.menu.title",
+          "label": "Título menú lateral",
+          "type": "text",
+          "pages": "servicios",
+          "selector": ".solutions-sidebar p",
+          "property": "text",
+          "value": "Nuestras Soluciones"
+        }
+      ],
+      "collections": [
+        {
+          "id": "servicios.items",
+          "label": "Todas las soluciones",
+          "help": "Administra los 8 bloques completos de Servicios: menú lateral, títulos, textos, notas e imágenes. Si eliminas u ocultas uno, la página se reordena sola.",
+          "pages": "servicios",
+          "renderer": "servicesList",
+          "itemLabel": "Solución",
+          "addLabel": "Agregar solución",
+          "itemFields": [
+            {
+              "key": "title",
+              "label": "Título",
+              "type": "text"
+            },
+            {
+              "key": "slug",
+              "label": "ID / enlace interno",
+              "type": "text"
+            },
+            {
+              "key": "body",
+              "label": "Texto principal",
+              "type": "textarea"
+            },
+            {
+              "key": "note",
+              "label": "Nota destacada",
+              "type": "textarea"
+            },
+            {
+              "key": "image1",
+              "label": "Imagen 1",
+              "type": "image"
+            },
+            {
+              "key": "image2",
+              "label": "Imagen 2",
+              "type": "image"
+            },
+            {
+              "key": "image3",
+              "label": "Imagen 3",
+              "type": "image"
+            },
+            {
+              "key": "compact",
+              "label": "Bloque compacto",
+              "type": "checkbox",
+              "default": false
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "slug": "distribucion",
+              "title": "Tablero de distribución eléctrica",
+              "body": "En Industriales Eléctricos S&M diseñamos, fabricamos e implementamos tableros de distribución eléctrica para instalaciones comerciales, industriales y de servicios, asegurando una correcta distribución de la energía hacia los diferentes circuitos de fuerza, alumbrado, tomacorrientes, equipos especiales y cargas críticas.\n\nNuestros tableros son desarrollados con criterios técnicos de seguridad, orden y funcionalidad, utilizando componentes de calidad como interruptores termomagnéticos, interruptores diferenciales, barras de distribución, borneras, sistemas de puesta a tierra, canaletas y cableado debidamente organizado. Cada tablero se adapta a la necesidad del proyecto, considerando capacidad de carga, número de circuitos, niveles de tensión, protección eléctrica y facilidad de mantenimiento.\n\nNos enfocamos en entregar trabajos limpios, seguros y presentables, con distribución interna ordenada, correcta identificación de circuitos y una instalación preparada para una operación confiable. Esto permite reducir riesgos eléctricos, facilitar futuras ampliaciones y mejorar el control de la energía dentro de cada instalación.",
+              "note": "Cada proyecto es ejecutado con responsabilidad técnica, cuidando los detalles de montaje, conexionado y acabado final, para brindar soluciones eléctricas duraderas y profesionales. Nuestros tableros de distribución son ideales para oficinas, edificios, plantas industriales, comercios, almacenes, salas técnicas y todo tipo de infraestructura que requiera una distribución eléctrica segura y eficiente.",
+              "image1": "assets/img/real/tablero-proteccion-naranja.jpeg",
+              "image2": "assets/img/real/tablero-distribucion-compacto.jpeg",
+              "image3": "assets/img/real/tablero-taller-abierto.jpeg",
+              "compact": false
+            },
+            {
+              "enabled": true,
+              "slug": "transferencia",
+              "title": "Tablero de transferencia automática",
+              "body": "En Industriales Eléctricos S&M diseñamos, fabricamos e implementamos tableros de transferencia automática para sistemas con red comercial y grupo electrógeno, permitiendo que la instalación mantenga continuidad de energía ante cortes, fallas o ausencia de tensión.\n\nNuestros tableros de transferencia están preparados para monitorear la energía de la red principal y, cuando se detecta una falla, ordenar el arranque del grupo electrógeno y realizar la transferencia de carga de forma automática y segura. Cuando la red retorna en condiciones normales, el sistema vuelve a transferir la carga a la alimentación principal y detiene el grupo según la lógica programada.\n\nFabricamos tableros con componentes de calidad, como interruptores de fuerza, contactores o conmutadores motorizados, módulos de transferencia automática, relés de control, protecciones, borneras, pilotos de señalización, selectores, canaletas y cableado debidamente ordenado. Cada solución se adapta a la potencia del proyecto, tensión de trabajo, tipo de carga y requerimientos de operación.",
+              "note": "Nos enfocamos en entregar tableros seguros, confiables y de fácil mantenimiento, con correcta identificación de conexiones, enclavamientos eléctricos y mecánicos según la configuración requerida, y una distribución interna ordenada. Estos tableros son ideales para edificios, comercios, industrias, almacenes, clínicas, oficinas, condominios y toda instalación que requiera respaldo eléctrico automático y continuo.",
+              "image1": "assets/img/real/tablero-transferencia-frontal.jpeg",
+              "image2": "assets/img/real/showroom-tablero-abierto.jpeg",
+              "image3": "assets/img/real/tablero-variadores-abb.jpeg",
+              "compact": false
+            },
+            {
+              "enabled": true,
+              "slug": "bomba-incendio",
+              "title": "Tablero de bomba contra incendio + jockey:",
+              "body": "En Industriales Eléctricos S&M diseñamos, fabricamos e implementamos tableros eléctricos para sistemas de bombas contra incendio, orientados a garantizar una respuesta segura y confiable ante una emergencia. Estos tableros permiten el control, protección y operación de bombas principales, bombas jockey y sistemas auxiliares, de acuerdo con los requerimientos de cada proyecto.\n\nNuestros tableros pueden desarrollarse para diferentes configuraciones, como arranque directo, estrella-triángulo, arranque suave o control mediante variador de frecuencia, según la potencia de la bomba, el tipo de instalación y la necesidad operativa del sistema. Integramos componentes como interruptores de fuerza, contactores, relés térmicos, relés de control, temporizadores, borneras, pilotos de señalización, selectores, pulsadores y sistemas de protección eléctrica.\n\nEl funcionamiento está preparado para mantener la presión del sistema y activar automáticamente la bomba cuando se detecta una caída de presión en la red contra incendio. También puede incluir modos de operación manual y automático, señalización de estado, alarmas, control de falla, protección por sobrecarga y monitoreo de condiciones eléctricas.",
+              "note": "Nos enfocamos en entregar tableros robustos, ordenados y de fácil mantenimiento, con cableado correctamente identificado, distribución interna limpia y componentes seleccionados para una operación exigente. Son ideales para edificios, industrias, almacenes, centros comerciales, condominios, plantas, clínicas y toda infraestructura que requiera un sistema contra incendio confiable y seguro.",
+              "image1": "assets/img/real/tablero-rojo-fuerza.jpeg",
+              "image2": "assets/img/real/tablero-ptar-tamshiyacu.jpeg",
+              "image3": "assets/img/real/tablero-transferencia-frontal.jpeg",
+              "compact": false
+            },
+            {
+              "enabled": true,
+              "slug": "automatizados",
+              "title": "Tableros automatizados con Siemens Logo8!",
+              "body": "En Industriales Eléctricos S&M diseñamos, fabricamos e implementamos tableros automatizados con PLC para el control de procesos eléctricos, industriales y electromecánicos. Estos tableros permiten automatizar maniobras, secuencias de trabajo, arranques, paradas, alternancias, protecciones, alarmas y monitoreo de equipos de forma ordenada, segura y eficiente.\n\nNuestros tableros pueden aplicarse en sistemas de bombeo, presión constante, ventilación, transferencia automática, control de motores, líneas de producción, procesos industriales, sistemas de riego, iluminación, compresores y diversas aplicaciones donde se requiere una lógica de control personalizada. Cada solución se desarrolla según la necesidad del proyecto, considerando entradas y salidas digitales o analógicas, sensores, presostatos, transmisores, contactores, variadores de frecuencia, relés, fuentes de poder, HMI y comunicación con otros equipos.\n\nEl PLC permite ejecutar una lógica programada de manera precisa, reduciendo la intervención manual y mejorando la continuidad operativa del sistema. Además, facilita la implementación de modos de operación manual y automático, visualización de estados, señalización de fallas, control por horarios, alternancia de equipos, enclavamientos de seguridad y futuras ampliaciones.",
+              "note": "Nos enfocamos en entregar tableros robustos, ordenados y funcionales, con cableado correctamente identificado, distribución interna limpia y programación adaptada al funcionamiento real de cada instalación. Nuestros tableros automatizados con PLC son ideales para empresas, industrias, edificios, plantas, comercios y sistemas que requieren mayor control, confiabilidad y eficiencia en sus operaciones eléctricas.",
+              "image1": "assets/img/real/tablero-controlador-puerta.jpeg",
+              "image2": "assets/img/real/showroom-tablero-abierto.jpeg",
+              "image3": "assets/img/real/tablero-distribucion-compacto.jpeg",
+              "compact": false
+            },
+            {
+              "enabled": true,
+              "slug": "estrella-delta",
+              "title": "Tablero estrella delta y doble estrella",
+              "body": "En Industriales Eléctricos S&M diseñamos, fabricamos e implementamos tableros de arranque para motores eléctricos, adaptados a la potencia, tipo de carga y necesidad operativa de cada proyecto. Estos tableros permiten controlar y proteger motores utilizados en bombas, ventiladores, compresores, extractores, máquinas industriales y otros equipos de fuerza.\n\nDesarrollamos soluciones de arranque directo , ideales para motores de menor potencia o aplicaciones donde la red eléctrica permite el arranque sin reducción de corriente. Este sistema permite una operación simple, confiable y económica, integrando contactor, protección térmica o guardamotor, interruptor de fuerza, pulsadores, pilotos de señalización y borneras de conexión.\n\nTambién fabricamos tableros de arranque estrella-triángulo , utilizados para reducir la corriente de arranque en motores trifásicos. Este sistema inicia el motor en conexión estrella y, luego de un tiempo programado, conmuta automáticamente a conexión triángulo para su operación normal. Es una solución muy usada en bombas, ventiladores, compresores y cargas industriales que requieren un arranque más suave que el directo.\n\nPara aplicaciones especiales, implementamos tableros de arranque estrella-doble estrella , utilizados en motores preparados para trabajar con dos etapas de arranque o configuraciones específicas de bobinado. Este tipo de tablero permite una secuencia de conexión controlada, ayudando a mejorar el comportamiento del motor durante el arranque y adecuándose a requerimientos eléctricos particulares del equipo.",
+              "note": "Cada tablero es fabricado con componentes de calidad, cableado ordenado, identificación de circuitos, protecciones adecuadas y una distribución interna pensada para facilitar el mantenimiento. Nuestro objetivo es entregar soluciones seguras, robustas y confiables para el control de motores en instalaciones industriales, comerciales y de servicios.",
+              "image1": "assets/img/real/tablero-arranque-simple.jpeg",
+              "image2": "assets/img/real/tablero-bombeo-compacto.jpeg",
+              "image3": "assets/img/real/tablero-rojo-fuerza.jpeg",
+              "compact": false
+            },
+            {
+              "enabled": true,
+              "slug": "bombas-alternadas",
+              "title": "Tablero de bombas alternadas",
+              "body": "En Industriales Eléctricos S&M diseñamos y fabricamos tableros para bombas alternadas, ideales para sistemas de agua, cisternas, tanques elevados, presurización y drenaje. Estos tableros permiten que las bombas trabajen de forma automática y alternada, distribuyendo las horas de operación entre los equipos y evitando el desgaste prematuro de una sola bomba.",
+              "note": "El sistema puede operar en modo manual o automático, según la necesidad del proyecto, integrando contactores, guardamotores, relés de control, selectores, pilotos de señalización, borneras y protecciones eléctricas. Su funcionamiento permite mantener la continuidad del servicio, activar una bomba de respaldo cuando sea necesario y asegurar una operación eficiente, ordenada y confiable.",
+              "image1": "assets/img/real/tablero-bombeo-compacto.jpeg",
+              "image2": "assets/img/real/tablero-arranque-simple.jpeg",
+              "image3": "assets/img/real/tablero-controlador-puerta.jpeg",
+              "compact": true
+            },
+            {
+              "enabled": true,
+              "slug": "presion-constante",
+              "title": "Tableros de presión constante para líquidos",
+              "body": "En Industriales Eléctricos S&M diseñamos, fabricamos e implementamos tableros de presión constante para sistemas de bombeo que requieren mantener una presión estable en redes de agua, procesos industriales, edificios, condominios, sistemas de riego y aplicaciones comerciales.\n\nEstos tableros trabajan mediante variadores de frecuencia, transmisores de presión y lógica de control, permitiendo regular automáticamente la velocidad de las bombas de acuerdo con la demanda del sistema. Esto ayuda a reducir arranques bruscos, mejorar la eficiencia operativa, proteger los motores y mantener una presión constante durante el funcionamiento.\n\nNuestros sistemas pueden incluir alternancia de bombas, operación manual y automática, señalización de fallas, protección de motores, control por presión, configuración de variadores y pruebas de funcionamiento. Cada tablero se desarrolla según la cantidad de bombas, potencia, tensión de trabajo, tipo de líquido y requerimiento del proyecto.",
+              "note": "Son ideales para edificios, industrias, condominios, sistemas de agua potable, sistemas de riego, plantas, comercios y aplicaciones donde se requiere continuidad, eficiencia y control automático de presión.",
+              "image1": "assets/img/real/tablero-variadores-abb.jpeg",
+              "image2": "assets/img/real/tablero-controlador-puerta.jpeg",
+              "image3": "assets/img/real/tablero-transferencia-frontal.jpeg",
+              "compact": false
+            },
+            {
+              "enabled": true,
+              "slug": "automatizacion-industrial",
+              "title": "Automatización eléctrica industrial",
+              "body": "Desarrollamos soluciones de automatización eléctrica industrial para mejorar el control, seguridad y eficiencia de procesos eléctricos, electromecánicos y sistemas de bombeo.\n\nIntegramos PLC, relés de control, temporizadores, sensores, presostatos, transmisores, variadores de frecuencia, contactores, fuentes de poder, selectores, pilotos de señalización y otros dispositivos de control según la necesidad del proyecto.",
+              "note": "Nuestras soluciones permiten automatizar arranques, paradas, alternancia de equipos, alarmas, control por niveles, control por presión, secuencias de trabajo, enclavamientos de seguridad y operación manual o automática.",
+              "image1": "assets/img/real/tablero-controlador-puerta.jpeg",
+              "image2": "assets/img/real/tablero-distribucion-compacto.jpeg",
+              "image3": "assets/img/real/showroom-tablero-abierto.jpeg",
+              "compact": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marcas",
+      "label": "Marcas",
+      "description": "Administra banner, textos y todos los logos de marcas.",
+      "fields": [
+        {
+          "id": "marcas.hero.image",
+          "label": "Imagen de banner",
+          "type": "image",
+          "pages": "marcas",
+          "selector": "main section:first-of-type img",
+          "property": "src",
+          "value": "https://lh3.googleusercontent.com/aida-public/AB6AXuBYr_RkP5LA7WHv8R-9I2L6h2zDBoj-wHixEdv_WKPKz6H-KNONZKFbnOBXupfMkoDN_SkZ9tNbsXl9k5rvd5me34BwcXub0IdXDSVzfXQVn9AWcIUW0nywPrphrprICiOo_96EwR9Q0S3aO6mEJc6a7zxQpRzvQMsBkBHhb5Th8OcsM4idcnZtzFTYJQAq4aD_oHV_wLCHLikDYagD3-nxTyIVAMcq_yf9RRzaj1Uwk-fXqW6kM2H3JYbvDlpunNAFz5jb_ac16-Uc",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "id": "marcas.hero.label",
+          "label": "Etiqueta del banner",
+          "type": "text",
+          "pages": "marcas",
+          "selector": "main section:first-of-type .font-label-caps",
+          "property": "text",
+          "value": "Alianzas estratégicas"
+        },
+        {
+          "id": "marcas.hero.title",
+          "label": "Título del banner",
+          "type": "html",
+          "pages": "marcas",
+          "selector": "main section:first-of-type h1",
+          "property": "html",
+          "value": "Red de marcas <br><span class=\"text-primary\">líderes</span>"
+        },
+        {
+          "id": "marcas.hero.text",
+          "label": "Texto del banner",
+          "type": "textarea",
+          "pages": "marcas",
+          "selector": "main section:first-of-type p.font-body-lg",
+          "property": "text",
+          "value": "En Industriales Eléctricos S&M, la calidad no se negocia. Trabajamos con marcas reconocidas para entregar soluciones robustas, confiables y listas para entornos industriales exigentes."
+        },
+        {
+          "id": "marcas.intro.title",
+          "label": "Título introducción",
+          "type": "text",
+          "pages": "marcas",
+          "selector": ".brand-intro-panel h2",
+          "property": "text",
+          "value": "Excelencia técnica mediante integración"
+        },
+        {
+          "id": "marcas.intro.text1",
+          "label": "Texto introducción 1",
+          "type": "textarea",
+          "pages": "marcas",
+          "selector": ".brand-intro-panel p:nth-of-type(1)",
+          "property": "text",
+          "value": "Integramos tecnologías de fabricantes reconocidos para que cada solución mantenga continuidad operativa, seguridad y eficiencia en campo."
+        }
+      ],
+      "collections": [
+        {
+          "id": "marcas.logos.items",
+          "label": "Todos los logos de marcas",
+          "help": "Agrega, ordena u oculta logos. Cada logo mantiene el mismo tamaño visual y no deforma la grilla.",
+          "pages": "marcas",
+          "renderer": "brandLogos",
+          "itemLabel": "Marca",
+          "addLabel": "Agregar marca",
+          "itemFields": [
+            {
+              "key": "name",
+              "label": "Nombre de marca",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "label": "Logo",
+              "type": "image"
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/schneider_electric.svg",
+              "name": "Schneider Electric"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/abb.svg",
+              "name": "ABB"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/siemens.svg",
+              "name": "Siemens"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/general_electric.svg",
+              "name": "General Electric"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/square_d.svg",
+              "name": "Square D"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/rittal.svg",
+              "name": "Rittal"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/lovato_electric.svg",
+              "name": "Lovato Electric"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/steck.svg",
+              "name": "Steck"
+            },
+            {
+              "enabled": true,
+              "image": "assets/img/brand-logos/chint.svg",
+              "name": "Chint"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "preguntas",
+      "label": "Preguntas frecuentes",
+      "description": "Administra todas las preguntas frecuentes, respuestas y su orden.",
+      "fields": [
+        {
+          "id": "preguntas.hero.label",
+          "label": "Etiqueta del encabezado",
+          "type": "text",
+          "pages": "preguntas",
+          "selector": ".faq-eyebrow",
+          "property": "text",
+          "value": "Soporte claro para cotizar"
+        },
+        {
+          "id": "preguntas.hero.title",
+          "label": "Título principal",
+          "type": "html",
+          "pages": "preguntas",
+          "selector": ".faq-hero h1",
+          "property": "html",
+          "value": "Preguntas frecuentes"
+        },
+        {
+          "id": "preguntas.hero.text",
+          "label": "Descripción principal",
+          "type": "textarea",
+          "pages": "preguntas",
+          "selector": ".faq-hero p",
+          "property": "text",
+          "value": "Resolvemos las dudas más comunes sobre productos eléctricos, tableros, marcas, cotización, fabricación e instalación."
+        }
+      ],
+      "collections": [
+        {
+          "id": "preguntas.items",
+          "label": "Todas las preguntas frecuentes",
+          "help": "Aquí están todas las preguntas. Puedes agregar, ocultar, reordenar o eliminar; la numeración y el diseño se actualizan solos.",
+          "pages": "preguntas",
+          "renderer": "faqInteractive",
+          "itemLabel": "Pregunta",
+          "addLabel": "Agregar pregunta",
+          "itemFields": [
+            {
+              "key": "question",
+              "label": "Pregunta del botón",
+              "type": "text"
+            },
+            {
+              "key": "answerTitle",
+              "label": "Título de respuesta",
+              "type": "text"
+            },
+            {
+              "key": "answerHtml",
+              "label": "Respuesta",
+              "type": "html"
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "question": "?Venden productos eléctricos industriales?",
+              "answerTitle": "?Venden productos eléctricos industriales?",
+              "answerHtml": "<p>Sí. Vendemos productos eléctricos industriales por unidad y también por proyecto. Atendemos requerimientos de llaves térmicas, contactores, guardamotores, variadores de frecuencia, PLC, relés, fuentes de poder, sensores, gabinetes, borneras y accesorios eléctricos.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?También fabrican tableros eléctricos completos?",
+              "answerTitle": "?También fabrican tableros eléctricos completos?",
+              "answerHtml": "<p>Sí. Diseñamos y ensamblamos tableros eléctricos completos según la necesidad del cliente. Podemos fabricar tableros de arranque directo, estrella-triángulo, bombas alternadas, presión constante, transferencia automática, control y fuerza, automatización con PLC, entre otros.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "¿Qué información necesitan para cotizar un tablero eléctrico?",
+              "answerTitle": "¿Qué información necesitan para cotizar un tablero eléctrico?",
+              "answerHtml": "<p>Para cotizar correctamente necesitamos saber:</p><table><thead><tr><th>Dato requerido</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Tipo de tablero</td><td>Arranque directo, presión constante, bombas alternadas, transferencia, etc.</td></tr><tr><td>Tensión de trabajo</td><td>220 V, 380 V o 440 V</td></tr><tr><td>Potencia del motor</td><td>HP o kW</td></tr><tr><td>Cantidad de motores o bombas</td><td>1, 2, 3 o más</td></tr><tr><td>Tipo de control</td><td>Manual, automático, con PLC, con variador</td></tr><tr><td>Aplicación</td><td>Bomba, ventilador, compresor, máquina, grupo electrógeno</td></tr><tr><td>Plano o referencia</td><td>Foto, esquema, lista de materiales o requerimiento técnico</td></tr></tbody></table>"
+            },
+            {
+              "enabled": true,
+              "question": "?Puedo enviar una foto del tablero o equipo que necesito reemplazar?",
+              "answerTitle": "?Puedo enviar una foto del tablero o equipo que necesito reemplazar?",
+              "answerHtml": "<p>Sí. Puedes enviarnos fotos del tablero, placa del motor, componentes existentes o instalación actual por WhatsApp. Con esa información podemos orientarte mejor y solicitar los datos adicionales necesarios para preparar una cotización.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "¿Qué es un tablero de presión constante?",
+              "answerTitle": "¿Qué es un tablero de presión constante?",
+              "answerHtml": "<p>Es un tablero que permite mantener una presión estable en una red de agua mediante variadores de frecuencia, sensores o transmisores de presión y lógica de control. Este sistema regula la velocidad de las bombas según el consumo, mejorando el funcionamiento y reduciendo arranques bruscos.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Hacen tableros con variador de frecuencia?",
+              "answerTitle": "?Hacen tableros con variador de frecuencia?",
+              "answerHtml": "<p>Sí. Integramos variadores de frecuencia para controlar motores eléctricos, bombas, ventiladores y otros equipos. También podemos configurar parámetros básicos como rampas de aceleración, desaceleración, frecuencia máxima, señales de arranque, protección y control externo.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Trabajan con marcas específicas?",
+              "answerTitle": "?Trabajan con marcas específicas?",
+              "answerHtml": "<p>Sí. Trabajamos con marcas reconocidas como Schneider Electric, ABB, Siemens, General Electric, Square D y otras marcas del sector eléctrico industrial. La marca puede variar según el requerimiento técnico, disponibilidad y presupuesto del cliente.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Puedo solicitar una marca específica para mi tablero?",
+              "answerTitle": "?Puedo solicitar una marca específica para mi tablero?",
+              "answerHtml": "<p>Sí. El cliente puede solicitar una marca específica para los componentes del tablero. También podemos proponer alternativas equivalentes según calidad, disponibilidad, plazo de entrega y presupuesto.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Los tableros se entregan cableados y probados?",
+              "answerTitle": "?Los tableros se entregan cableados y probados?",
+              "answerHtml": "<p>Sí. Los tableros se entregan ensamblados, cableados, rotulados y con pruebas básicas de funcionamiento. Antes de la entrega se revisa la correcta conexión de componentes, maniobra, protecciones y lógica de control.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Pueden fabricar un tablero usando un plano que ya tengo?",
+              "answerTitle": "?Pueden fabricar un tablero usando un plano que ya tengo?",
+              "answerHtml": "<p>Sí. Podemos fabricar el tablero en base a un plano eléctrico, lista de materiales, memoria descriptiva o requerimiento técnico enviado por el cliente. También podemos revisar el plano y sugerir mejoras si fuera necesario.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Hacen instalación en campo?",
+              "answerTitle": "?Hacen instalación en campo?",
+              "answerHtml": "<p>Sí, podemos realizar instalación, conexión, pruebas y puesta en marcha según el tipo de proyecto y ubicación. También podemos entregar solo el tablero para que el cliente o su técnico lo instale.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "¿Cuánto tiempo demora fabricar un tablero eléctrico?",
+              "answerTitle": "¿Cuánto tiempo demora fabricar un tablero eléctrico?",
+              "answerHtml": "<p>El tiempo depende del tipo de tablero, cantidad de componentes, disponibilidad de materiales y complejidad del cableado o programación. Un tablero simple puede tomar menos tiempo, mientras que un tablero automatizado con PLC, variadores o transferencia puede requerir mayor preparación y pruebas.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Realizan envíos a provincia?",
+              "answerTitle": "?Realizan envíos a provincia?",
+              "answerHtml": "<p>Sí, podemos coordinar envíos a provincia según el producto, peso, volumen y agencia de transporte elegida por el cliente. También se puede coordinar recojo en tienda o entrega local.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Puedo solicitar una cotización por WhatsApp?",
+              "answerTitle": "?Puedo solicitar una cotización por WhatsApp?",
+              "answerHtml": "<p>Sí. Puedes enviarnos tu solicitud por WhatsApp indicando el producto o tablero que necesitas. Si cuentas con fotos, placa del motor, plano, lista de materiales o descripción del proyecto, eso ayudará a cotizar con mayor precisión.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Los productos y tableros tienen garantía?",
+              "answerTitle": "?Los productos y tableros tienen garantía?",
+              "answerHtml": "<p>Sí. Los productos y tableros cuentan con garantía según la marca, condiciones de uso y alcance del servicio. La garantía aplica siempre que la instalación, operación y mantenimiento se realicen correctamente.</p>"
+            },
+            {
+              "enabled": true,
+              "question": "?Pueden mejorar o modernizar un tablero antiguo?",
+              "answerTitle": "?Pueden mejorar o modernizar un tablero antiguo?",
+              "answerHtml": "<p>Sí. Podemos evaluar tableros existentes para ordenar cableado, cambiar componentes deteriorados, incorporar protecciones, instalar variadores, mejorar la lógica de control, agregar señalización o automatizar el sistema.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contacto",
+      "label": "Contacto",
+      "description": "Administra canales, sedes, mapas, formulario, correo, teléfonos y brochure.",
+      "fields": [
+        {
+          "id": "contacto.hero.image",
+          "label": "Imagen hero contacto",
+          "type": "image",
+          "pages": "contacto",
+          "selector": ".contact-hero img",
+          "property": "src",
+          "value": "https://lh3.googleusercontent.com/aida-public/AB6AXuCYDCjRhNxMmTgWICpjjx8T9UN3rnFkGQRWkYSGem5oTC1EGbz18rgK2AMuKdGdQmu6hU90i6Aoo6m0XJSyIwntAngKUEBp1BpvnJvBEWjgNN_yBw4gLH9Gzz1ZAh8qh2PA7a-cRO5IHrOPZA7IpDkUBlT7JLf2e3dIUxVeT4sdFdI4tl8L69ugo3WVtLPalMxZHLZIK0efHR6VT5884PECCG1l2pE_EcCslwi1R9ZBRkWe9UwM3VtKd3aBOiPXHexSJst1bhaYxK7e",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "id": "contacto.hero.eyebrow",
+          "label": "Etiqueta de contacto",
+          "type": "text",
+          "pages": "contacto",
+          "selector": ".contact-hero .font-label-caps",
+          "property": "text",
+          "value": "CONTACTO GLOBAL"
+        },
+        {
+          "id": "contacto.hero.title",
+          "label": "Titulo de contacto",
+          "type": "html",
+          "pages": "contacto",
+          "selector": ".contact-hero h1",
+          "property": "html",
+          "value": "Conectando la <span class=\"text-primary italic\">precisión</span> con su visión"
+        },
+        {
+          "id": "contacto.hero.text",
+          "label": "Texto de contacto",
+          "type": "textarea",
+          "pages": "contacto",
+          "selector": ".contact-hero p",
+          "property": "text",
+          "value": "Estamos listos para transformar sus desafíos de ingeniería en realidades operativas de alto desempeño."
+        },
+        {
+          "id": "contacto.channels.title",
+          "label": "Titulo canales",
+          "type": "text",
+          "pages": "contacto",
+          "selector": ".contact-sidebar h2",
+          "property": "text",
+          "value": "Canales de Atención"
+        },
+        {
+          "id": "contacto.form.title",
+          "label": "Titulo formulario",
+          "type": "text",
+          "pages": "contacto",
+          "selector": ".contact-form-panel h3",
+          "property": "text",
+          "value": "Solicitud de Cotización"
+        },
+        {
+          "id": "contacto.form.button",
+          "label": "Boton formulario",
+          "type": "text",
+          "pages": "contacto",
+          "selector": "#quote-form button[type=\"submit\"]",
+          "property": "text",
+          "value": "ENVIAR SOLICITUD DE COTIZACIÓN"
+        },
+        {
+          "id": "contacto.brochure.eyebrow",
+          "label": "Etiqueta boton brochure",
+          "type": "text",
+          "pages": "contacto",
+          "selector": ".brochure-premium-copy span",
+          "property": "text",
+          "value": "Brochure corporativo"
+        },
+        {
+          "id": "contacto.brochure.title",
+          "label": "Texto boton brochure",
+          "type": "text",
+          "pages": "contacto",
+          "selector": ".brochure-premium-copy strong",
+          "property": "text",
+          "value": "Descarga nuestro brochure"
+        },
+        {
+          "id": "contacto.location.title",
+          "label": "Titulo sedes",
+          "type": "text",
+          "pages": "contacto",
+          "selector": "#location-title",
+          "property": "text",
+          "value": "Elige tu ruta de llegada"
+        },
+        {
+          "id": "contacto.location.description",
+          "label": "Descripcion sedes",
+          "type": "textarea",
+          "pages": "contacto",
+          "selector": ".sm-location-heading p",
+          "property": "text",
+          "value": "Tenemos dos puntos de atención en Lima. Cada sede tiene su mapa propio y acceso directo a Google Maps o Waze."
+        }
+      ],
+      "collections": [
+        {
+          "id": "contacto.channels.items",
+          "label": "Canales de atención",
+          "help": "Administra las tarjetas de contacto: sedes, WhatsApp, correo, horario u otros canales.",
+          "pages": "contacto",
+          "renderer": "contactChannels",
+          "itemLabel": "Canal",
+          "addLabel": "Agregar canal",
+          "itemFields": [
+            {
+              "key": "label",
+              "label": "Etiqueta",
+              "type": "text"
+            },
+            {
+              "key": "lines",
+              "label": "Líneas visibles",
+              "type": "textarea"
+            },
+            {
+              "key": "href",
+              "label": "Enlace",
+              "type": "url"
+            },
+            {
+              "key": "icon",
+              "label": "Icono Material",
+              "type": "text"
+            },
+            {
+              "key": "color",
+              "label": "Color RGB",
+              "type": "text"
+            },
+            {
+              "key": "newTab",
+              "label": "Abrir en nueva pestaña",
+              "type": "checkbox",
+              "default": true
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "label": "Nuestras sedes",
+              "lines": "Av. Argentina, C. C 245\nAv. ?scar R. Benavides 282",
+              "href": "#ubicacion",
+              "icon": "location_on",
+              "color": "249 115 22",
+              "newTab": false
+            },
+            {
+              "enabled": true,
+              "label": "WhatsApp directo",
+              "lines": "+51 998 265 837\n+51 955 345 973",
+              "href": "https://web.whatsapp.com/send?phone=51998265837&text=Hola%20Industriales%20El%C3%A9ctricos%20S%26M%2C%20quiero%20hacer%20una%20consulta.",
+              "icon": "chat",
+              "color": "34 197 94",
+              "newTab": true
+            },
+            {
+              "enabled": true,
+              "label": "Correo corporativo",
+              "lines": "ventas@smindustrial.com.pe",
+              "href": "mailto:ventas@smindustrial.com.pe",
+              "icon": "mail",
+              "color": "14 165 233",
+              "newTab": false
+            },
+            {
+              "enabled": true,
+              "label": "Horario de oficina",
+              "lines": "Lun - Vie: 8:00 AM - 6:00 PM\nSáb: 9:00 AM - 1:00 PM",
+              "href": "#quote-form",
+              "icon": "schedule",
+              "color": "242 202 80",
+              "newTab": false
+            }
+          ]
+        },
+        {
+          "id": "contacto.locations.items",
+          "label": "Sedes con Google Maps y Waze",
+          "help": "Administra cada dirección con su mapa, botón de Google Maps y botón de Waze.",
+          "pages": "contacto",
+          "renderer": "locations",
+          "itemLabel": "Sede",
+          "addLabel": "Agregar sede",
+          "itemFields": [
+            {
+              "key": "title",
+              "label": "Nombre de sede",
+              "type": "text"
+            },
+            {
+              "key": "address",
+              "label": "Dirección",
+              "type": "textarea"
+            },
+            {
+              "key": "icon",
+              "label": "Icono Material",
+              "type": "text",
+              "default": "storefront"
+            },
+            {
+              "key": "googleMaps",
+              "label": "Google Maps",
+              "type": "url"
+            },
+            {
+              "key": "waze",
+              "label": "Waze",
+              "type": "url"
+            },
+            {
+              "key": "mapEmbed",
+              "label": "Mapa incrustado",
+              "type": "url"
+            }
+          ],
+          "items": [
+            {
+              "enabled": true,
+              "title": "Av. Argentina",
+              "address": "Av. Argentina, C. C 245,\nLima 15082, Per?.",
+              "icon": "storefront",
+              "googleMaps": "https://www.google.com/maps/search/?api=1&query=Av.%20Argentina%2C%20C.%20C%20245%2C%20Lima%2015082%2C%20Per%C3%BA",
+              "waze": "https://www.waze.com/ul?q=Av.%20Argentina%2C%20C.%20C%20245%2C%20Lima%2015082%2C%20Peru&navigate=yes",
+              "mapEmbed": "https://maps.google.com/maps?hl=es&q=Av.%20Argentina%2C%20C.%20C%20245%2C%20Lima%2015082%2C%20Per%C3%BA&t=&z=17&ie=UTF8&iwloc=B&output=embed"
+            },
+            {
+              "enabled": true,
+              "title": "Av. ?scar R. Benavides",
+              "address": "Av. ?scar R. Benavides 282,\nLima 15082, Per?.",
+              "icon": "warehouse",
+              "googleMaps": "https://www.google.com/maps/search/?api=1&query=Av.%20%C3%93scar%20R.%20Benavides%20282%2C%20Lima%2015082%2C%20Per%C3%BA",
+              "waze": "https://www.waze.com/ul?q=Av.%20%C3%93scar%20R.%20Benavides%20282%2C%20Lima%2015082%2C%20Peru&navigate=yes",
+              "mapEmbed": "https://maps.google.com/maps?hl=es&q=Av.%20%C3%93scar%20R.%20Benavides%20282%2C%20Lima%2015082%2C%20Per%C3%BA&t=&z=17&ie=UTF8&iwloc=B&output=embed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "avanzado",
+      "label": "Avanzado",
+      "description": "Campos personalizados por selector CSS para administrar cualquier texto, link o medio de la web.",
+      "fields": []
+    }
+  ]
+}

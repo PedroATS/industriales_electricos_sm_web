@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | Industriales Eléctricos S&amp;M</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&amp;family=JetBrains+Mono:wght@500;700;800&amp;display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="login-view" id="login-view">
+      <div class="login-card">
+        <span class="eyebrow">Portal administrativo</span>
+        <h1>Panel de control S&amp;M</h1>
+        <form id="login-form" class="login-form">
+          <label>
+            <span>Usuario</span>
+            <input id="login-user" autocomplete="username" value="admin">
+          </label>
+          <label>
+            <span>Contraseña</span>
+            <input id="login-password" type="password" autocomplete="current-password" placeholder="Ingresa la clave">
+          </label>
+          <button type="submit">Ingresar al panel</button>
+        </form>
+        <div class="notice" id="login-message" role="status"></div>
+      </div>
+    </section>
+
+    <section class="dashboard is-hidden" id="dashboard">
+      <aside class="sidebar">
+        <a class="brand" href="../index.html" target="_blank" rel="noopener">
+          <img src="../assets/img/sm-brand-logo.png" alt="">
+          <span>
+            <strong>Industriales Eléctricos S&amp;M</strong>
+            <small>Administrador de contenido</small>
+          </span>
+        </a>
+        <nav class="section-tabs" id="section-tabs" aria-label="Secciones editables"></nav>
+        <button class="ghost danger" id="logout-button" type="button">Cerrar sesión</button>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <span class="eyebrow">Contenido editable</span>
+            <h2 id="section-title">Panel</h2>
+            <p id="section-description">Selecciona una sección para editar.</p>
+          </div>
+          <div class="topbar-actions">
+            <a class="ghost" id="preview-link" href="../index.html" target="_blank" rel="noopener">Ver esta página</a>
+            <button class="primary" id="save-button" type="button">Guardar cambios</button>
+          </div>
+        </header>
+
+        <section class="admin-page-banner" aria-label="Botones del banner de la web">
+          <div>
+            <span class="eyebrow">Menú de la web</span>
+            <p>Elige el mismo botón que ves en la página pública para editar su contenido.</p>
+          </div>
+          <nav class="banner-tabs" id="banner-tabs"></nav>
+        </section>
+
+        <div class="status-row">
+          <span id="save-status">Sin cambios pendientes</span>
+          <span id="updated-at"></span>
+        </div>
+
+        <div class="editor-grid" id="editor-grid"></div>
+
+        <section class="advanced-card">
+          <div>
+            <span class="eyebrow">Modo avanzado</span>
+            <h3>Agregar campo editable</h3>
+            <p>Usa esta opción cuando quieras administrar otra parte de la web. Solo necesitas un selector CSS y el tipo de propiedad.</p>
+          </div>
+          <form id="advanced-form" class="advanced-form">
+            <label>
+              <span>Etiqueta visible</span>
+              <input name="label" placeholder="Ej. Título de página servicios">
+            </label>
+            <label>
+              <span>Pagina</span>
+              <select name="pages">
+                <option value="all">Todas</option>
+                <option value="inicio">Inicio</option>
+                <option value="nosotros">Nosotros</option>
+                <option value="por-que-elegirnos">Por qué elegirnos</option>
+                <option value="servicios">Servicios</option>
+                <option value="marcas">Marcas</option>
+                <option value="preguntas">Preguntas</option>
+                <option value="contacto">Contacto</option>
+                <option value="productos">Productos</option>
+                <option value="tableros">Tableros</option>
+                <option value="proceso">Proceso</option>
+                <option value="cotizacion">Cotizacion</option>
+              </select>
+            </label>
+            <label>
+              <span>Selector CSS</span>
+              <input name="selector" placeholder=".mi-bloque h2">
+            </label>
+            <label>
+              <span>Propiedad</span>
+              <select name="property">
+                <option value="text">Texto</option>
+                <option value="html">HTML simple</option>
+                <option value="src">Imagen/video src</option>
+                <option value="href">Link href</option>
+                <option value="poster">Poster de video</option>
+                <option value="alt">Texto alternativo</option>
+                <option value="placeholder">Placeholder</option>
+                <option value="backgroundImage">Fondo CSS</option>
+              </select>
+            </label>
+            <label>
+              <span>Tipo de control</span>
+              <select name="type">
+                <option value="text">Texto corto</option>
+                <option value="textarea">Texto largo</option>
+                <option value="html">HTML simple</option>
+                <option value="url">URL</option>
+                <option value="image">Imagen</option>
+                <option value="video">Video</option>
+                <option value="pdf">PDF</option>
+              </select>
+            </label>
+            <button type="submit">Crear campo</button>
+          </form>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <template id="field-template">
+    <article class="field-card">
+      <div class="field-head">
+        <div>
+          <span class="field-type"></span>
+          <h3></h3>
+        </div>
+        <button class="remove-field" type="button" aria-label="Eliminar campo">Eliminar</button>
+      </div>
+      <div class="field-control"></div>
+      <div class="field-tools"></div>
+      <p class="field-help"></p>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
