@@ -11,7 +11,7 @@
   --muted: rgba(247, 243, 232, 0.68);
   --danger: #ff6b6b;
   --radius: 12px;
-  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-family: "Bebas Neue", Arial, sans-serif;
 }
 
 * {
@@ -73,7 +73,7 @@ a {
   align-items: center;
   gap: 10px;
   color: var(--gold);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 10px;
   font-weight: 900;
   line-height: 1;
@@ -127,7 +127,7 @@ label {
 
 label span {
   color: rgba(247, 243, 232, 0.76);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 10px;
   font-weight: 800;
   line-height: 1.2;
@@ -172,7 +172,7 @@ button,
   border: 1px solid rgba(242, 202, 80, 0.4);
   cursor: pointer;
   text-decoration: none;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 11px;
   font-weight: 900;
   line-height: 1;
@@ -278,7 +278,7 @@ button,
 }
 
 .section-tab small {
-  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-family: "Bebas Neue", Arial, sans-serif;
   font-size: 11px;
   font-weight: 800;
   line-height: 1.1;
@@ -324,7 +324,7 @@ button,
   gap: 12px;
   margin: 14px 0 18px;
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 11px;
 }
 
@@ -366,7 +366,7 @@ button,
 
 .banner-tab span {
   display: block;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 11px;
   font-weight: 900;
   line-height: 1.05;
@@ -377,7 +377,7 @@ button,
   display: -webkit-box;
   margin-top: 7px;
   color: rgba(247, 243, 232, 0.62);
-  font-family: "Hanken Grotesk", Arial, sans-serif;
+  font-family: "Bebas Neue", Arial, sans-serif;
   font-size: 11px;
   font-weight: 800;
   line-height: 1.18;
@@ -480,7 +480,7 @@ button,
   display: inline-flex;
   margin-bottom: 5px;
   color: var(--gold);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 10px;
   font-weight: 900;
 }
@@ -535,7 +535,7 @@ button,
 
 .field-type {
   color: var(--gold);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
@@ -561,11 +561,39 @@ button,
   overflow: hidden;
 }
 
+.file-button.is-loading {
+  pointer-events: none;
+  opacity: 0.78;
+}
+
+.file-button-text {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
 .file-button input {
   position: absolute;
   inset: 0;
   opacity: 0;
   cursor: pointer;
+}
+
+.media-smart-note {
+  flex: 1 1 100%;
+  margin: 2px 0 0;
+  padding: 10px 12px;
+  color: rgba(247, 243, 232, 0.78);
+  border: 1px solid rgba(242, 202, 80, 0.14);
+  border-radius: 8px;
+  background: rgba(242, 202, 80, 0.055);
+  font-family: var(--admin-font-body, "Source Sans 3", Arial, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-transform: none;
 }
 
 .media-preview {
@@ -738,4 +766,42 @@ button,
   .advanced-form {
     grid-template-columns: 1fr;
   }
+}
+
+/* Admin typography matches the public tecnico digital style. */
+:root {
+  --admin-font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --admin-font-body: "Source Sans 3", Arial, sans-serif;
+}
+
+html,
+body,
+p,
+span,
+small,
+input,
+select,
+textarea,
+.field-help,
+.item-field label {
+  font-family: var(--admin-font-body) !important;
+}
+
+h1,
+h2,
+h3,
+button,
+.section-tab,
+.section-tab span,
+.banner-tab,
+.banner-tab span,
+.topbar-actions a,
+.status-row,
+.field-title,
+.collection-add,
+.collection-actions button,
+.login-card label,
+.login-card .eyebrow {
+  font-family: var(--admin-font-display) !important;
+  letter-spacing: 0 !important;
 }

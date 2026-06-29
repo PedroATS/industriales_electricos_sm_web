@@ -261,7 +261,7 @@
               "text": "Tableros eléctricos para distribución, protección y control de circuitos en instalaciones comerciales e industriales."
             },
             {
-              "enabled": true,
+              "enabled": false,
               "image": "assets/img/brochure/transfer-panel.jpg",
               "alt": "Tablero ATS para transferencia automática",
               "title": "Transferencia automática",
@@ -275,7 +275,7 @@
               "text": "Tableros para control de bomba principal, bomba jockey y sistemas auxiliares contra incendio."
             },
             {
-              "enabled": true,
+              "enabled": false,
               "image": "assets/img/brochure/control-panel.jpg",
               "alt": "Automatización industrial con PLC, relés y sensores",
               "title": "Automatización industrial",
@@ -289,14 +289,14 @@
               "text": "Tableros de arranque directo, estrella-triángulo, doble estrella, soft starter y variador."
             },
             {
-              "enabled": true,
+              "enabled": false,
               "image": "assets/img/brochure/orange-panel.jpg",
               "alt": "Control de bombas alternadas",
               "title": "Bombas alternadas",
               "text": "Control automático para alternancia de bombas en cisternas, tanques, presurización y drenaje."
             },
             {
-              "enabled": true,
+              "enabled": false,
               "image": "assets/img/brochure/vfd-panel.jpg",
               "alt": "Sistema de presión constante con variador",
               "title": "Presión constante",
@@ -1061,14 +1061,14 @@
           "items": [
             {
               "enabled": true,
-              "question": "?Venden productos eléctricos industriales?",
-              "answerTitle": "?Venden productos eléctricos industriales?",
+              "question": "¿Venden productos eléctricos industriales?",
+              "answerTitle": "¿Venden productos eléctricos industriales?",
               "answerHtml": "<p>Sí. Vendemos productos eléctricos industriales por unidad y también por proyecto. Atendemos requerimientos de llaves térmicas, contactores, guardamotores, variadores de frecuencia, PLC, relés, fuentes de poder, sensores, gabinetes, borneras y accesorios eléctricos.</p>"
             },
             {
               "enabled": true,
-              "question": "?También fabrican tableros eléctricos completos?",
-              "answerTitle": "?También fabrican tableros eléctricos completos?",
+              "question": "¿También fabrican tableros eléctricos completos?",
+              "answerTitle": "¿También fabrican tableros eléctricos completos?",
               "answerHtml": "<p>Sí. Diseñamos y ensamblamos tableros eléctricos completos según la necesidad del cliente. Podemos fabricar tableros de arranque directo, estrella-triángulo, bombas alternadas, presión constante, transferencia automática, control y fuerza, automatización con PLC, entre otros.</p>"
             },
             {
@@ -1079,8 +1079,8 @@
             },
             {
               "enabled": true,
-              "question": "?Puedo enviar una foto del tablero o equipo que necesito reemplazar?",
-              "answerTitle": "?Puedo enviar una foto del tablero o equipo que necesito reemplazar?",
+              "question": "¿Puedo enviar una foto del tablero o equipo que necesito reemplazar?",
+              "answerTitle": "¿Puedo enviar una foto del tablero o equipo que necesito reemplazar?",
               "answerHtml": "<p>Sí. Puedes enviarnos fotos del tablero, placa del motor, componentes existentes o instalación actual por WhatsApp. Con esa información podemos orientarte mejor y solicitar los datos adicionales necesarios para preparar una cotización.</p>"
             },
             {
@@ -1091,38 +1091,38 @@
             },
             {
               "enabled": true,
-              "question": "?Hacen tableros con variador de frecuencia?",
-              "answerTitle": "?Hacen tableros con variador de frecuencia?",
+              "question": "¿Hacen tableros con variador de frecuencia?",
+              "answerTitle": "¿Hacen tableros con variador de frecuencia?",
               "answerHtml": "<p>Sí. Integramos variadores de frecuencia para controlar motores eléctricos, bombas, ventiladores y otros equipos. También podemos configurar parámetros básicos como rampas de aceleración, desaceleración, frecuencia máxima, señales de arranque, protección y control externo.</p>"
             },
             {
               "enabled": true,
-              "question": "?Trabajan con marcas específicas?",
-              "answerTitle": "?Trabajan con marcas específicas?",
+              "question": "¿Trabajan con marcas específicas?",
+              "answerTitle": "¿Trabajan con marcas específicas?",
               "answerHtml": "<p>Sí. Trabajamos con marcas reconocidas como Schneider Electric, ABB, Siemens, General Electric, Square D y otras marcas del sector eléctrico industrial. La marca puede variar según el requerimiento técnico, disponibilidad y presupuesto del cliente.</p>"
             },
             {
               "enabled": true,
-              "question": "?Puedo solicitar una marca específica para mi tablero?",
-              "answerTitle": "?Puedo solicitar una marca específica para mi tablero?",
+              "question": "¿Puedo solicitar una marca específica para mi tablero?",
+              "answerTitle": "¿Puedo solicitar una marca específica para mi tablero?",
               "answerHtml": "<p>Sí. El cliente puede solicitar una marca específica para los componentes del tablero. También podemos proponer alternativas equivalentes según calidad, disponibilidad, plazo de entrega y presupuesto.</p>"
             },
             {
               "enabled": true,
-              "question": "?Los tableros se entregan cableados y probados?",
-              "answerTitle": "?Los tableros se entregan cableados y probados?",
+              "question": "¿Los tableros se entregan cableados y probados?",
+              "answerTitle": "¿Los tableros se entregan cableados y probados?",
               "answerHtml": "<p>Sí. Los tableros se entregan ensamblados, cableados, rotulados y con pruebas básicas de funcionamiento. Antes de la entrega se revisa la correcta conexión de componentes, maniobra, protecciones y lógica de control.</p>"
             },
             {
               "enabled": true,
-              "question": "?Pueden fabricar un tablero usando un plano que ya tengo?",
-              "answerTitle": "?Pueden fabricar un tablero usando un plano que ya tengo?",
+              "question": "¿Pueden fabricar un tablero usando un plano que ya tengo?",
+              "answerTitle": "¿Pueden fabricar un tablero usando un plano que ya tengo?",
               "answerHtml": "<p>Sí. Podemos fabricar el tablero en base a un plano eléctrico, lista de materiales, memoria descriptiva o requerimiento técnico enviado por el cliente. También podemos revisar el plano y sugerir mejoras si fuera necesario.</p>"
             },
             {
               "enabled": true,
-              "question": "?Hacen instalación en campo?",
-              "answerTitle": "?Hacen instalación en campo?",
+              "question": "¿Hacen instalación en campo?",
+              "answerTitle": "¿Hacen instalación en campo?",
               "answerHtml": "<p>Sí, podemos realizar instalación, conexión, pruebas y puesta en marcha según el tipo de proyecto y ubicación. También podemos entregar solo el tablero para que el cliente o su técnico lo instale.</p>"
             },
             {
@@ -1133,26 +1133,26 @@
             },
             {
               "enabled": true,
-              "question": "?Realizan envíos a provincia?",
-              "answerTitle": "?Realizan envíos a provincia?",
+              "question": "¿Realizan envíos a provincia?",
+              "answerTitle": "¿Realizan envíos a provincia?",
               "answerHtml": "<p>Sí, podemos coordinar envíos a provincia según el producto, peso, volumen y agencia de transporte elegida por el cliente. También se puede coordinar recojo en tienda o entrega local.</p>"
             },
             {
               "enabled": true,
-              "question": "?Puedo solicitar una cotización por WhatsApp?",
-              "answerTitle": "?Puedo solicitar una cotización por WhatsApp?",
+              "question": "¿Puedo solicitar una cotización por WhatsApp?",
+              "answerTitle": "¿Puedo solicitar una cotización por WhatsApp?",
               "answerHtml": "<p>Sí. Puedes enviarnos tu solicitud por WhatsApp indicando el producto o tablero que necesitas. Si cuentas con fotos, placa del motor, plano, lista de materiales o descripción del proyecto, eso ayudará a cotizar con mayor precisión.</p>"
             },
             {
               "enabled": true,
-              "question": "?Los productos y tableros tienen garantía?",
-              "answerTitle": "?Los productos y tableros tienen garantía?",
+              "question": "¿Los productos y tableros tienen garantía?",
+              "answerTitle": "¿Los productos y tableros tienen garantía?",
               "answerHtml": "<p>Sí. Los productos y tableros cuentan con garantía según la marca, condiciones de uso y alcance del servicio. La garantía aplica siempre que la instalación, operación y mantenimiento se realicen correctamente.</p>"
             },
             {
               "enabled": true,
-              "question": "?Pueden mejorar o modernizar un tablero antiguo?",
-              "answerTitle": "?Pueden mejorar o modernizar un tablero antiguo?",
+              "question": "¿Pueden mejorar o modernizar un tablero antiguo?",
+              "answerTitle": "¿Pueden mejorar o modernizar un tablero antiguo?",
               "answerHtml": "<p>Sí. Podemos evaluar tableros existentes para ordenar cableado, cambiar componentes deteriorados, incorporar protecciones, instalar variadores, mejorar la lógica de control, agregar señalización o automatizar el sistema.</p>"
             }
           ]
@@ -1312,7 +1312,7 @@
             {
               "enabled": true,
               "label": "Nuestras sedes",
-              "lines": "Av. Argentina, C. C 245\nAv. ?scar R. Benavides 282",
+              "lines": "Av. Argentina, C. C 245\nAv. Óscar R. Benavides 282",
               "href": "#ubicacion",
               "icon": "location_on",
               "color": "249 115 22",
@@ -1392,7 +1392,7 @@
             {
               "enabled": true,
               "title": "Av. Argentina",
-              "address": "Av. Argentina, C. C 245,\nLima 15082, Per?.",
+              "address": "Av. Argentina, C. C 245,\nLima 15082, Perú.",
               "icon": "storefront",
               "googleMaps": "https://www.google.com/maps/search/?api=1&query=Av.%20Argentina%2C%20C.%20C%20245%2C%20Lima%2015082%2C%20Per%C3%BA",
               "waze": "https://www.waze.com/ul?q=Av.%20Argentina%2C%20C.%20C%20245%2C%20Lima%2015082%2C%20Peru&navigate=yes",
@@ -1400,8 +1400,8 @@
             },
             {
               "enabled": true,
-              "title": "Av. ?scar R. Benavides",
-              "address": "Av. ?scar R. Benavides 282,\nLima 15082, Per?.",
+              "title": "Av. Óscar R. Benavides",
+              "address": "Av. Óscar R. Benavides 282,\nLima 15082, Perú.",
               "icon": "warehouse",
               "googleMaps": "https://www.google.com/maps/search/?api=1&query=Av.%20%C3%93scar%20R.%20Benavides%20282%2C%20Lima%2015082%2C%20Per%C3%BA",
               "waze": "https://www.waze.com/ul?q=Av.%20%C3%93scar%20R.%20Benavides%20282%2C%20Lima%2015082%2C%20Peru&navigate=yes",

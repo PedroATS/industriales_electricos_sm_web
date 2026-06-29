@@ -74,12 +74,12 @@
                         "container-max": "1440px"
                     },
                     "fontFamily": {
-                        "display-lg": ["Hanken Grotesk"],
-                        "headline-md": ["Hanken Grotesk"],
-                        "label-caps": ["JetBrains Mono"],
-                        "body-lg": ["Manrope"],
-                        "body-md": ["Manrope"],
-                        "display-lg-mobile": ["Hanken Grotesk"]
+                        "display-lg": ["Bebas Neue"],
+                        "headline-md": ["Bebas Neue"],
+                        "label-caps": ["Bebas Neue"],
+                        "body-lg": ["Source Sans 3"],
+                        "body-md": ["Source Sans 3"],
+                        "display-lg-mobile": ["Bebas Neue"]
                     },
                     "fontSize": {
                         "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
@@ -94,9 +94,9 @@
         }
     </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@400;500;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700;800;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700;800;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
         :root {
             --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
@@ -154,7 +154,7 @@
             align-items: center;
             gap: 10px;
             color: #f2ca50;
-            font-family: "JetBrains Mono", monospace;
+            font-family: "Bebas Neue", Impact, sans-serif;
             font-size: 11px;
             font-weight: 800;
             letter-spacing: 0.08em;
@@ -170,7 +170,7 @@
         .faq-hero h1 {
             max-width: 780px;
             margin: 16px 0 0;
-            font-family: "Hanken Grotesk", sans-serif;
+            font-family: "Bebas Neue", sans-serif;
             font-size: clamp(34px, 4vw, 56px);
             line-height: 1.02;
             font-weight: 800;
@@ -220,7 +220,7 @@
             background: linear-gradient(145deg, rgba(25, 28, 32, 0.88), rgba(14, 16, 19, 0.82));
             color: #dfd7c7;
             text-align: left;
-            font-family: "Hanken Grotesk", sans-serif;
+            font-family: "Bebas Neue", sans-serif;
             font-size: clamp(13px, 1vw, 15px);
             font-weight: 800;
             line-height: 1.2;
@@ -267,7 +267,7 @@
         }
         .faq-number {
             color: #f2ca50;
-            font-family: "JetBrains Mono", monospace;
+            font-family: "Bebas Neue", Impact, sans-serif;
             font-size: 12px;
             font-weight: 900;
         }
@@ -333,7 +333,7 @@
             align-items: center;
             gap: 10px;
             color: #f2ca50;
-            font-family: "JetBrains Mono", monospace;
+            font-family: "Bebas Neue", Impact, sans-serif;
             font-size: 11px;
             font-weight: 900;
             letter-spacing: 0.08em;
@@ -350,7 +350,7 @@
             max-width: 780px;
             margin: 16px 0 0;
             color: #ffffff;
-            font-family: "Hanken Grotesk", sans-serif;
+            font-family: "Bebas Neue", sans-serif;
             font-size: clamp(23px, 2.2vw, 34px);
             line-height: 1.08;
             font-weight: 850;
@@ -388,7 +388,7 @@
         .faq-answer th {
             color: #f2ca50;
             background: rgba(242, 202, 80, 0.08);
-            font-family: "JetBrains Mono", monospace;
+            font-family: "Bebas Neue", Impact, sans-serif;
             font-size: 11px;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -460,7 +460,7 @@
   .sm-nav-scroll::-webkit-scrollbar { display: none; }
   @media (max-width: 767px) { header[id] .font-label-caps { font-size: 11px; } }
 </style>
-<link href="assets/css/premium-polish.css?v=responsive-20260628c" rel="stylesheet"/>
+<link href="assets/css/premium-polish.css?v=font-system-20260628e" rel="stylesheet"/>
 <style id="faq-final-overrides">
   body[data-page="preguntas"] main.faq-page-main > section.faq-hero,
   body[data-page="preguntas"] main.faq-page-main > section.faq-list {
@@ -638,6 +638,7 @@
     }
   }
 </style>
+  <link href="assets/css/readable-type.css?v=readability-20260628t" rel="stylesheet">
 </head>
 <body data-page="preguntas" class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
 <!-- Scroll Progress -->
@@ -1153,6 +1154,6 @@
             observer.observe(el);
         });
     </script>
-<script src="assets/js/premium-polish.js?v=responsive-20260628c"></script>
-  <script src="assets/js/cms-runtime.js?v=services-mobile-20260628"></script>
+<script src="assets/js/premium-polish.js?v=responsive-20260628e"></script>
+  <script src="assets/js/cms-runtime.js?v=media-admin-20260628"></script>
 </body></html>

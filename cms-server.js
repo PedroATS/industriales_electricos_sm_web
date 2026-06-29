@@ -15,6 +15,9 @@ const SESSION_COOKIE = "sm_admin_session";
 const SESSION_TTL_MS = Number(process.env.SESSION_TTL_MINUTES || 240) * 60 * 1000;
 const MAX_JSON_BYTES = Number(process.env.MAX_JSON_MB || 8) * 1024 * 1024;
 const MAX_UPLOAD_BYTES = Number(process.env.MAX_UPLOAD_MB || 32) * 1024 * 1024;
+const MAX_IMAGE_UPLOAD_BYTES = Number(process.env.MAX_IMAGE_MB || 4) * 1024 * 1024;
+const MAX_VIDEO_UPLOAD_BYTES = Number(process.env.MAX_VIDEO_MB || 18) * 1024 * 1024;
+const MAX_PDF_UPLOAD_BYTES = Number(process.env.MAX_PDF_MB || 16) * 1024 * 1024;
 const MAX_LOGIN_BYTES = 8 * 1024;
 const MAX_FAILED_LOGINS = Number(process.env.MAX_FAILED_LOGINS || 5);
 const LOGIN_LOCK_MS = Number(process.env.LOGIN_LOCK_MINUTES || 15) * 60 * 1000;
@@ -335,8 +338,15 @@ function atomicWrite(file, value) {
   fs.renameSync(tmp, file);
 }
 
-function sanitizeFileName(name) {
-  const ext = path.extname(name || "").toLowerCase();
+function formatBytes(bytes) {
+  const value = Number(bytes || 0);
+  if (value < 1024) return `${value} B`;
+  if (value < 1024 * 1024) return `${Math.round(value / 1024)} KB`;
+  return `${(value / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function sanitizeFileName(name, forcedExt) {
+  const ext = String(forcedExt || path.extname(name || "") || "").toLowerCase();
   const base = path
     .basename(name || "archivo", ext)
     .normalize("NFD")
@@ -345,6 +355,26 @@ function sanitizeFileName(name) {
     .replace(/^-+|-+$/g, "")
     .slice(0, 80);
   return `${base || "archivo"}-${Date.now()}${ext}`;
+}
+
+function uploadExtension(kind, mime, requestedExt) {
+  const normalized = String(mime || "").toLowerCase();
+  if (kind === "pdf" || normalized === "application/pdf") return ".pdf";
+  if (kind === "video" || /^video\//.test(normalized)) {
+    return normalized === "video/webm" ? ".webm" : ".mp4";
+  }
+  return {
+    "image/webp": ".webp",
+    "image/jpeg": ".jpg",
+    "image/png": ".png",
+    "image/gif": ".gif"
+  }[normalized] || requestedExt;
+}
+
+function uploadSizeLimit(kind) {
+  if (kind === "video") return MAX_VIDEO_UPLOAD_BYTES;
+  if (kind === "pdf") return MAX_PDF_UPLOAD_BYTES;
+  return MAX_IMAGE_UPLOAD_BYTES;
 }
 
 function uploadFolder(kind, mime) {
@@ -602,13 +632,15 @@ async function handleApi(req, res, url) {
       }
       const mime = match[1].toLowerCase();
       const buffer = Buffer.from(match[2], "base64");
-      if (buffer.length > MAX_UPLOAD_BYTES) {
-        json(res, 413, { ok: false, error: "Archivo demasiado grande" });
+      const kind = body.kind || "image";
+      const requestedExt = path.extname(body.name || "").toLowerCase();
+      const ext = uploadExtension(kind, mime, requestedExt);
+      const sizeLimit = uploadSizeLimit(kind);
+      if (buffer.length > sizeLimit || buffer.length > MAX_UPLOAD_BYTES) {
+        json(res, 413, { ok: false, error: `Archivo demasiado grande. Limite: ${formatBytes(Math.min(sizeLimit, MAX_UPLOAD_BYTES))}.` });
         return;
       }
-      const safeName = sanitizeFileName(body.name || "archivo");
-      const ext = path.extname(safeName).toLowerCase();
-      const kind = body.kind || "image";
+      const safeName = sanitizeFileName(body.name || "archivo", ext);
       if (!isAllowedUpload(kind, mime, ext, buffer)) {
         json(res, 400, { ok: false, error: "Tipo de archivo no permitido" });
         return;

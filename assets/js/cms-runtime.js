@@ -39,9 +39,17 @@
     if (field.position && (element.tagName === "IMG" || element.tagName === "VIDEO")) {
       element.style.objectPosition = field.position;
     }
+    if (element.tagName === "IMG") {
+      if (!element.hasAttribute("loading")) element.setAttribute("loading", "lazy");
+      element.setAttribute("decoding", "async");
+    }
     if (element.tagName === "VIDEO" && property === "src" && typeof element.load === "function") {
+      element.setAttribute("preload", "metadata");
+      element.setAttribute("playsinline", "");
       element.load();
-      element.play && element.play().catch(function () {});
+      if (element.hasAttribute("autoplay")) {
+        element.play && element.play().catch(function () {});
+      }
     }
   }
 
@@ -147,7 +155,7 @@
       .map(function (item, index) {
         return [
           '<article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: ' + index * 60 + 'ms;">',
-          '<div class="service-media"><img alt="' + escapeHtml(item.alt || item.title || "") + '" class="w-full h-full object-cover" src="' + escapeHtml(item.image || "") + '"/></div>',
+          '<div class="service-media"><img alt="' + escapeHtml(item.alt || item.title || "") + '" class="w-full h-full object-cover" src="' + escapeHtml(item.image || "") + '" loading="lazy" decoding="async"/></div>',
           '<div class="p-6">',
           '<h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">' + escapeHtml(item.title || "") + "</h3>",
           '<p class="text-on-surface-variant text-[14px] leading-6">' + escapeHtml(item.text || "") + "</p>",
@@ -165,7 +173,7 @@
       .map(function (item, index) {
         return [
           '<a class="work-card rounded-xl scroll-reveal" href="' + escapeHtml(item.href || "contacto.html") + '" style="transition-delay: ' + index * 80 + 'ms;">',
-          '<img alt="' + escapeHtml(item.alt || item.title || "") + '" src="' + escapeHtml(item.image || "") + '"/>',
+          '<img alt="' + escapeHtml(item.alt || item.title || "") + '" src="' + escapeHtml(item.image || "") + '" loading="lazy" decoding="async"/>',
           "<span>" + escapeHtml(item.title || "") + "</span>",
           "</a>"
         ].join("");
@@ -180,7 +188,7 @@
       .map(function (item) {
         return [
           '<div class="group glass-card brand-logo-hover p-8 h-48 flex items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden">',
-          '<img src="' + escapeHtml(item.image || "") + '" alt="' + escapeHtml(item.name || "") + '" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500"/>',
+          '<img src="' + escapeHtml(item.image || "") + '" alt="' + escapeHtml(item.name || "") + '" class="brand-logo-img opacity-85 group-hover:opacity-100 transition-all duration-500" loading="lazy" decoding="async"/>',
           '<div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>',
           "</div>"
         ].join("");
@@ -207,10 +215,10 @@
       return;
     }
     stack.innerHTML = [
-      '<figure class="image-card"><img src="' + escapeHtml(items[0].image || "") + '" alt="' + escapeHtml(items[0].alt || "") + '"/></figure>',
+      '<figure class="image-card"><img src="' + escapeHtml(items[0].image || "") + '" alt="' + escapeHtml(items[0].alt || "") + '" loading="lazy" decoding="async"/></figure>',
       '<div class="image-column">',
       items.slice(1).map(function (item) {
-        return '<figure class="image-card small"><img src="' + escapeHtml(item.image || "") + '" alt="' + escapeHtml(item.alt || "") + '"/></figure>';
+        return '<figure class="image-card small"><img src="' + escapeHtml(item.image || "") + '" alt="' + escapeHtml(item.alt || "") + '" loading="lazy" decoding="async"/></figure>';
       }).join(""),
       "</div>"
     ].join("");
@@ -221,7 +229,7 @@
     if (!grid) return;
     grid.innerHTML = activeItems(collection)
       .map(function (item) {
-        return '<figure class="image-card' + (item.wide ? " wide" : "") + '"><img src="' + escapeHtml(item.image || "") + '" alt="' + escapeHtml(item.alt || "") + '"/></figure>';
+        return '<figure class="image-card' + (item.wide ? " wide" : "") + '"><img src="' + escapeHtml(item.image || "") + '" alt="' + escapeHtml(item.alt || "") + '" loading="lazy" decoding="async"/></figure>';
       })
       .join("");
   }
@@ -442,6 +450,8 @@
     var kicker = slider.querySelector("[data-slide-kicker]");
     var thumbs = slider.querySelector(".slide-thumbs");
     if (!items.length || !image || !thumbs) return;
+    image.loading = "lazy";
+    image.decoding = "async";
     image.src = items[0].image || "";
     image.alt = items[0].alt || "";
     if (kicker) kicker.textContent = items[0].label || "";

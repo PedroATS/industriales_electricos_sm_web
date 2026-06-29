@@ -37,18 +37,18 @@
           "margin-mobile": "20px"
         },
         fontFamily: {
-          "headline-md": ["Hanken Grotesk", "Arial", "sans-serif"],
-          "body-md": ["Manrope", "Arial", "sans-serif"],
-          "label-caps": ["JetBrains Mono", "monospace"],
-          "display-lg": ["Hanken Grotesk", "Arial", "sans-serif"]
+          "headline-md": ["Bebas Neue", "Arial", "sans-serif"],
+          "body-md": ["Source Sans 3", "Arial", "sans-serif"],
+          "label-caps": ["Bebas Neue", "Impact", "sans-serif"],
+          "display-lg": ["Bebas Neue", "Arial", "sans-serif"]
         }
       }
     }
   };
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700;800;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="assets/css/premium-polish.css?v=responsive-20260628c" rel="stylesheet"/>
+<link href="assets/css/premium-polish.css?v=font-system-20260628e" rel="stylesheet"/>
 <style>
   .material-symbols-outlined {
     font-family: "Material Symbols Outlined";
@@ -187,7 +187,7 @@
     gap: 10px;
     margin: 0 0 13px;
     color: #f2ca50;
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Bebas Neue", Impact, sans-serif;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -204,7 +204,7 @@
   .home-hero-heading {
     max-width: 540px;
     margin: 0 0 16px;
-    font-family: "Hanken Grotesk", Arial, sans-serif;
+    font-family: "Bebas Neue", Arial, sans-serif;
     font-size: clamp(34px, 3.55vw, 52px);
     font-weight: 800;
     line-height: 1.03;
@@ -221,7 +221,7 @@
     max-width: 500px;
     margin: 0 0 24px;
     color: rgba(255, 248, 230, 0.88);
-    font-family: "Manrope", Arial, sans-serif;
+    font-family: "Source Sans 3", Arial, sans-serif;
     font-size: 15px;
     line-height: 1.72;
   }
@@ -241,7 +241,7 @@
     border: 1px solid rgba(242, 202, 80, 0.64);
     background: #f2ca50;
     color: #201801;
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Bebas Neue", Impact, sans-serif;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.04em;
@@ -446,7 +446,7 @@
     align-items: center;
     gap: 8px;
     color: #f2ca50;
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Bebas Neue", Impact, sans-serif;
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -487,7 +487,7 @@
     background: rgba(12, 14, 17, 0.76);
     border: 1px solid rgba(242, 202, 80, 0.24);
     color: #f2ca50;
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Bebas Neue", Impact, sans-serif;
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -581,6 +581,7 @@
     header[id] .font-label-caps { font-size: 11px; }
   }
 </style>
+  <link href="assets/css/readable-type.css?v=readability-20260628t" rel="stylesheet">
 </head>
 <body data-page="inicio" class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
 <div class="fixed top-0 left-0 w-full h-[2px] bg-primary z-[60] scale-x-0" id="scroll-progress"></div>
@@ -661,13 +662,6 @@
             <p class="text-on-surface-variant text-[14px] leading-6">Tableros eléctricos para distribución, protección y control de circuitos en instalaciones comerciales e industriales.</p>
           </div>
         </article>
-        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 60ms;">
-          <div class="service-media"><img alt="Tablero ATS para transferencia automática" class="w-full h-full object-cover" src="assets/img/brochure/transfer-panel.jpg"/></div>
-          <div class="p-6">
-            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Transferencia automática</h3>
-            <p class="text-on-surface-variant text-[14px] leading-6">Tableros ATS para cambio automático entre red eléctrica y grupo electrógeno.</p>
-          </div>
-        </article>
         <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 120ms;">
           <div class="service-media"><img alt="Tablero para bombas y sistemas contra incendio" class="w-full h-full object-cover" src="assets/img/brochure/pump-panel.jpg"/></div>
           <div class="p-6">
@@ -675,32 +669,11 @@
             <p class="text-on-surface-variant text-[14px] leading-6">Tableros para control de bomba principal, bomba jockey y sistemas auxiliares contra incendio.</p>
           </div>
         </article>
-        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 180ms;">
-          <div class="service-media"><img alt="Automatización industrial con PLC, relés y sensores" class="w-full h-full object-cover" src="assets/img/brochure/control-panel.jpg"/></div>
-          <div class="p-6">
-            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Automatización industrial</h3>
-            <p class="text-on-surface-variant text-[14px] leading-6">Soluciones con PLC, sensores, relés, variadores y lógica de control.</p>
-          </div>
-        </article>
         <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 240ms;">
           <div class="service-media"><img alt="Contactores y arrancadores para motores" class="w-full h-full object-cover" src="assets/img/brochure/contactors.jpg"/></div>
           <div class="p-6">
             <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Arranque de motores</h3>
             <p class="text-on-surface-variant text-[14px] leading-6">Tableros de arranque directo, estrella-triángulo, doble estrella, soft starter y variador.</p>
-          </div>
-        </article>
-        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 300ms;">
-          <div class="service-media"><img alt="Control de bombas alternadas" class="w-full h-full object-cover" src="assets/img/brochure/orange-panel.jpg"/></div>
-          <div class="p-6">
-            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Bombas alternadas</h3>
-            <p class="text-on-surface-variant text-[14px] leading-6">Control automático para alternancia de bombas en cisternas, tanques, presurización y drenaje.</p>
-          </div>
-        </article>
-        <article class="home-service-card rounded-xl scroll-reveal" style="transition-delay: 360ms;">
-          <div class="service-media"><img alt="Sistema de presión constante con variador" class="w-full h-full object-cover" src="assets/img/brochure/vfd-panel.jpg"/></div>
-          <div class="p-6">
-            <h3 class="font-headline-md text-[22px] leading-tight text-on-surface mb-5">Presión constante</h3>
-            <p class="text-on-surface-variant text-[14px] leading-6">Sistemas con variador y transmisor de presión para mantener presión estable en redes de agua.</p>
           </div>
         </article>
       </div>
@@ -810,7 +783,7 @@
     if (slideCount > 1) startHeroSlider();
   }
 </script>
-<script src="assets/js/premium-polish.js?v=responsive-20260628c"></script>
-  <script src="assets/js/cms-runtime.js?v=services-mobile-20260628"></script>
+<script src="assets/js/premium-polish.js?v=responsive-20260628e"></script>
+  <script src="assets/js/cms-runtime.js?v=media-admin-20260628"></script>
 </body>
 </html>

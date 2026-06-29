@@ -74,6 +74,22 @@ El servidor ya limita consultas por IP, pero ataques de millones de solicitudes 
 - Ajuste de medios con `cover` o `contain` para que no se deformen.
 - Campos avanzados por selector CSS para casos tecnicos.
 
+## Medios optimizados
+
+- El panel comprime y redimensiona imagenes antes de subirlas, manteniendo proporcion y evitando deformacion.
+- Las imagenes se guardan en formato web ligero cuando el navegador lo permite.
+- Los videos se aceptan solo en MP4/WebM y con limite de peso para no volver lenta la web.
+- Los videos publicados cargan con `preload="metadata"` salvo que el bloque ya sea un video de portada con autoplay.
+- Si necesitas videos muy pesados, usa una version optimizada para web o un proveedor externo y pega el enlace desde el campo avanzado.
+
+Limites por defecto:
+
+- Imagen: entrada maxima `18 MB`, archivo guardado maximo `4 MB`.
+- Video: `18 MB`.
+- PDF: `16 MB`.
+
+Puedes ajustar estos limites con `MAX_IMAGE_MB`, `MAX_VIDEO_MB`, `MAX_PDF_MB` y `MAX_UPLOAD_MB`.
+
 ## Archivos importantes
 
 - `cms-server.js`: servidor con login, guardado, seguridad y subida de archivos.

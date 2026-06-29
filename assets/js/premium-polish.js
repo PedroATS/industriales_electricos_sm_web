@@ -56,7 +56,7 @@
       toggle.setAttribute("aria-label", "Abrir menu principal");
       toggle.innerHTML = [
         '<span class="sm-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>',
-        "<span>Menu</span>"
+        "<span>Men&uacute;</span>"
       ].join("");
       brand.insertAdjacentElement("afterend", toggle);
 
@@ -185,6 +185,64 @@
     document.body.appendChild(widget);
   }
 
+  function initServiceMobileAccordions() {
+    if (document.body.dataset.page !== "servicios") return;
+
+    const copies = document.querySelectorAll(".services-shell .service-copy");
+    copies.forEach(function (copy) {
+      const heading = copy.querySelector("h1, h2");
+      if (!heading) return;
+
+      let toggle = copy.querySelector(".service-mobile-toggle");
+      if (!toggle) {
+        toggle = document.createElement("button");
+        toggle.className = "service-mobile-toggle";
+        toggle.type = "button";
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.innerHTML = [
+          '<span class="service-mobile-toggle-label">Ver informaci&oacute;n t&eacute;cnica</span>',
+          '<span class="material-symbols-outlined" aria-hidden="true">expand_more</span>'
+        ].join("");
+        heading.insertAdjacentElement("afterend", toggle);
+      }
+
+      if (toggle.dataset.smAccordionReady === "true") return;
+      toggle.dataset.smAccordionReady = "true";
+
+      toggle.addEventListener("click", function () {
+        const block = copy.closest(".service-block");
+        const expanded = !copy.classList.contains("is-mobile-expanded");
+        const label = toggle.querySelector(".service-mobile-toggle-label");
+        const icon = toggle.querySelector(".material-symbols-outlined");
+
+        copy.classList.toggle("is-mobile-expanded", expanded);
+        if (block) block.classList.toggle("is-mobile-expanded", expanded);
+        toggle.setAttribute("aria-expanded", String(expanded));
+        if (label) label.textContent = expanded ? "Ocultar informaci\u00f3n" : "Ver informaci\u00f3n t\u00e9cnica";
+        if (icon) icon.textContent = expanded ? "expand_less" : "expand_more";
+      });
+    });
+  }
+
+  function watchServiceMobileAccordions() {
+    if (document.body.dataset.page !== "servicios" || !("MutationObserver" in window)) return;
+
+    const page = document.querySelector(".services-page");
+    if (!page) return;
+
+    let queued = false;
+    const observer = new MutationObserver(function () {
+      if (queued) return;
+      queued = true;
+      window.setTimeout(function () {
+        queued = false;
+        initServiceMobileAccordions();
+      }, 80);
+    });
+
+    observer.observe(page, { childList: true, subtree: true });
+  }
+
   function smFooterHtml() {
     return [
       '<footer class="sm-site-footer">',
@@ -251,6 +309,8 @@
   }
 
   initMobileNavigation();
+  initServiceMobileAccordions();
+  watchServiceMobileAccordions();
   injectSmFooter();
   initFooterVisibilityState();
   injectFloatingWhatsApp();

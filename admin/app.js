@@ -2,7 +2,8 @@ const state = {
   content: null,
   activeSection: null,
   dirty: false,
-  csrfToken: null
+  csrfToken: null,
+  uploadNotes: new Map()
 };
 
 const pageLinks = {
@@ -33,6 +34,17 @@ const bannerSections = [
 
 const $ = (selector) => document.querySelector(selector);
 
+const mediaRules = {
+  imageMaxInputBytes: 18 * 1024 * 1024,
+  imageMaxEdge: 1800,
+  imageTargetBytes: 720 * 1024,
+  imageQualitySteps: [0.82, 0.74, 0.66],
+  videoMaxBytes: 18 * 1024 * 1024,
+  pdfMaxBytes: 16 * 1024 * 1024
+};
+
+let webpSupportPromise = null;
+
 function api(path, options = {}) {
   const method = String(options.method || "GET").toUpperCase();
   const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
@@ -54,6 +66,179 @@ function mediaUrl(value) {
   if (!value) return "";
   if (/^(https?:|data:|\/)/.test(value)) return value;
   return "../" + value.replace(/^\.?\//, "");
+}
+
+function formatBytes(bytes) {
+  const value = Number(bytes || 0);
+  if (value < 1024) return `${value} B`;
+  if (value < 1024 * 1024) return `${(value / 1024).toFixed(0)} KB`;
+  return `${(value / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function fileExtForMime(mime) {
+  return {
+    "image/webp": ".webp",
+    "image/jpeg": ".jpg",
+    "image/png": ".png",
+    "image/gif": ".gif",
+    "video/mp4": ".mp4",
+    "video/webm": ".webm",
+    "application/pdf": ".pdf"
+  }[String(mime || "").toLowerCase()] || "";
+}
+
+function replaceExtension(name, ext) {
+  const safeExt = ext && ext.startsWith(".") ? ext : "";
+  return String(name || "archivo").replace(/\.[a-z0-9]+$/i, "") + (safeExt || ".bin");
+}
+
+function acceptedTypes(type) {
+  if (type === "video") return "video/mp4,video/webm";
+  if (type === "pdf") return "application/pdf";
+  return "image/png,image/jpeg,image/webp,image/gif";
+}
+
+function mediaHelpText(type, note) {
+  if (note) return note;
+  if (type === "video") return "El video se sube solo si esta optimizado para web. Se carga como metadata para que la pagina no se vuelva lenta.";
+  if (type === "pdf") return "El PDF se valida antes de subirlo para mantener el portal ligero y seguro.";
+  return "Las imagenes se redimensionan y comprimen automaticamente sin deformarlas antes de publicarlas.";
+}
+
+function createMediaNote(type, note) {
+  const help = document.createElement("p");
+  help.className = "media-smart-note";
+  help.textContent = mediaHelpText(type, note);
+  return help;
+}
+
+function setFileButtonText(label, text) {
+  const node = label.querySelector(".file-button-text");
+  if (node) node.textContent = text;
+}
+
+function loadImageFromDataUrl(dataUrl) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.decoding = "async";
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error("La imagen no se pudo procesar."));
+    image.src = dataUrl;
+  });
+}
+
+function canvasToBlob(canvas, mime, quality) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        reject(new Error("No se pudo optimizar la imagen."));
+        return;
+      }
+      resolve(blob);
+    }, mime, quality);
+  });
+}
+
+function supportsWebp() {
+  if (!webpSupportPromise) {
+    webpSupportPromise = new Promise((resolve) => {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1;
+      canvas.height = 1;
+      resolve(canvas.toDataURL("image/webp").startsWith("data:image/webp"));
+    });
+  }
+  return webpSupportPromise;
+}
+
+async function optimizeImageFile(file) {
+  if (file.size > mediaRules.imageMaxInputBytes) {
+    throw new Error(`La imagen pesa ${formatBytes(file.size)}. Sube una imagen menor a ${formatBytes(mediaRules.imageMaxInputBytes)}.`);
+  }
+  if (file.type === "image/gif") {
+    if (file.size > mediaRules.imageTargetBytes) {
+      throw new Error("Los GIF pesados hacen lenta la web. Usa un MP4/WebM corto o una imagen JPG/PNG.");
+    }
+    return {
+      dataUrl: await readFileAsDataUrl(file),
+      name: replaceExtension(file.name, ".gif"),
+      originalBytes: file.size,
+      outputBytes: file.size,
+      summary: `GIF validado: ${formatBytes(file.size)}.`
+    };
+  }
+
+  const source = await readFileAsDataUrl(file);
+  const image = await loadImageFromDataUrl(source);
+  const maxSide = Math.max(image.naturalWidth || image.width, image.naturalHeight || image.height);
+  const scale = Math.min(1, mediaRules.imageMaxEdge / Math.max(1, maxSide));
+  const width = Math.max(1, Math.round((image.naturalWidth || image.width) * scale));
+  const height = Math.max(1, Math.round((image.naturalHeight || image.height) * scale));
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const context = canvas.getContext("2d", { alpha: true });
+  context.drawImage(image, 0, 0, width, height);
+
+  const mime = (await supportsWebp()) ? "image/webp" : "image/jpeg";
+  let best = null;
+  for (const quality of mediaRules.imageQualitySteps) {
+    const blob = await canvasToBlob(canvas, mime, quality);
+    best = !best || blob.size < best.blob.size ? { blob, quality } : best;
+    if (blob.size <= mediaRules.imageTargetBytes) break;
+  }
+
+  const dataUrl = await readFileAsDataUrl(best.blob);
+  return {
+    dataUrl,
+    name: replaceExtension(file.name, fileExtForMime(best.blob.type || mime)),
+    originalBytes: file.size,
+    outputBytes: best.blob.size,
+    width,
+    height,
+    summary: `Imagen optimizada: ${formatBytes(file.size)} -> ${formatBytes(best.blob.size)} (${width}x${height}).`
+  };
+}
+
+async function prepareUploadFile(file, kind) {
+  if (kind === "image") return optimizeImageFile(file);
+  if (kind === "video") {
+    if (file.size > mediaRules.videoMaxBytes) {
+      throw new Error(`El video pesa ${formatBytes(file.size)}. Para una web rapida, sube MP4/WebM menor a ${formatBytes(mediaRules.videoMaxBytes)}.`);
+    }
+    if (!["video/mp4", "video/webm"].includes(file.type)) {
+      throw new Error("Formato de video no permitido. Usa MP4 o WebM.");
+    }
+    return {
+      dataUrl: await readFileAsDataUrl(file),
+      name: replaceExtension(file.name, fileExtForMime(file.type)),
+      originalBytes: file.size,
+      outputBytes: file.size,
+      summary: `Video validado para web: ${formatBytes(file.size)}.`
+    };
+  }
+  if (kind === "pdf") {
+    if (file.size > mediaRules.pdfMaxBytes) {
+      throw new Error(`El PDF pesa ${formatBytes(file.size)}. Usa un brochure menor a ${formatBytes(mediaRules.pdfMaxBytes)}.`);
+    }
+    return {
+      dataUrl: await readFileAsDataUrl(file),
+      name: replaceExtension(file.name, ".pdf"),
+      originalBytes: file.size,
+      outputBytes: file.size,
+      summary: `PDF validado: ${formatBytes(file.size)}.`
+    };
+  }
+  throw new Error("Tipo de archivo no permitido.");
+}
+
+async function uploadPreparedFile(file, kind) {
+  const prepared = await prepareUploadFile(file, kind);
+  const result = await api("/api/upload", {
+    method: "POST",
+    body: JSON.stringify({ name: prepared.name, kind, dataUrl: prepared.dataUrl })
+  });
+  return { ...result, prepared };
 }
 
 function setDirty(value = true) {
@@ -119,37 +304,39 @@ function makeInput(field) {
 function makeUploadButton(field, input) {
   const label = document.createElement("label");
   label.className = "ghost file-button";
-  label.textContent = field.type === "video" ? "Subir video" : field.type === "pdf" ? "Subir PDF" : "Subir imagen";
+  const labelText = document.createElement("span");
+  labelText.className = "file-button-text";
+  labelText.textContent = field.type === "video" ? "Subir video" : field.type === "pdf" ? "Subir PDF" : "Subir imagen";
 
   const file = document.createElement("input");
   file.type = "file";
-  file.accept =
-    field.type === "video"
-      ? "video/mp4,video/webm"
-      : field.type === "pdf"
-        ? "application/pdf"
-        : "image/png,image/jpeg,image/webp,image/gif,image/svg+xml";
+  file.accept = acceptedTypes(field.type);
 
   file.addEventListener("change", async () => {
     const selected = file.files && file.files[0];
     if (!selected) return;
+    const defaultText = labelText.textContent;
     label.classList.add("is-loading");
-    label.lastChild && label.removeChild(label.lastChild);
+    label.setAttribute("aria-busy", "true");
+    setFileButtonText(label, field.type === "image" ? "Optimizando..." : "Validando...");
     try {
-      const dataUrl = await readFileAsDataUrl(selected);
-      const result = await api("/api/upload", {
-        method: "POST",
-        body: JSON.stringify({ name: selected.name, kind: fieldKind(field), dataUrl })
-      });
+      const result = await uploadPreparedFile(selected, fieldKind(field));
       field.value = result.path;
       input.value = result.path;
+      state.uploadNotes.set(`field:${field.id}`, result.prepared.summary);
       setDirty(true);
       renderEditor();
     } catch (error) {
       alert(error.message);
+    } finally {
+      label.classList.remove("is-loading");
+      label.removeAttribute("aria-busy");
+      setFileButtonText(label, defaultText);
+      file.value = "";
     }
   });
 
+  label.appendChild(labelText);
   label.appendChild(file);
   return label;
 }
@@ -175,6 +362,10 @@ function renderPreview(card, field) {
     video.src = mediaUrl(field.value);
     video.controls = true;
     video.muted = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.style.objectFit = field.fit || "cover";
+    video.style.objectPosition = field.position || "center";
     preview.appendChild(video);
   } else {
     const img = document.createElement("img");
@@ -192,7 +383,7 @@ function renderFitTools(field) {
   const row = document.createElement("div");
   row.className = "fit-row";
   const fit = document.createElement("select");
-  fit.innerHTML = '<option value="cover">Cover: llena el espacio</option><option value="contain">Contain: sin recorte</option>';
+  fit.innerHTML = '<option value="cover">Llenar sin deformar</option><option value="contain">Mostrar completa</option>';
   fit.value = field.fit || "cover";
   fit.addEventListener("change", () => {
     field.fit = fit.value;
@@ -260,35 +451,40 @@ function makeCollectionInput(collection, item, schema) {
 function makeCollectionUploadButton(collection, item, schema, input) {
   const label = document.createElement("label");
   label.className = "ghost file-button";
-  label.textContent = schema.type === "video" ? "Subir video" : schema.type === "pdf" ? "Subir PDF" : "Subir imagen";
+  const labelText = document.createElement("span");
+  labelText.className = "file-button-text";
+  labelText.textContent = schema.type === "video" ? "Subir video" : schema.type === "pdf" ? "Subir PDF" : "Subir imagen";
 
   const file = document.createElement("input");
   file.type = "file";
-  file.accept =
-    schema.type === "video"
-      ? "video/mp4,video/webm"
-      : schema.type === "pdf"
-        ? "application/pdf"
-        : "image/png,image/jpeg,image/webp,image/gif,image/svg+xml";
+  file.accept = acceptedTypes(schema.type);
 
   file.addEventListener("change", async () => {
     const selected = file.files && file.files[0];
     if (!selected) return;
+    const defaultText = labelText.textContent;
+    label.classList.add("is-loading");
+    label.setAttribute("aria-busy", "true");
+    setFileButtonText(label, schema.type === "image" ? "Optimizando..." : "Validando...");
     try {
-      const dataUrl = await readFileAsDataUrl(selected);
-      const result = await api("/api/upload", {
-        method: "POST",
-        body: JSON.stringify({ name: selected.name, kind: schema.type === "pdf" ? "pdf" : schema.type === "video" ? "video" : "image", dataUrl })
-      });
+      const kind = schema.type === "pdf" ? "pdf" : schema.type === "video" ? "video" : "image";
+      const result = await uploadPreparedFile(selected, kind);
       item[schema.key] = result.path;
       input.value = result.path;
+      state.uploadNotes.set(`collection:${collection.id}:${item.id}:${schema.key}`, result.prepared.summary);
       setDirty(true);
       renderEditor();
     } catch (error) {
       alert(error.message);
+    } finally {
+      label.classList.remove("is-loading");
+      label.removeAttribute("aria-busy");
+      setFileButtonText(label, defaultText);
+      file.value = "";
     }
   });
 
+  label.appendChild(labelText);
   label.appendChild(file);
   return label;
 }
@@ -306,6 +502,10 @@ function renderCollectionPreview(card, item, schema) {
     video.src = mediaUrl(item[schema.key]);
     video.controls = true;
     video.muted = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.style.objectFit = item.fit || "cover";
+    video.style.objectPosition = item.position || "center";
     preview.appendChild(video);
   } else {
     const img = document.createElement("img");
@@ -439,6 +639,7 @@ function renderCollection(collection, section) {
         const tools = document.createElement("div");
         tools.className = "field-tools";
         tools.appendChild(makeCollectionUploadButton(collection, item, schema, input));
+        tools.appendChild(createMediaNote(schema.type, state.uploadNotes.get(`collection:${collection.id}:${item.id}:${schema.key}`)));
         body.appendChild(tools);
       }
       renderCollectionPreview(itemCard, item, schema);
@@ -489,6 +690,7 @@ function renderEditor() {
     const tools = template.querySelector(".field-tools");
     if (["image", "video", "pdf"].includes(field.type)) {
       tools.appendChild(makeUploadButton(field, control));
+      tools.appendChild(createMediaNote(field.type, state.uploadNotes.get(`field:${field.id}`)));
     }
     const fitTools = renderFitTools(field);
     if (fitTools) tools.appendChild(fitTools);
